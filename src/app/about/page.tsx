@@ -1,39 +1,40 @@
 import Image from "next/image";
-import { Target, Eye, Heart, Shield, Award, Users, Clock } from "lucide-react";
+import Link from "next/link";
+import { Target, Eye, Heart, Shield, Award, Users, Clock, CheckCircle } from "lucide-react";
 import { Hero, Section, SectionHeader } from "@/components/sections";
 import { team, boardMembers } from "@/data/team";
-import { CTABanner } from "@/components/sections/cta-banner";
+import { siteConfig } from "@/data/constants";
 
 const timeline = [
   {
-    year: "2001",
-    title: "Foundation",
-    description: "MIS Ethiopia was established with a vision to address pressing community needs in Addis Ababa.",
+    year: "[Year]",
+    title: "Organization Founded",
+    description: "MIS Ethiopia was established to address the needs of vulnerable children and families in [region].",
   },
   {
-    year: "2005",
-    title: "Expansion to Rural Areas",
-    description: "Extended programs to Oromia and Amhara regions, reaching thousands of underserved families.",
+    year: "[Year]",
+    title: "Child Sponsorship Launched",
+    description: "Started our flagship child sponsorship program to provide direct support to children in need.",
   },
   {
-    year: "2010",
-    title: "Healthcare Initiative",
-    description: "Launched comprehensive primary healthcare program with mobile clinics serving remote communities.",
+    year: "[Year]",
+    title: "Program Expansion",
+    description: "Expanded to include family support services and community development initiatives.",
   },
   {
-    year: "2015",
-    title: "Education Program",
-    description: "Began school construction and scholarship programs, supporting over 5,000 students.",
+    year: "[Year]",
+    title: "Education Initiative",
+    description: "Launched comprehensive education support programs including school fee assistance and supplies.",
   },
   {
-    year: "2020",
-    title: "Emergency Response",
-    description: "Responded to humanitarian crises with rapid deployment of aid and relief supplies.",
+    year: "[Year]",
+    title: "Community Development",
+    description: "Began working on sustainable community development projects to create lasting change.",
   },
   {
-    year: "2025",
-    title: "Digital Transformation",
-    description: "Embracing technology to improve program delivery and monitoring across all operations.",
+    year: "[Year]",
+    title: "Continuing Our Mission",
+    description: "Remains committed to supporting children, families, and communities across Ethiopia.",
   },
 ];
 
@@ -65,10 +66,10 @@ export default function AboutPage() {
     <>
       <Hero
         title="About MIS Ethiopia"
-        subtitle="25+ Years of Service"
-        description="We are a non-profit organization dedicated to improving the lives of vulnerable communities across Ethiopia through sustainable development, healthcare, education, and humanitarian assistance."
+        subtitle="About Our Organization"
+        description="We are dedicated to supporting vulnerable children and families in Ethiopia through comprehensive sponsorship programs, education support, family assistance, and community development."
         ctaText="Our Programs"
-        ctaSecondaryText="Partner With Us"
+        ctaSecondaryText="Sponsor a Child"
         ctaHref="/programs"
         compact
       />
@@ -78,16 +79,19 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <SectionHeader
-                subtitle="Our Mission"
-                title="Creating Lasting Change"
-                description="Since 2001, MIS Ethiopia has been working tirelessly to address the root causes of poverty and inequality, empowering communities to build sustainable futures."
+                subtitle="Our Story"
+                title="Who We Are"
+                description="MIS Ethiopia was founded with a simple but powerful vision: to ensure every child has the opportunity to thrive."
                 centered={false}
               />
               <p className="text-gray-600 mb-6">
-                Our integrated approach combines immediate humanitarian relief with long-term development programs, ensuring that communities are not just surviving but thriving. We work in partnership with local leaders, government agencies, and international organizations to maximize our impact.
+                Multi Integrated Support (MIS) Ethiopia is a [registered organization type] dedicated to supporting vulnerable children, families, and communities across Ethiopia. We believe that by investing in children today, we can create a brighter future for individuals, families, and society as a whole.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our approach is holistic—we don't just support individual children; we work to strengthen families, empower communities, and create sustainable systems of support. Through our child sponsorship program, education initiatives, family support services, and community development work, we address the multiple factors that affect a child's wellbeing and development.
               </p>
               <p className="text-gray-600">
-                Every program we deliver is designed with community input and ownership, ensuring relevance, sustainability, and genuine transformation. We measure our success not just in numbers served, but in the lasting positive change we create in people's lives.
+                We are committed to transparency, accountability, and making every sponsor's contribution count. Regular reporting, open communication, and direct connections between sponsors and sponsored children ensure that your support makes a real, measurable difference.
               </p>
             </div>
             <div className="relative">
@@ -96,9 +100,9 @@ export default function AboutPage() {
                 alt="Community development"
                 className="rounded-2xl shadow-xl"
               />
-              <div className="absolute -bottom-8 -left-8 bg-warm text-white rounded-xl p-6 shadow-xl">
-                <div className="text-4xl font-bold mb-1">25+</div>
-                <div className="text-white/90">Years of Impact</div>
+              <div className="absolute -bottom-8 -left-8 bg-warm text-white rounded-xl p-6 shadow-xl max-w-xs">
+                <div className="text-lg font-bold mb-1">Our Commitment</div>
+                <p className="text-white/90 text-sm">Every child deserves love, support, and opportunity</p>
               </div>
             </div>
           </div>
@@ -119,7 +123,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Our Mission</h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                To improve the lives of vulnerable communities in Ethiopia through integrated sustainable development programs, humanitarian assistance, and capacity building that empowers people to reach their full potential.
+                {siteConfig.mission}
               </p>
             </div>
             <div className="bg-ngo-secondary rounded-2xl p-8 border-l-4 border-navy">
@@ -128,7 +132,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Our Vision</h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                A prosperous Ethiopia where all people have access to quality healthcare, education, and opportunities for sustainable livelihood, regardless of their background or circumstances.
+                {siteConfig.vision}
               </p>
             </div>
           </div>
@@ -144,12 +148,12 @@ export default function AboutPage() {
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur rounded-xl p-6 text-center">
-                <div className="w-14 h-14 bg-warm/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="bg-white rounded-xl p-6 text-center">
+                <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <value.icon className="w-7 h-7 text-warm" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
-                <p className="text-gray-300 text-sm">{value.description}</p>
+                <h3 className="text-xl font-bold text-navy mb-2">{value.title}</h3>
+                <p className="text-gray-600 text-sm">{value.description}</p>
               </div>
             ))}
           </div>
@@ -160,8 +164,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             subtitle="Our Journey"
-            title="25 Years of Impact"
-            description="From humble beginnings to becoming one of Ethiopia's leading NGOs, our history reflects our commitment to serving communities."
+            title="Milestones"
+            description="From our founding to today, we have grown and evolved to serve more children and families."
           />
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-200 hidden md:block" />
@@ -195,8 +199,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             subtitle="Leadership"
-            title="Our Dedicated Team"
-            description="Meet the experienced professionals leading MIS Ethiopia's mission."
+            title="Our Team"
+            description="Meet the dedicated professionals leading MIS Ethiopia's mission."
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member) => (
@@ -241,7 +245,116 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <CTABanner />
+      {/* Transparency Section */}
+      <Section className="bg-ngo-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <SectionHeader
+                subtitle="Accountability"
+                title="Transparency & Trust"
+                description="We believe in complete transparency with our sponsors, donors, and stakeholders."
+                centered={false}
+              />
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-5 h-5 text-success" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy">Regular Financial Reporting</h4>
+                    <p className="text-gray-600 text-sm">Annual audits and detailed financial statements available to all stakeholders</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-5 h-5 text-success" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy">Program Impact Updates</h4>
+                    <p className="text-gray-600 text-sm">Regular reports on program outcomes and child progress</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-5 h-5 text-success" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy">Direct Sponsor Connection</h4>
+                    <p className="text-gray-600 text-sm">Letters, photos, and updates directly from sponsored children</p>
+                  </div>
+                </div>
+              </div>
+              <Link
+                href="/reports"
+                className="inline-flex items-center gap-2 text-warm font-semibold hover:text-warm-dark mt-6"
+              >
+                View our reports and financials
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-xl font-bold text-navy mb-6">Our Commitment to You</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">100% commitment to our mission</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Transparent operations and finances</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Direct impact on children's lives</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Regular communication and updates</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Responsive to sponsor questions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <section className="py-20 bg-gradient-to-r from-warm-dark to-warm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Join Us in Changing Lives
+          </h2>
+          <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
+            Your support helps us continue our mission to support children, families, and communities across Ethiopia.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/sponsorship"
+              className="inline-flex items-center justify-center gap-2 bg-white text-warm-dark font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <Heart className="w-5 h-5" />
+              Sponsor a Child
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
+  );
+}
+
+function ArrowRight({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
   );
 }

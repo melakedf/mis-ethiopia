@@ -1,25 +1,25 @@
 export const siteConfig = {
   name: "Multi Integrated Support (MIS) Ethiopia",
   shortName: "MIS Ethiopia",
-  description: "Empowering communities across Ethiopia through sustainable development, healthcare, education, and humanitarian assistance.",
+  description: "Empowering communities across Ethiopia through sustainable child sponsorship, education support, family assistance, and community development programs.",
   url: "https://misethiopia.org",
-  email: "info@misethiopia.org",
-  phone: "+251 11 123 4567",
+  email: "contact@misethiopia.org",
+  phone: "+251 XXX XXX XXX",
   address: {
-    street: "Bole Road, Near Friendship Shopping Center",
+    street: "[Organization Address]",
     city: "Addis Ababa",
     country: "Ethiopia",
-    postalCode: "P.O. Box 12345",
+    postalCode: "P.O. Box XXXXX",
   },
   social: {
-    facebook: "https://facebook.com/misethiopia",
-    twitter: "https://twitter.com/misethiopia",
-    linkedin: "https://linkedin.com/company/misethiopia",
-    instagram: "https://instagram.com/misethiopia",
-    youtube: "https://youtube.com/misethiopia",
+    facebook: "#",
+    twitter: "#",
+    linkedin: "#",
+    instagram: "#",
+    youtube: "#",
   },
-  mission: "To improve the lives of vulnerable communities in Ethiopia through integrated sustainable development programs, humanitarian assistance, and capacity building.",
-  vision: "A prosperous Ethiopia where all people have access to quality healthcare, education, and opportunities for sustainable livelihood.",
+  mission: "To support vulnerable children, families, and communities in Ethiopia through comprehensive sponsorship programs, educational opportunities, family support services, and sustainable community development initiatives.",
+  vision: "A Ethiopia where every child has the opportunity to reach their full potential, every family is supported, and every community thrives.",
 };
 
 export const navItems = [
@@ -34,8 +34,8 @@ export const navItems = [
 ];
 
 export const impactStats = [
-  { value: 150000, label: "Lives Touched", suffix: "+", icon: "Users" },
-  { value: 25, label: "Years of Service", suffix: "+", icon: "Calendar" },
-  { value: 12, label: "Regional Offices", suffix: "", icon: "MapPin" },
-  { value: 50, label: "Communities Served", suffix: "+", icon: "Home" },
+  { value: 0, label: "Children Sponsored", suffix: "+", icon: "Users" },
+  { value: 0, label: "Years of Service", suffix: "+", icon: "Calendar" },
+  { value: 0, label: "Communities Served", suffix: "+", icon: "MapPin" },
+  { value: 0, label: "Families Supported", suffix: "+", icon: "Home" },
 ];
