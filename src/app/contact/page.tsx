@@ -32,23 +32,23 @@ export default function ContactPage() {
   const faqs = [
     {
       question: "How can I make a donation?",
-      answer: "You can donate online through our secure donation portal, by bank transfer, or by mailing a check. Visit our Donate page for all options.",
+      answer: "You can donate online through our secure donation portal, by bank transfer, or by contacting us for other options. Visit our Donate page for all details.",
+    },
+    {
+      question: "How does child sponsorship work?",
+      answer: "Child sponsorship provides ongoing support to a specific child, including education, healthcare, and nutrition. You'll receive regular updates, photos, and letters from your sponsored child.",
     },
     {
       question: "What percentage of my donation goes to programs?",
-      answer: "95% of all donations go directly to our program activities. Only 5% is used for administrative and fundraising costs.",
+      answer: "We are committed to maximizing the impact of every donation. Contact us for details about our program spending ratio.",
     },
     {
-      question: "How do I sponsor a child?",
-      answer: "Visit our Child Sponsorship page to browse profiles of children available for sponsorship. Choose a child and complete the sponsorship form.",
+      question: "Can I visit the programs in Ethiopia?",
+      answer: "We organize supervised field visits for sponsors when possible. Contact us to discuss visit possibilities.",
     },
     {
-      question: "Can I visit your programs in Ethiopia?",
-      answer: "Yes, we organize supervised field visits for donors and sponsors. Contact us to arrange a visit that fits your schedule.",
-    },
-    {
-      question: "How can my company partner with MIS Ethiopia?",
-      answer: "We offer various corporate partnership opportunities. Please contact our partnerships team through this form with your interests.",
+      question: "How can my organization partner with MIS Ethiopia?",
+      answer: "We welcome partnerships with corporations, foundations, and other organizations. Please contact our team through this form with your interests.",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
       <Hero
         title="Contact Us"
         subtitle="Get in Touch"
-        description="Have questions about our work? Want to get involved? We'd love to hear from you."
+        description="We'd love to hear from you. Whether you have questions about our programs, want to get involved, or need more information, we're here to help."
         ctaText="Donate Now"
         ctaSecondaryText="Sponsor a Child"
         ctaHref="/donate"
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-medium text-navy">Head Office</div>
+                      <div className="font-medium text-navy">Address</div>
                       <div className="text-gray-600 text-sm">
                         {siteConfig.address.street}<br />
                         {siteConfig.address.city}, Ethiopia<br />
@@ -219,25 +219,27 @@ export default function ContactPage() {
               <div className="bg-navy rounded-xl p-6 text-white">
                 <div className="flex items-center gap-3 mb-4">
                   <MessageCircle className="w-6 h-6 text-warm" />
-                  <h3 className="text-lg font-bold">Live Chat</h3>
+                  <h3 className="text-lg font-bold">Connect With Us</h3>
                 </div>
                 <p className="text-gray-300 text-sm mb-4">
-                  Need immediate assistance? Chat with our team during business hours.
+                  Have questions about sponsorship or donations? Our team is here to help.
                 </p>
-                <Button variant="outline" className="w-full border-white text-white hover:bg-white/10">
-                  Start Chat
-                </Button>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="inline-flex items-center gap-2 text-warm hover:text-warm-light"
+                >
+                  {siteConfig.email}
+                </a>
               </div>
 
               <div className="bg-warm/10 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-navy mb-2">Emergency?</h3>
+                <h3 className="text-lg font-bold text-navy mb-2">Interested in Sponsorship?</h3>
                 <p className="text-gray-600 text-sm mb-4">
-                  For urgent humanitarian inquiries, please call our emergency line.
+                  Learn more about our child sponsorship program and how you can make a difference.
                 </p>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-warm" />
-                  <span className="font-bold text-navy">+251 911 123 456</span>
-                </div>
+                <a href="/sponsorship" className="text-warm hover:text-warm-dark font-medium text-sm">
+                  Visit Sponsorship Page →
+                </a>
               </div>
             </div>
           </div>
@@ -249,7 +251,7 @@ export default function ContactPage() {
           <SectionHeader
             subtitle="FAQ"
             title="Frequently Asked Questions"
-            description="Quick answers to common questions about MIS Ethiopia and our work."
+            description="Quick answers to common questions about MIS Ethiopia and our programs."
           />
           <div className="max-w-3xl mx-auto">
             <Accordion className="w-full">

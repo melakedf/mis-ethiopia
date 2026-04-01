@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Calendar, ArrowRight, Clock } from "lucide-react";
-import { Hero, NewsCard, Section, SectionHeader } from "@/components/sections";
+import { Hero, Section, SectionHeader } from "@/components/sections";
 import { news, newsCategories } from "@/data/news";
 
 export default function NewsPage() {
@@ -11,8 +11,8 @@ export default function NewsPage() {
     <>
       <Hero
         title="News & Updates"
-        subtitle="Stories of Impact"
-        description="Stay informed about our latest initiatives, community impact stories, and announcements from MIS Ethiopia."
+        subtitle="Latest News"
+        description="Stay informed about our latest initiatives, program updates, and stories of impact from MIS Ethiopia."
         ctaText="Subscribe to Updates"
         ctaSecondaryText="View Reports"
         ctaHref="#newsletter"
@@ -89,23 +89,53 @@ export default function NewsPage() {
 
           <SectionHeader
             subtitle="All Stories"
-            title="Latest News & Articles"
-            description="Explore our collection of stories, updates, and impact reports."
+            title="More News & Updates"
+            description="Explore our collection of stories, program updates, and impact reports."
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {otherNews.slice(2).map((article) => (
-              <NewsCard
-                key={article.id}
-                title={article.title}
-                excerpt={article.excerpt}
-                image={article.image}
-                date={article.date}
-                category={article.category}
-                author={article.author}
-                readTime={article.readTime}
-                slug={article.slug}
-              />
+              <div key={article.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                <div className="relative h-48">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-warm text-white text-xs font-medium rounded-full">
+                      {article.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      {new Date(article.date).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                    <span>{article.readTime}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-navy group-hover:text-warm transition-colors mb-3 line-clamp-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <span className="text-sm text-gray-500">By {article.author}</span>
+                    <span className="text-sm font-medium text-warm hover:text-warm-dark flex items-center gap-1 cursor-pointer">
+                      Read more
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
 

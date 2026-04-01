@@ -1,42 +1,40 @@
 import Link from "next/link";
-import { Heart, Gift, MessageCircle, Camera, CheckCircle } from "lucide-react";
+import { Heart, Gift, MessageCircle, Camera, CheckCircle, ArrowRight, Users } from "lucide-react";
 import { Hero, Section, SectionHeader } from "@/components/sections";
 import { children } from "@/data/children";
-import { Button } from "@/components/ui/button";
-import { CTABanner } from "@/components/sections/cta-banner";
 
 const howItWorks = [
   {
     step: 1,
     title: "Choose a Child",
-    description: "Browse profiles and find a child whose story resonates with you.",
+    description: "Browse profiles of children waiting for sponsors and find one whose story resonates with you.",
     icon: Heart,
   },
   {
     step: 2,
     title: "Make a Commitment",
-    description: "Sponsor monthly or annually. Your contribution goes directly to the child's needs.",
+    description: "Sponsor monthly. Your contribution provides education, healthcare, nutrition, and emotional support.",
     icon: Gift,
   },
   {
     step: 3,
-    title: "Exchange Letters",
-    description: "Build a personal connection through letters and updates from your sponsored child.",
+    title: "Connect",
+    description: "Exchange letters and receive updates. Build a meaningful relationship with your sponsored child.",
     icon: MessageCircle,
   },
   {
     step: 4,
-    title: "Witness Growth",
-    description: "Receive progress reports and see the transformative impact of your support.",
+    title: "See the Impact",
+    description: "Receive progress reports and witness the transformative difference your support makes.",
     icon: Camera,
   },
 ];
 
 const sponsorshipLevels = [
   {
-    name: "Basic",
+    name: "Essential",
     amount: 35,
-    description: "Provides education supplies and basic nutrition",
+    description: "Provides basic educational support and school supplies",
     features: [
       "Monthly newsletter",
       "Annual progress report",
@@ -44,26 +42,26 @@ const sponsorshipLevels = [
     ],
   },
   {
-    name: "Standard",
+    name: "Comprehensive",
     amount: 75,
-    description: "Full educational support including school fees",
+    description: "Full educational support including school fees and tutoring",
     features: [
-      "Everything in Basic",
+      "Everything in Essential",
       "Quarterly updates",
       "Personal letter exchange",
-      "School materials",
+      "School materials and supplies",
     ],
     popular: true,
   },
   {
-    name: "Comprehensive",
+    name: "Complete",
     amount: 150,
-    description: "Complete care including healthcare and nutrition",
+    description: "Comprehensive support including healthcare and nutrition",
     features: [
-      "Everything in Standard",
+      "Everything in Comprehensive",
       "Monthly photo updates",
       "Healthcare access",
-      "Special events invitations",
+      "Nutrition support",
     ],
   },
 ];
@@ -73,12 +71,12 @@ export default function SponsorshipPage() {
     <>
       <Hero
         title="Sponsor a Child"
-        subtitle="Transform a Life Forever"
-        description="Your sponsorship provides education, healthcare, nutrition, and hope to a child in need. Build a lasting connection that creates lasting change."
-        ctaText="Become a Sponsor"
-        ctaSecondaryText="View Children"
+        subtitle="Change a Life Forever"
+        description="Your sponsorship provides a child with education, healthcare, nutrition, and the emotional support they need to thrive. Build a lasting relationship that creates lasting change."
+        ctaText="Meet Children Waiting"
+        ctaSecondaryText="Learn How It Works"
         ctaHref="#children"
-        backgroundImage="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1920&h=1080&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&h=1080&fit=crop"
       />
 
       <Section className="bg-ngo-secondary">
@@ -86,7 +84,7 @@ export default function SponsorshipPage() {
           <SectionHeader
             subtitle="How It Works"
             title="Your Journey as a Sponsor"
-            description="Sponsoring a child is simple, meaningful, and creates real impact."
+            description="Sponsoring a child is simple, meaningful, and creates real, measurable impact."
           />
           <div className="grid md:grid-cols-4 gap-8">
             {howItWorks.map((item) => (
@@ -118,7 +116,7 @@ export default function SponsorshipPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             subtitle="Sponsorship Options"
-            title="Choose Your Impact Level"
+            title="Choose Your Level of Support"
             description="Every sponsorship level makes a meaningful difference in a child's life."
           />
           <div className="grid md:grid-cols-3 gap-8">
@@ -156,15 +154,16 @@ export default function SponsorshipPage() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  className={`w-full ${
+                <Link
+                  href="/contact"
+                  className={`w-full inline-flex items-center justify-center py-3 rounded-lg font-semibold transition-colors ${
                     level.popular
                       ? "bg-warm hover:bg-warm-dark text-white"
                       : "bg-navy hover:bg-navy-light text-white"
                   }`}
                 >
-                  Select {level.name}
-                </Button>
+                  Get Started
+                </Link>
               </div>
             ))}
           </div>
@@ -175,8 +174,8 @@ export default function SponsorshipPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             subtitle="Meet Our Children"
-            title="Waiting for a Sponsor"
-            description="These children are ready to start their journey with you by their side."
+            title="Children Waiting for Sponsors"
+            description="These children are ready to start their journey with you by their side. Each child has a unique story and dreams for their future."
             light
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -194,7 +193,7 @@ export default function SponsorshipPage() {
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-dark to-transparent h-24" />
                   <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 bg-success text-white text-xs font-medium rounded-full">
-                      Available
+                      Waiting for Sponsor
                     </span>
                   </div>
                 </div>
@@ -214,20 +213,26 @@ export default function SponsorshipPage() {
                       Interests: {child.interests}
                     </span>
                   </div>
-                  <Button className="w-full bg-warm hover:bg-warm-dark text-white">
+                  <Link
+                    href="/contact"
+                    className="w-full inline-flex items-center justify-center bg-warm hover:bg-warm-dark text-white py-3 rounded-lg font-semibold transition-colors"
+                  >
                     Sponsor {child.name.split(" ")[0]}
-                  </Button>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
           <div className="text-center mt-12">
             <p className="text-gray-300 mb-4">
-              Looking for a specific child? We can help you find the perfect match.
+              Don't see a child that feels like the right fit? Contact us and we'll help you find your perfect match.
             </p>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+            >
               Contact Us for Matching
-            </Button>
+            </Link>
           </div>
         </div>
       </Section>
@@ -237,42 +242,48 @@ export default function SponsorshipPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <SectionHeader
-                subtitle="Sponsor Stories"
-                title="Real Impact, Real Connections"
-                description="Hear from sponsors and sponsored children about their experiences."
+                subtitle="Sponsor Benefits"
+                title="What You Receive"
+                description="As a sponsor, you'll receive regular updates and the opportunity to build a meaningful relationship with your sponsored child."
                 centered={false}
               />
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <p className="text-gray-600 italic mb-4">
-                    "Sponsoring Samuel has been one of the most rewarding experiences of my life. Watching him grow and succeed has been incredible."
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-                      alt="Sponsor"
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-semibold text-navy">Michael T.</div>
-                      <div className="text-gray-500 text-sm">Sponsor since 2019</div>
-                    </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-warm/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Camera className="w-5 h-5 text-warm" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy">Regular Photos</h4>
+                    <p className="text-gray-600 text-sm">Photos of your sponsored child throughout the year</p>
                   </div>
                 </div>
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <p className="text-gray-600 italic mb-4">
-                    "Thanks to my sponsor, I can go to school and dream big. One day I want to become a doctor and help my community."
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=100&h=100&fit=crop&crop=face"
-                      alt="Child"
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-semibold text-navy">Hiwot T., Age 12</div>
-                      <div className="text-gray-500 text-sm">Sponsored child</div>
-                    </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-warm/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-5 h-5 text-warm" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy">Letters & Updates</h4>
+                    <p className="text-gray-600 text-sm">Personal letters from your sponsored child and program updates</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-warm/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy">Progress Reports</h4>
+                    <p className="text-gray-600 text-sm">Annual reports on your child's educational progress and wellbeing</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-warm/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Users className="w-5 h-5 text-warm" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy">Sponsor Community</h4>
+                    <p className="text-gray-600 text-sm">Access to sponsor events and a community of like-minded supporters</p>
                   </div>
                 </div>
               </div>
@@ -284,15 +295,41 @@ export default function SponsorshipPage() {
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-warm text-white rounded-xl p-6 shadow-xl">
-                <div className="text-3xl font-bold mb-1">1,000+</div>
-                <div className="text-white/90 text-sm">Active Sponsorships</div>
+                <div className="text-3xl font-bold mb-1">Direct</div>
+                <div className="text-white/90 text-sm">Connection</div>
               </div>
             </div>
           </div>
         </div>
       </Section>
 
-      <CTABanner />
+      <Section>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-navy rounded-2xl p-8 md:p-12 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Ready to Change a Child's Life?
+            </h3>
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+              Your sponsorship can transform a child's future. Join us in providing love, support, and opportunity to children who need it most.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-warm text-white font-semibold px-8 py-4 rounded-lg hover:bg-warm-dark transition-colors"
+              >
+                <Heart className="w-5 h-5" />
+                Start Sponsoring
+              </Link>
+              <Link
+                href="/donate"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white/10 transition-colors"
+              >
+                Make a Donation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Section>
     </>
   );
 }

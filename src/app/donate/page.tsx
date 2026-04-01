@@ -11,18 +11,18 @@ import { siteConfig } from "@/data/constants";
 const donationAmounts = [25, 50, 100, 250, 500, 1000];
 
 const impactLevels = [
-  { amount: 25, impact: "Provides school supplies for one child for a month" },
-  { amount: 50, impact: "Covers medical checkups for two families" },
-  { amount: 100, impact: "Supports a farmer with seeds and tools" },
-  { amount: 250, impact: "Funds clean water access for a family" },
+  { amount: 25, impact: "Provides school supplies for one child" },
+  { amount: 50, impact: "Covers medical checkups for a child" },
+  { amount: 100, impact: "Supports a child's education for a month" },
+  { amount: 250, impact: "Funds nutrition support for a family" },
   { amount: 500, impact: "Sponsors a child's education for a semester" },
-  { amount: 1000, impact: "Supports an entire community project" },
+  { amount: 1000, impact: "Supports an entire child's yearly needs" },
 ];
 
 const paymentMethods = [
-  { icon: CreditCard, name: "Credit/Debit Card", description: "Visa, Mastercard, Amex" },
+  { icon: CreditCard, name: "Credit/Debit Card", description: "Secure online payment" },
   { icon: Building, name: "Bank Transfer", description: "Direct to our account" },
-  { icon: Smartphone, name: "Mobile Money", description: "M-Pesa, Etherum Pay" },
+  { icon: Smartphone, name: "Mobile Money", description: "[Payment method]" },
 ];
 
 export default function DonatePage() {
@@ -48,10 +48,10 @@ export default function DonatePage() {
     <>
       <Hero
         title="Make a Donation"
-        subtitle="Your generosity changes lives"
-        description="Every contribution helps us provide healthcare, education, food, and hope to communities across Ethiopia. Thank you for your support."
+        subtitle="Support Our Mission"
+        description="Your generous donation helps us provide education, healthcare, and hope to children and families in Ethiopia. Every contribution makes a difference."
         ctaText="Sponsor a Child"
-        ctaSecondaryText="Monthly Giving"
+        ctaSecondaryText="Learn More"
         ctaHref="/sponsorship"
         backgroundImage="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&h=1080&fit=crop"
       />
@@ -88,7 +88,7 @@ export default function DonatePage() {
                 <SectionHeader
                   subtitle="Select Amount"
                   title="Choose Your Gift"
-                  description="Your donation directly supports our programs across Ethiopia."
+                  description="Your donation directly supports children and families through our programs."
                 />
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
@@ -266,20 +266,9 @@ export default function DonatePage() {
                         <Check className="w-4 h-4 text-white" />
                       </div>
                       <div>
-                        <div className="font-medium">95% to Programs</div>
+                        <div className="font-medium">Direct Impact</div>
                         <div className="text-gray-300 text-sm">
-                          Nearly all donations support our work directly.
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-success rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-medium">Tax Deductible</div>
-                        <div className="text-gray-300 text-sm">
-                          Your donation is tax-deductible as allowed by law.
+                          Your donation directly supports children and families.
                         </div>
                       </div>
                     </div>
@@ -305,16 +294,29 @@ export default function DonatePage() {
                         </div>
                       </div>
                     </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-success rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Tax Deductible</div>
+                        <div className="text-gray-300 text-sm">
+                          Your donation may be tax-deductible.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
                   <Shield className="w-12 h-12 text-navy mx-auto mb-4" />
-                  <h3 className="text-lg font-bold text-navy mb-2">Verified Charity</h3>
+                  <h3 className="text-lg font-bold text-navy mb-2">Our Commitment</h3>
                   <p className="text-gray-600 text-sm mb-4">
-                    MIS Ethiopia is a registered non-profit organization. All donations are acknowledged with official tax receipts.
+                    We are committed to transparency and making every donation count.
                   </p>
-                  <div className="text-2xl font-bold text-warm">A+ Charity Navigator</div>
+                  <Link href="/reports" className="text-warm hover:text-warm-dark text-sm font-medium">
+                    View our reports →
+                  </Link>
                 </div>
 
                 <div className="bg-warm rounded-2xl p-8 text-white">
@@ -326,15 +328,11 @@ export default function DonatePage() {
                     </li>
                     <li className="flex items-center gap-2">
                       <ArrowRight className="w-4 h-4" />
-                      Checks payable to MIS Ethiopia
+                      Check payable to MIS Ethiopia
                     </li>
                     <li className="flex items-center gap-2">
                       <ArrowRight className="w-4 h-4" />
-                      Stock Donations
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <ArrowRight className="w-4 h-4" />
-                      Planned Giving
+                      Monthly Giving Program
                     </li>
                   </ul>
                 </div>

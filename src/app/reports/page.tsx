@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { Download, FileText, BarChart3, DollarSign, Calendar } from "lucide-react";
+import { Download, FileText, DollarSign, Shield, CheckCircle } from "lucide-react";
 import { Hero, Section, SectionHeader } from "@/components/sections";
 import { reports } from "@/data/reports";
-import { CTABanner } from "@/components/sections/cta-banner";
 
 export default function ReportsPage() {
   const annualReports = reports.filter((r) => r.type === "annual");
@@ -14,8 +13,8 @@ export default function ReportsPage() {
       <Hero
         title="Reports & Publications"
         subtitle="Transparency & Accountability"
-        description="We are committed to transparency. Access our annual reports, impact assessments, and financial statements."
-        ctaText="Donate Now"
+        description="We are committed to transparency and accountability. Access our annual reports, program impact assessments, and financial statements."
+        ctaText="Make a Donation"
         ctaSecondaryText="Contact Us"
         ctaHref="/donate"
         compact
@@ -23,34 +22,39 @@ export default function ReportsPage() {
 
       <Section className="bg-ngo-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            subtitle="Our Commitment"
+            title="Transparency You Can Trust"
+            description="We believe in complete transparency with our sponsors, donors, and stakeholders. Here's how we ensure accountability."
+          />
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-white rounded-xl p-6 text-center shadow-md">
               <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <DollarSign className="w-7 h-7 text-warm" />
+                <Shield className="w-7 h-7 text-warm" />
               </div>
-              <div className="text-3xl font-bold text-navy mb-1">95%</div>
+              <div className="text-3xl font-bold text-navy mb-1">[XX]%</div>
               <div className="text-gray-600 text-sm">Program Spending</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-md">
-              <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-7 h-7 text-warm" />
-              </div>
-              <div className="text-3xl font-bold text-navy mb-1">A+</div>
-              <div className="text-gray-600 text-sm">Charity Navigator Rating</div>
             </div>
             <div className="bg-white rounded-xl p-6 text-center shadow-md">
               <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-7 h-7 text-warm" />
               </div>
-              <div className="text-3xl font-bold text-navy mb-1">100%</div>
-              <div className="text-gray-600 text-sm">Audited Financials</div>
+              <div className="text-3xl font-bold text-navy mb-1">Annual</div>
+              <div className="text-gray-600 text-sm">Independent Audits</div>
             </div>
             <div className="bg-white rounded-xl p-6 text-center shadow-md">
               <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="w-7 h-7 text-warm" />
+                <DollarSign className="w-7 h-7 text-warm" />
               </div>
-              <div className="text-3xl font-bold text-navy mb-1">15+</div>
-              <div className="text-gray-600 text-sm">Years of Reports</div>
+              <div className="text-3xl font-bold text-navy mb-1">100%</div>
+              <div className="text-gray-600 text-sm">Financial Reporting</div>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center shadow-md">
+              <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-7 h-7 text-warm" />
+              </div>
+              <div className="text-3xl font-bold text-navy mb-1">Regular</div>
+              <div className="text-gray-600 text-sm">Program Updates</div>
             </div>
           </div>
         </div>
@@ -60,8 +64,8 @@ export default function ReportsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             subtitle="Annual Reports"
-            title="Yearly Overview"
-            description="Comprehensive reports covering our programs, impact, and financial performance."
+            title="Yearly Reports"
+            description="Comprehensive reports covering our programs, financials, and impact for each fiscal year."
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {annualReports.map((report) => (
@@ -99,8 +103,8 @@ export default function ReportsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             subtitle="Impact Reports"
-            title="Program Outcomes"
-            description="Detailed assessments of our interventions and their measurable impact on communities."
+            title="Program Impact"
+            description="Detailed assessments of our programs and their measurable impact on children and communities."
           />
           <div className="grid md:grid-cols-2 gap-8">
             {impactReports.map((report) => (
@@ -172,9 +176,7 @@ export default function ReportsPage() {
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <CheckCircle className="w-5 h-5 text-success" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-navy">Independent Audits</h4>
@@ -183,20 +185,16 @@ export default function ReportsPage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <CheckCircle className="w-5 h-5 text-success" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-navy">Program Efficiency</h4>
-                    <p className="text-gray-600 text-sm">95% of all donations go directly to program activities.</p>
+                    <p className="text-gray-600 text-sm">High percentage of donations go directly to program activities.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <CheckCircle className="w-5 h-5 text-success" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-navy">Open Data</h4>
@@ -206,45 +204,49 @@ export default function ReportsPage() {
               </div>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-xl font-bold text-navy mb-6">How Funds Are Used</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-700">Program Services</span>
-                    <span className="font-semibold text-navy">95%</span>
-                  </div>
-                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-success rounded-full" style={{ width: "95%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-700">Management & Admin</span>
-                    <span className="font-semibold text-navy">3%</span>
-                  </div>
-                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-warm rounded-full" style={{ width: "3%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-700">Fundraising</span>
-                    <span className="font-semibold text-navy">2%</span>
-                  </div>
-                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-navy rounded-full" style={{ width: "2%" }} />
-                  </div>
-                </div>
-              </div>
-              <p className="text-gray-500 text-xs mt-6 text-center">
-                Verified by independent auditors • Updated annually
+              <h3 className="text-xl font-bold text-navy mb-6">Our Commitment to You</h3>
+              <p className="text-gray-600 mb-6">
+                We are committed to ensuring that every dollar donated is used wisely and effectively to support the children and families in our programs.
               </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Transparent financial reporting</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Regular program updates</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Direct sponsor connections</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Independent audits</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </Section>
 
-      <CTABanner />
+      <section className="py-20 bg-gradient-to-r from-warm-dark to-warm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Questions About Our Work?
+          </h2>
+          <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
+            We're happy to provide additional information about our programs, finances, or impact.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 bg-white text-warm-dark font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
