@@ -3,6 +3,15 @@ import { ArrowRight, Star, Users, Heart, Handshake } from "lucide-react";
 import { Hero, Section, SectionHeader } from "@/components/sections";
 import { partners, partnerTiers } from "@/data/partners";
 
+function getPartnerInitials(name: string) {
+  return name
+    .split(" ")
+    .filter((word) => /[A-Za-z]/.test(word))
+    .slice(0, 2)
+    .map((word) => word[0]?.toUpperCase())
+    .join("") || "P";
+}
+
 export default function PartnersPage() {
   return (
     <>
@@ -117,8 +126,8 @@ export default function PartnersPage() {
                   >
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <span className="text-xs text-gray-500 font-medium text-center">
-                          Logo Here
+                        <span className="text-sm text-navy font-semibold tracking-wide" aria-hidden="true">
+                          {getPartnerInitials(partner.name)}
                         </span>
                       </div>
                       <div>

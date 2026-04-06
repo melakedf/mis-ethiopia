@@ -27,36 +27,36 @@ export default function ReportsPage() {
             title="Transparency You Can Trust"
             description="We believe in complete transparency with our sponsors, donors, and stakeholders. Here's how we ensure accountability."
           />
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl p-6 text-center shadow-md">
-              <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-7 h-7 text-warm" />
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="bg-white rounded-xl p-6 text-center shadow-md">
+                <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-7 h-7 text-warm" />
+                </div>
+                <div className="text-3xl font-bold text-navy mb-1">1,500</div>
+                <div className="text-gray-600 text-sm">Households Supported</div>
               </div>
-              <div className="text-3xl font-bold text-navy mb-1">[XX]%</div>
-              <div className="text-gray-600 text-sm">Program Spending</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-md">
-              <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-7 h-7 text-warm" />
+              <div className="bg-white rounded-xl p-6 text-center shadow-md">
+                <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="w-7 h-7 text-warm" />
+                </div>
+                <div className="text-3xl font-bold text-navy mb-1">98%</div>
+                <div className="text-gray-600 text-sm">Beneficiary Satisfaction</div>
               </div>
-              <div className="text-3xl font-bold text-navy mb-1">Annual</div>
-              <div className="text-gray-600 text-sm">Independent Audits</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-md">
-              <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <DollarSign className="w-7 h-7 text-warm" />
+              <div className="bg-white rounded-xl p-6 text-center shadow-md">
+                <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-7 h-7 text-warm" />
+                </div>
+                <div className="text-3xl font-bold text-navy mb-1">87%</div>
+                <div className="text-gray-600 text-sm">Timely Delivery</div>
               </div>
-              <div className="text-3xl font-bold text-navy mb-1">100%</div>
-              <div className="text-gray-600 text-sm">Financial Reporting</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-md">
-              <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-7 h-7 text-warm" />
+              <div className="bg-white rounded-xl p-6 text-center shadow-md">
+                <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-7 h-7 text-warm" />
+                </div>
+                <div className="text-3xl font-bold text-navy mb-1">314</div>
+                <div className="text-gray-600 text-sm">PDM Sample Size</div>
               </div>
-              <div className="text-3xl font-bold text-navy mb-1">Regular</div>
-              <div className="text-gray-600 text-sm">Program Updates</div>
             </div>
-          </div>
         </div>
       </Section>
 
@@ -64,8 +64,8 @@ export default function ReportsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             subtitle="Annual Reports"
-            title="Yearly Reports"
-            description="Comprehensive reports covering our programs, financials, and impact for each fiscal year."
+            title="Institutional Publications"
+            description="Core institutional documents describing MIS governance, strategic direction, and organization profile updates."
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {annualReports.map((report) => (
@@ -104,7 +104,7 @@ export default function ReportsPage() {
           <SectionHeader
             subtitle="Impact Reports"
             title="Program Impact"
-            description="Detailed assessments of our programs and their measurable impact on children and communities."
+            description="Implementation and monitoring reports showing measurable results from field programs and emergency response support."
           />
           <div className="grid md:grid-cols-2 gap-8">
             {impactReports.map((report) => (
@@ -138,7 +138,7 @@ export default function ReportsPage() {
           <SectionHeader
             subtitle="Financial Transparency"
             title="Financial Statements"
-            description="Complete audited financial statements ensuring full accountability to our donors and stakeholders."
+            description="Budget utilization and financial summaries that support accountability to communities, donors, and partners."
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {financialReports.map((report) => (
@@ -179,8 +179,8 @@ export default function ReportsPage() {
                     <CheckCircle className="w-5 h-5 text-success" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy">Independent Audits</h4>
-                    <p className="text-gray-600 text-sm">All financials are independently audited by reputable firms.</p>
+                    <h4 className="font-semibold text-navy">Documented Project Financials</h4>
+                    <p className="text-gray-600 text-sm">Project-level planned, received, and utilized budgets are included in final reporting.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -188,8 +188,8 @@ export default function ReportsPage() {
                     <CheckCircle className="w-5 h-5 text-success" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy">Program Efficiency</h4>
-                    <p className="text-gray-600 text-sm">High percentage of donations go directly to program activities.</p>
+                    <h4 className="font-semibold text-navy">Evidence-Based Monitoring</h4>
+                    <p className="text-gray-600 text-sm">Post Distribution Monitoring and stakeholder feedback are integrated into reporting.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -197,8 +197,8 @@ export default function ReportsPage() {
                     <CheckCircle className="w-5 h-5 text-success" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy">Open Data</h4>
-                    <p className="text-gray-600 text-sm">We publish detailed program data and outcomes for public review.</p>
+                    <h4 className="font-semibold text-navy">Operational Accountability</h4>
+                    <p className="text-gray-600 text-sm">Reporting includes activities, achievements, constraints, and lessons from implementation areas.</p>
                   </div>
                 </div>
               </div>
@@ -206,24 +206,24 @@ export default function ReportsPage() {
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h3 className="text-xl font-bold text-navy mb-6">Our Commitment to You</h3>
               <p className="text-gray-600 mb-6">
-                We are committed to ensuring that every dollar donated is used wisely and effectively to support the children and families in our programs.
+                We are committed to transparent program delivery and credible reporting, including publication of institutional profile updates and field implementation results.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">Transparent financial reporting</span>
+                  <span className="text-gray-600">Project budget plan and utilization disclosure</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">Regular program updates</span>
+                  <span className="text-gray-600">Documented implementation updates</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">Direct sponsor connections</span>
+                  <span className="text-gray-600">Post distribution monitoring and feedback</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">Independent audits</span>
+                  <span className="text-gray-600">Stakeholder coordination and verification records</span>
                 </li>
               </ul>
             </div>

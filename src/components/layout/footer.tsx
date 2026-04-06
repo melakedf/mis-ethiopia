@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, MapPin, Phone, Mail } from "lucide-react";
+import { Heart, MapPin, Phone, Mail, Globe } from "lucide-react";
 import { siteConfig, navItems } from "@/data/constants";
 
 const socialLinks = [
@@ -8,7 +8,7 @@ const socialLinks = [
   { href: siteConfig.social.linkedin, label: "LinkedIn" },
   { href: siteConfig.social.instagram, label: "Instagram" },
   { href: siteConfig.social.youtube, label: "YouTube" },
-];
+].filter((social) => social.href);
 
 export function Footer() {
   return (
@@ -28,20 +28,22 @@ export function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               {siteConfig.description}
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition-colors"
-                  aria-label={social.label}
-                >
-                  <span className="text-sm font-medium">{social.label.charAt(0)}</span>
-                </a>
-              ))}
-            </div>
+            {socialLinks.length > 0 ? (
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition-colors"
+                    aria-label={social.label}
+                  >
+                    <span className="text-sm font-medium">{social.label.charAt(0)}</span>
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
 
           <div>
@@ -98,20 +100,45 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
                 <span className="text-gray-400 text-sm">
                   {siteConfig.address.street}<br />
-                  {siteConfig.address.city}, Ethiopia<br />
+                  {siteConfig.address.city}, {siteConfig.address.country}<br />
                   {siteConfig.address.postalCode}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-warm flex-shrink-0" />
-                <a href={`tel:${siteConfig.phone}`} className="text-gray-400 hover:text-warm transition-colors text-sm">
-                  {siteConfig.phone}
-                </a>
+                <div className="flex flex-col text-sm">
+                  <a href={`tel:${siteConfig.phone}`} className="text-gray-400 hover:text-warm transition-colors">
+                    {siteConfig.phone}
+                  </a>
+                  {siteConfig.phoneSecondary ? (
+                    <a href={`tel:${siteConfig.phoneSecondary}`} className="text-gray-400 hover:text-warm transition-colors">
+                      {siteConfig.phoneSecondary}
+                    </a>
+                  ) : null}
+                  {siteConfig.phoneTertiary ? (
+                    <a href={`tel:${siteConfig.phoneTertiary}`} className="text-gray-400 hover:text-warm transition-colors">
+                      {siteConfig.phoneTertiary}
+                    </a>
+                  ) : null}
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-warm flex-shrink-0" />
-                <a href={`mailto:${siteConfig.email}`} className="text-gray-400 hover:text-warm transition-colors text-sm">
-                  {siteConfig.email}
+                <div className="flex flex-col text-sm">
+                  <a href={`mailto:${siteConfig.email}`} className="text-gray-400 hover:text-warm transition-colors">
+                    {siteConfig.email}
+                  </a>
+                  {siteConfig.emailSecondary ? (
+                    <a href={`mailto:${siteConfig.emailSecondary}`} className="text-gray-400 hover:text-warm transition-colors">
+                      {siteConfig.emailSecondary}
+                    </a>
+                  ) : null}
+                </div>
+              </li>
+              <li className="flex items-center gap-3">
+                <Globe className="w-5 h-5 text-warm flex-shrink-0" />
+                <a href={siteConfig.url} className="text-gray-400 hover:text-warm transition-colors text-sm">
+                  {siteConfig.url}
                 </a>
               </li>
             </ul>

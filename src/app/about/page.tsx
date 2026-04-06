@@ -7,57 +7,67 @@ import { siteConfig } from "@/data/constants";
 
 const timeline = [
   {
-    year: "[Year]",
-    title: "Organization Founded",
-    description: "MIS Ethiopia was established to address the needs of vulnerable children and families in [region].",
+    year: "2010",
+    title: "Organization Registered",
+    description: "MIS Ethiopia was established as an Ethiopian Resident Charity on 08/07/2010 G.C.",
   },
   {
-    year: "[Year]",
-    title: "Child Sponsorship Launched",
-    description: "Started our flagship child sponsorship program to provide direct support to children in need.",
+    year: "2015",
+    title: "Integrated Program Expansion",
+    description: "Expanded work across health, education, WASH, women economic empowerment, and humanitarian response pathways.",
   },
   {
-    year: "[Year]",
-    title: "Program Expansion",
-    description: "Expanded to include family support services and community development initiatives.",
+    year: "2020",
+    title: "COVID-19 Community Response",
+    description: "Implemented awareness and community-level response activities in vulnerable and hard-to-reach areas.",
   },
   {
-    year: "[Year]",
-    title: "Education Initiative",
-    description: "Launched comprehensive education support programs including school fee assistance and supplies.",
+    year: "2023",
+    title: "Emergency NFI Support",
+    description: "Delivered non-food item assistance to 1,500 conflict-affected households across Dangur, Dibate, and Bulen Woredas.",
   },
   {
-    year: "[Year]",
-    title: "Community Development",
-    description: "Began working on sustainable community development projects to create lasting change.",
+    year: "2024",
+    title: "Organizational Profile Update",
+    description: "Published an updated institutional profile covering governance, thematic priorities, and partnership direction.",
   },
   {
-    year: "[Year]",
-    title: "Continuing Our Mission",
-    description: "Remains committed to supporting children, families, and communities across Ethiopia.",
+    year: "Today",
+    title: "Community-Led Multi-Sector Delivery",
+    description: "Continues delivering integrated, community-based support with strong accountability and partnership focus.",
   },
 ];
 
 const values = [
   {
-    icon: Heart,
-    title: "Compassion",
-    description: "We approach every interaction with empathy and genuine care for those we serve.",
-  },
-  {
     icon: Shield,
-    title: "Integrity",
-    description: "Transparency and accountability are the foundations of our operations and relationships.",
+    title: "Transparency",
+    description: "We provide clear communication and accountable reporting to communities, partners, and donors.",
   },
   {
     icon: Users,
-    title: "Partnership",
-    description: "We work alongside communities, respecting their knowledge and empowering local solutions.",
+    title: "Community-Based",
+    description: "We prioritize community participation and local ownership throughout planning, implementation, and review.",
+  },
+  {
+    icon: Clock,
+    title: "Responsiveness",
+    description: "We respond to urgent and evolving needs with practical, timely, and context-aware action.",
+  },
+  {
+    icon: Heart,
+    title: "Respectfulness",
+    description: "We uphold dignity, inclusion, and respectful engagement with all communities we serve.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Proactive",
+    description: "We anticipate risks and opportunities to improve program quality and long-term impact.",
   },
   {
     icon: Award,
-    title: "Excellence",
-    description: "We strive for the highest quality in everything we do, continuously learning and improving.",
+    title: "Sustainability",
+    description: "We strengthen local systems and capacities so outcomes continue beyond project cycles.",
   },
 ];
 
@@ -67,7 +77,7 @@ export default function AboutPage() {
       <Hero
         title="About MIS Ethiopia"
         subtitle="About Our Organization"
-        description="We are dedicated to supporting vulnerable children and families in Ethiopia through comprehensive sponsorship programs, education support, family assistance, and community development."
+        description="MIS Ethiopia is an Ethiopian Resident Charity established in 2010, delivering integrated community-based programs for disadvantaged and hard-to-reach communities."
         ctaText="Our Programs"
         ctaSecondaryText="Sponsor a Child"
         ctaHref="/programs"
@@ -81,17 +91,17 @@ export default function AboutPage() {
               <SectionHeader
                 subtitle="Our Story"
                 title="Who We Are"
-                description="MIS Ethiopia was founded with a simple but powerful vision: to ensure every child has the opportunity to thrive."
+                description="MIS works at grassroots level with communities, local structures, and government stakeholders to deliver practical, multi-sector support."
                 centered={false}
               />
               <p className="text-gray-600 mb-6">
-                Multi Integrated Support (MIS) Ethiopia is a [registered organization type] dedicated to supporting vulnerable children, families, and communities across Ethiopia. We believe that by investing in children today, we can create a brighter future for individuals, families, and society as a whole.
+                Multi Integrated Support (MIS) Ethiopia is an Ethiopian Resident Charity registered in 2010 and headquartered in Addis Ababa. The organization works with poor, marginalized, and hard-to-reach communities, with a particular focus on women and children.
               </p>
               <p className="text-gray-600 mb-6">
-                Our approach is holistic—we don't just support individual children; we work to strengthen families, empower communities, and create sustainable systems of support. Through our child sponsorship program, education initiatives, family support services, and community development work, we address the multiple factors that affect a child's wellbeing and development.
+                MIS implements integrated programs in humanitarian response, health, education, women economic empowerment, WASH, nutrition, and skills-oriented support. Our delivery model is participatory and community-based, with active engagement of local stakeholders at regional, woreda, and kebele levels.
               </p>
               <p className="text-gray-600">
-                We are committed to transparency, accountability, and making every sponsor's contribution count. Regular reporting, open communication, and direct connections between sponsors and sponsored children ensure that your support makes a real, measurable difference.
+                Across implementation areas including Oromia, Benishangul Gumuz, and Addis Ababa, MIS works to build local resilience, improve access to services, and sustain long-term impact through partnership, accountability, and strong institutional systems.
               </p>
             </div>
             <div className="relative">
@@ -102,7 +112,7 @@ export default function AboutPage() {
               />
               <div className="absolute -bottom-8 -left-8 bg-warm text-white rounded-xl p-6 shadow-xl max-w-xs">
                 <div className="text-lg font-bold mb-1">Our Commitment</div>
-                <p className="text-white/90 text-sm">Every child deserves love, support, and opportunity</p>
+                <p className="text-white/90 text-sm">Community-led, transparent, and practical support for long-term change</p>
               </div>
             </div>
           </div>
@@ -146,7 +156,7 @@ export default function AboutPage() {
             title="What We Stand For"
             light
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <div key={index} className="bg-white rounded-xl p-6 text-center">
                 <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -165,7 +175,7 @@ export default function AboutPage() {
           <SectionHeader
             subtitle="Our Journey"
             title="Milestones"
-            description="From our founding to today, we have grown and evolved to serve more children and families."
+            description="From establishment to current operations, MIS continues to expand practical support across priority sectors."
           />
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-200 hidden md:block" />

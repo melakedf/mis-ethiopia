@@ -9,7 +9,7 @@ export default function ProgramsPage() {
       <Hero
         title="Our Programs"
         subtitle="How We Help"
-        description="MIS Ethiopia implements comprehensive programs focused on child sponsorship, education, family support, and community development to create lasting positive change."
+        description="MIS Ethiopia implements integrated multi-sector programs including child sponsorship, humanitarian response, health, education, women economic empowerment, WASH, nutrition, and skills support."
         ctaText="Sponsor a Child"
         ctaSecondaryText="Make a Donation"
         ctaHref="/sponsorship"
@@ -21,7 +21,7 @@ export default function ProgramsPage() {
           <SectionHeader
             subtitle="Our Focus"
             title="Priority Program Areas"
-            description="We focus our resources on programs that create the greatest impact on children's lives."
+            description="We focus on programs that strengthen women, children, families, and wider community resilience."
           />
         </div>
       </Section>
@@ -98,7 +98,7 @@ export default function ProgramsPage() {
           <SectionHeader
             subtitle="All Programs"
             title="Our Program Areas"
-            description="Beyond child sponsorship, we implement additional programs to support families and communities."
+            description="Alongside child sponsorship, MIS delivers broader thematic programs across humanitarian and development priorities."
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program) => (

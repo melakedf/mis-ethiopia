@@ -22,7 +22,7 @@ const impactLevels = [
 const paymentMethods = [
   { icon: CreditCard, name: "Credit/Debit Card", description: "Secure online payment" },
   { icon: Building, name: "Bank Transfer", description: "Direct to our account" },
-  { icon: Smartphone, name: "Mobile Money", description: "[Payment method]" },
+  { icon: Smartphone, name: "Mobile Money", description: "Telebirr and approved local channels" },
 ];
 
 export default function DonatePage() {

@@ -130,7 +130,7 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+251 XXX XXX XXX"
+                        placeholder="+251 11 661 2345"
                         className="w-full"
                       />
                     </div>
@@ -190,28 +190,51 @@ export default function ContactPage() {
                       <div className="font-medium text-navy">Address</div>
                       <div className="text-gray-600 text-sm">
                         {siteConfig.address.street}<br />
-                        {siteConfig.address.city}, Ethiopia<br />
+                        {siteConfig.address.city}, {siteConfig.address.country}<br />
                         {siteConfig.address.postalCode}
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-warm flex-shrink-0" />
-                    <a href={`tel:${siteConfig.phone}`} className="text-gray-600 hover:text-warm">
-                      {siteConfig.phone}
-                    </a>
+                    <div className="flex flex-col text-sm">
+                      <a href={`tel:${siteConfig.phone}`} className="text-gray-600 hover:text-warm">
+                        {siteConfig.phone}
+                      </a>
+                      {siteConfig.phoneSecondary ? (
+                        <a href={`tel:${siteConfig.phoneSecondary}`} className="text-gray-600 hover:text-warm">
+                          {siteConfig.phoneSecondary}
+                        </a>
+                      ) : null}
+                      {siteConfig.phoneTertiary ? (
+                        <a href={`tel:${siteConfig.phoneTertiary}`} className="text-gray-600 hover:text-warm">
+                          {siteConfig.phoneTertiary}
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-warm flex-shrink-0" />
-                    <a href={`mailto:${siteConfig.email}`} className="text-gray-600 hover:text-warm">
-                      {siteConfig.email}
-                    </a>
+                    <div className="flex flex-col text-sm">
+                      <a href={`mailto:${siteConfig.email}`} className="text-gray-600 hover:text-warm">
+                        {siteConfig.email}
+                      </a>
+                      {siteConfig.emailSecondary ? (
+                        <a href={`mailto:${siteConfig.emailSecondary}`} className="text-gray-600 hover:text-warm">
+                          {siteConfig.emailSecondary}
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-warm flex-shrink-0" />
                     <span className="text-gray-600">
                       Mon - Fri: 8:00 AM - 6:00 PM (EAT)
                     </span>
+                  </div>
+                  <div className="rounded-lg bg-white p-3 text-sm text-gray-600">
+                    <p><span className="font-medium text-navy">Contact Person:</span> Solomon Getachew</p>
+                    <p><span className="font-medium text-navy">Zoom ID:</span> 907 271 4158</p>
                   </div>
                 </div>
               </div>
