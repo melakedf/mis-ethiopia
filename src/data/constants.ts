@@ -55,3 +55,33 @@ export const homepageMetrics = {
     { value: "98%", label: "Beneficiary Satisfaction", note: "Post Distribution Monitoring results from the 2023 NFI response" },
   ],
 };
+
+export const aboutStats = [
+  { value: "15+", label: "Years of Service" },
+  { value: "40+", label: "Districts" },
+  { value: "150+", label: "Staff Members" },
+  { value: "50+", label: "Partners" },
+];
+
+export const departmentContacts = [
+  {
+    name: "General Inquiries",
+    description: "Questions about MIS and our work",
+    email: "info@miseth.org",
+  },
+  {
+    name: "Partnerships",
+    description: "Collaboration and partnership opportunities",
+    email: "partnerships@miseth.org",
+  },
+  {
+    name: "Programs",
+    description: "Program-related questions and requests",
+    email: "programs@miseth.org",
+  },
+  {
+    name: "Finance & Admin",
+    description: "Financial queries and documentation",
+    email: "finance@miseth.org",
+  },
+];

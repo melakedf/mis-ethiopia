@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle, HelpCircle } from "lucide-react";
 import { Hero, Section, SectionHeader } from "@/components/sections";
-import { siteConfig } from "@/data/constants";
+import { siteConfig, departmentContacts } from "@/data/constants";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     subject: "",
@@ -26,7 +27,7 @@ export default function ContactPage() {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
   };
 
   const faqs = [
@@ -56,7 +57,7 @@ export default function ContactPage() {
     <>
       <Hero
         title="Contact Us"
-        subtitle="Get in Touch"
+        subtitle="Get in touch with our team across Ethiopia"
         description="We'd love to hear from you. Whether you have questions about our programs, want to get involved, or need more information, we're here to help."
         ctaText="Donate Now"
         ctaSecondaryText="Sponsor a Child"
@@ -64,14 +65,61 @@ export default function ContactPage() {
         compact
       />
 
+      <Section className="bg-navy">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="col-span-1">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 bg-warm/20 rounded-lg flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-warm" />
+                </div>
+                <div className="text-white font-bold">Headquarters</div>
+              </div>
+              <p className="text-gray-300 text-sm ml-13">Addis Ababa, Ethiopia</p>
+              <p className="text-gray-400 text-sm ml-13">{siteConfig.address.street}</p>
+            </div>
+            <div className="col-span-1">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 bg-warm/20 rounded-lg flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-warm" />
+                </div>
+                <div className="text-white font-bold">Phone</div>
+              </div>
+              <p className="text-gray-300 text-sm ml-13">{siteConfig.phone}</p>
+              <p className="text-gray-400 text-sm ml-13">Mon-Fri 8:00 AM - 5:00 PM</p>
+            </div>
+            <div className="col-span-1">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 bg-warm/20 rounded-lg flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-warm" />
+                </div>
+                <div className="text-white font-bold">Email</div>
+              </div>
+              <p className="text-gray-300 text-sm ml-13">{siteConfig.email}</p>
+              <p className="text-gray-400 text-sm ml-13">We respond within 24 hours</p>
+            </div>
+            <div className="col-span-1">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 bg-warm/20 rounded-lg flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-warm" />
+                </div>
+                <div className="text-white font-bold">Office Hours</div>
+              </div>
+              <p className="text-gray-300 text-sm ml-13">Mon - Fri</p>
+              <p className="text-gray-400 text-sm ml-13">8:00 AM - 5:00 PM EAT</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       <Section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <SectionHeader
-                subtitle="Send Us a Message"
-                title="Contact Form"
-                description="Fill out the form below and our team will get back to you within 24-48 hours."
+                subtitle="Get in Touch"
+                title="Send Us a Message"
+                description="Have a question or want to work with us? Fill out the form below and we'll get back to you as soon as possible."
               />
 
               {submitted ? (
@@ -97,16 +145,30 @@ export default function ContactPage() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Full Name *
+                        First Name *
                       </label>
                       <Input
                         required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Your full name"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        placeholder="Your first name"
                         className="w-full"
                       />
                     </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Last Name *
+                      </label>
+                      <Input
+                        required
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        placeholder="Your last name"
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Email Address *
@@ -120,8 +182,6 @@ export default function ContactPage() {
                         className="w-full"
                       />
                     </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Phone Number
@@ -130,22 +190,29 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+251 11 661 2345"
+                        placeholder="+251 XX XXX XXXX"
                         className="w-full"
                       />
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Subject *
-                      </label>
-                      <Input
-                        required
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        placeholder="How can we help?"
-                        className="w-full"
-                      />
-                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Subject *
+                    </label>
+                    <select
+                      required
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-warm focus:outline-none focus:ring-1 focus:ring-warm"
+                    >
+                      <option value="">Select a topic</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Partnership">Partnership</option>
+                      <option value="Programs">Programs</option>
+                      <option value="Media & Press">Media & Press</option>
+                      <option value="Careers">Careers</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -162,7 +229,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full md:w-auto bg-warm hover:bg-warm-dark text-white"
+                    className="bg-warm hover:bg-warm-dark text-white"
                   >
                     {isSubmitting ? (
                       <>
@@ -181,61 +248,19 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-ngo-secondary rounded-xl p-6">
-                <h3 className="text-lg font-bold text-navy mb-4">Contact Information</h3>
+              <div>
+                <h3 className="text-lg font-bold text-navy mb-4">Department Contacts</h3>
+                <p className="text-gray-600 text-sm mb-4">For specific inquiries, you can contact our departments directly.</p>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-medium text-navy">Address</div>
-                      <div className="text-gray-600 text-sm">
-                        {siteConfig.address.street}<br />
-                        {siteConfig.address.city}, {siteConfig.address.country}<br />
-                        {siteConfig.address.postalCode}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-warm flex-shrink-0" />
-                    <div className="flex flex-col text-sm">
-                      <a href={`tel:${siteConfig.phone}`} className="text-gray-600 hover:text-warm">
-                        {siteConfig.phone}
+                  {departmentContacts.map((dept, index) => (
+                    <div key={index} className="bg-ngo-secondary rounded-xl p-4">
+                      <h4 className="font-semibold text-navy mb-1">{dept.name}</h4>
+                      <p className="text-gray-600 text-sm mb-2">{dept.description}</p>
+                      <a href={`mailto:${dept.email}`} className="text-warm hover:text-warm-dark text-sm font-medium">
+                        {dept.email}
                       </a>
-                      {siteConfig.phoneSecondary ? (
-                        <a href={`tel:${siteConfig.phoneSecondary}`} className="text-gray-600 hover:text-warm">
-                          {siteConfig.phoneSecondary}
-                        </a>
-                      ) : null}
-                      {siteConfig.phoneTertiary ? (
-                        <a href={`tel:${siteConfig.phoneTertiary}`} className="text-gray-600 hover:text-warm">
-                          {siteConfig.phoneTertiary}
-                        </a>
-                      ) : null}
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-warm flex-shrink-0" />
-                    <div className="flex flex-col text-sm">
-                      <a href={`mailto:${siteConfig.email}`} className="text-gray-600 hover:text-warm">
-                        {siteConfig.email}
-                      </a>
-                      {siteConfig.emailSecondary ? (
-                        <a href={`mailto:${siteConfig.emailSecondary}`} className="text-gray-600 hover:text-warm">
-                          {siteConfig.emailSecondary}
-                        </a>
-                      ) : null}
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-warm flex-shrink-0" />
-                    <span className="text-gray-600">
-                      Mon - Fri: 8:00 AM - 6:00 PM (EAT)
-                    </span>
-                  </div>
-                  <div className="rounded-lg bg-white p-3 text-sm text-gray-600">
-                    <p><span className="font-medium text-navy">Contact Person:</span> Solomon Getachew</p>
-                    <p><span className="font-medium text-navy">Zoom ID:</span> 907 271 4158</p>
-                  </div>
+                  ))}
                 </div>
               </div>
 
@@ -255,14 +280,10 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div className="bg-warm/10 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-navy mb-2">Interested in Sponsorship?</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Learn more about our child sponsorship program and how you can make a difference.
-                </p>
-                <a href="/sponsorship" className="text-warm hover:text-warm-dark font-medium text-sm">
-                  Visit Sponsorship Page →
-                </a>
+              <div className="rounded-lg border border-gray-200 p-4">
+                <p className="text-sm font-medium text-navy mb-1">Contact Person</p>
+                <p className="text-gray-600 text-sm">Solomon Getachew</p>
+                <p className="text-sm text-gray-600">Zoom ID: 907 271 4158</p>
               </div>
             </div>
           </div>

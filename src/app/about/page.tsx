@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Target, Eye, Heart, Shield, Award, Users, Clock, CheckCircle } from "lucide-react";
+import { Target, Eye, Heart, Shield, Award, Users, Clock, CheckCircle, HandHeart, Link2, Sparkles } from "lucide-react";
 import { Hero, Section, SectionHeader } from "@/components/sections";
 import { team, boardMembers } from "@/data/team";
-import { siteConfig } from "@/data/constants";
+import { siteConfig, aboutStats } from "@/data/constants";
 
 const timeline = [
   {
@@ -40,34 +40,24 @@ const timeline = [
 
 const values = [
   {
-    icon: Shield,
-    title: "Transparency",
-    description: "We provide clear communication and accountable reporting to communities, partners, and donors.",
+    icon: Heart,
+    title: "Dignity",
+    description: "Every person deserves respect and equal opportunity",
   },
   {
     icon: Users,
-    title: "Community-Based",
-    description: "We prioritize community participation and local ownership throughout planning, implementation, and review.",
+    title: "Local Ownership",
+    description: "Communities lead their own development",
   },
   {
-    icon: Clock,
-    title: "Responsiveness",
-    description: "We respond to urgent and evolving needs with practical, timely, and context-aware action.",
-  },
-  {
-    icon: Heart,
-    title: "Respectfulness",
-    description: "We uphold dignity, inclusion, and respectful engagement with all communities we serve.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Proactive",
-    description: "We anticipate risks and opportunities to improve program quality and long-term impact.",
-  },
-  {
-    icon: Award,
+    icon: Sparkles,
     title: "Sustainability",
-    description: "We strengthen local systems and capacities so outcomes continue beyond project cycles.",
+    description: "Long-term impact over short-term results",
+  },
+  {
+    icon: Link2,
+    title: "Collaboration",
+    description: "Partnerships multiply our reach",
   },
 ];
 
@@ -83,6 +73,25 @@ export default function AboutPage() {
         ctaHref="/programs"
         compact
       />
+
+      <Section className="bg-navy">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            subtitle="Our Story"
+            title="15+ Years of Community-Led Development"
+            description="MIS was founded in 2010 with a vision to create meaningful, lasting change in Ethiopian communities. What began as a small initiative has grown into a nationally recognized NGO operating across multiple thematic areas."
+            light
+          />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+            {aboutStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-warm mb-2">{stat.value}</div>
+                <div className="text-gray-300 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
 
       <Section className="bg-ngo-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,14 +165,14 @@ export default function AboutPage() {
             title="What We Stand For"
             light
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center">
-                <div className="w-14 h-14 bg-warm/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="w-7 h-7 text-warm" />
+              <div key={index} className="bg-white rounded-xl p-8 text-center">
+                <div className="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <value.icon className="w-8 h-8 text-warm" />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-2">{value.title}</h3>
-                <p className="text-gray-600 text-sm">{value.description}</p>
+                <h3 className="text-xl font-bold text-navy mb-3">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
               </div>
             ))}
           </div>
