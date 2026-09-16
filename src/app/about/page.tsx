@@ -320,7 +320,7 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">Direct impact on children's lives</span>
+                  <span className="text-gray-600">Direct impact on children&apos;s lives</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />

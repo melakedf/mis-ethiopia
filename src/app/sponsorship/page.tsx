@@ -225,7 +225,7 @@ export default function SponsorshipPage() {
           </div>
           <div className="text-center mt-12">
             <p className="text-gray-300 mb-4">
-              Don't see a child that feels like the right fit? Contact us and we'll help you find your perfect match.
+              Don&apos;t see a child that feels like the right fit? Contact us and we&apos;ll help you find your perfect match.
             </p>
             <Link
               href="/contact"
@@ -274,7 +274,7 @@ export default function SponsorshipPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-navy">Progress Reports</h4>
-                    <p className="text-gray-600 text-sm">Annual reports on your child's educational progress and wellbeing</p>
+                    <p className="text-gray-600 text-sm">Annual reports on your child&apos;s educational progress and wellbeing</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -307,10 +307,10 @@ export default function SponsorshipPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-navy rounded-2xl p-8 md:p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Ready to Change a Child's Life?
+              Ready to Change a Child&apos;s Life?
             </h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Your sponsorship can transform a child's future. Join us in providing love, support, and opportunity to children who need it most.
+              Your sponsorship can transform a child&apos;s future. Join us in providing love, support, and opportunity to children who need it most.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

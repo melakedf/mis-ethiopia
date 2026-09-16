@@ -25,7 +25,9 @@ The website is available at `http://localhost:3000` and the admin login at `http
 
 ## Production settings
 
-Required: `DATABASE_URL`, `DIRECT_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `NEXTAUTH_SECRET`, and `NEXTAUTH_URL`.
+Required: `DATABASE_URL`, `DATABASE_URL_UNPOOLED`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `NEXTAUTH_SECRET`, and `NEXTAUTH_URL`.
+
+The Neon integration supplies the pooled `DATABASE_URL` for the website and the direct `DATABASE_URL_UNPOOLED` for Prisma migrations. Vercel runs the committed migration and the idempotent seed during deployment.
 
 For media uploads also add `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET`.
 

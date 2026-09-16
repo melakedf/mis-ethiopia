@@ -177,7 +177,7 @@ export default function PartnersPage() {
                   <div>
                     <h4 className="font-semibold text-navy mb-1">Explore Options</h4>
                     <p className="text-gray-600 text-sm">
-                      We'll help you find the partnership model that best fits.
+                      We&apos;ll help you find the partnership model that best fits.
                     </p>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function PartnersPage() {
                   <div>
                     <h4 className="font-semibold text-navy mb-1">Make an Impact</h4>
                     <p className="text-gray-600 text-sm">
-                      Together, we'll create meaningful change for children and families.
+                      Together, we&apos;ll create meaningful change for children and families.
                     </p>
                   </div>
                 </div>
