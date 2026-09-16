@@ -2,119 +2,121 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Menu, Heart } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { navItems, siteConfig } from "@/data/constants";
+import { navItems } from "@/data/constants";
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const primaryNav = navItems.filter((item) => item.href !== "/contact");
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white shadow-md py-2"
-          : "bg-transparent py-4"
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-warm rounded-lg flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-[0_1px_0_rgba(15,35,48,.02)] backdrop-blur-xl">
+      <div className="h-1 bg-warm" />
+      <nav className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="MIS Ethiopia home">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-navy text-sm font-bold tracking-wider text-white shadow-sm">
+            MIS
+          </div>
+          <div className="min-w-0">
+            <div className="truncate text-[15px] font-bold leading-tight tracking-[-0.01em] text-navy-dark sm:text-base">
+              MIS Ethiopia
             </div>
-            <div className="flex flex-col">
-              <span className={`font-bold text-lg leading-tight ${isScrolled ? "text-navy" : "text-white"}`}>
-                MIS Ethiopia
-              </span>
-              <span className={`text-xs ${isScrolled ? "text-gray-500" : "text-white/80"}`}>
-                {siteConfig.shortName}
-              </span>
+            <div className="mt-0.5 hidden text-[11px] font-medium uppercase tracking-[0.13em] text-slate-500 sm:block">
+              Multi Integrated Support
             </div>
-          </Link>
+          </div>
+        </Link>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
+        <div className="hidden items-center gap-6 xl:flex">
+          {primaryNav.map((item) => {
+            const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+            return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-warm ${
-                  pathname === item.href
-                    ? "text-warm"
-                    : isScrolled
-                    ? "text-gray-700"
-                    : "text-white"
+                className={`relative py-2 text-[14px] font-semibold transition-colors ${
+                  active ? "text-navy" : "text-slate-600 hover:text-navy"
                 }`}
               >
                 {item.title}
+                {active && <span className="absolute inset-x-0 -bottom-[20px] h-0.5 rounded-full bg-warm" />}
               </Link>
-            ))}
-          </div>
+            );
+          })}
+        </div>
 
-          <div className="hidden lg:block">
-            <Link
-              href="/donate"
-              className="inline-flex items-center justify-center bg-warm hover:bg-warm-dark text-white font-semibold px-6 py-2 rounded-lg transition-colors"
-            >
-              Donate Now
-            </Link>
-          </div>
+        <div className="hidden items-center gap-3 xl:flex">
+          <Link
+            href="/contact"
+            className="inline-flex h-11 items-center justify-center rounded-md border border-slate-300 px-5 text-sm font-semibold text-navy transition hover:border-navy/30 hover:bg-slate-50"
+          >
+            Contact
+          </Link>
+          <Link
+            href="/donate"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-warm px-5 text-sm font-semibold text-navy-dark shadow-sm transition hover:bg-warm-light"
+          >
+            Support Our Work
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
 
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger className="lg:hidden">
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger
+            className="xl:hidden"
+            render={
               <button
-                className={`p-2 rounded-lg hover:bg-gray-100 ${isScrolled ? "text-gray-700" : "text-white"}`}
-              >
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
-              <div className="flex flex-col gap-6 mt-8">
-                <Link
-                  href="/"
-                  className="flex items-center gap-2 mb-4"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <div className="w-8 h-8 bg-warm rounded-lg flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="font-bold text-navy">{siteConfig.shortName}</span>
-                </Link>
-                {navItems.map((item) => (
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 text-navy transition hover:bg-slate-50"
+                aria-label="Open navigation menu"
+              />
+            }
+          >
+            <Menu className="h-5 w-5" />
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[320px] p-0 sm:w-[360px]">
+            <div className="border-b border-slate-200 px-6 py-5">
+              <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
+                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-navy text-xs font-bold tracking-wider text-white">
+                  MIS
+                </div>
+                <div>
+                  <div className="font-bold text-navy-dark">MIS Ethiopia</div>
+                  <div className="text-xs text-slate-500">Multi Integrated Support</div>
+                </div>
+              </Link>
+            </div>
+
+            <div className="flex flex-col px-6 py-6">
+              {navItems.map((item) => {
+                const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+                return (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-warm ${
-                      pathname === item.href ? "text-warm" : "text-gray-700"
+                    className={`border-b border-slate-100 py-3.5 text-base font-semibold transition-colors ${
+                      active ? "text-warm-dark" : "text-slate-700 hover:text-navy"
                     }`}
                   >
                     {item.title}
                   </Link>
-                ))}
-                <Link
-                  href="/donate"
-                  onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center bg-warm hover:bg-warm-dark text-white font-semibold mt-4 py-3 rounded-lg transition-colors"
-                >
-                  Donate Now
-                </Link>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+                );
+              })}
+
+              <Link
+                href="/donate"
+                onClick={() => setIsOpen(false)}
+                className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-warm px-5 font-semibold text-navy-dark"
+              >
+                Support Our Work
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </SheetContent>
+        </Sheet>
       </nav>
     </header>
   );

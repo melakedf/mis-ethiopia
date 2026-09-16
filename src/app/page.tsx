@@ -1,622 +1,352 @@
 import Link from "next/link";
-import { ArrowRight, Heart, Shield, Users, BookOpen, CheckCircle, GraduationCap, Target, Eye, FileText, Download, Star, Clock, MapPin, Phone, Mail } from "lucide-react";
-import { Hero } from "@/components/sections/hero";
-import { siteConfig } from "@/data/constants";
+import {
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  FileText,
+  GraduationCap,
+  Handshake,
+  Heart,
+  Home,
+  MapPin,
+  Shield,
+  Users,
+} from "lucide-react";
+
+const programs = [
+  {
+    icon: GraduationCap,
+    title: "Education & Child Development",
+    text: "School support, tutoring, learning materials, summer learning, and follow-up that help children stay engaged and progress.",
+  },
+  {
+    icon: Heart,
+    title: "Child Protection & Sponsorship",
+    text: "Long-term support for vulnerable children and families, combining financial assistance with safeguarding and regular follow-up.",
+  },
+  {
+    icon: Home,
+    title: "Family & Community Support",
+    text: "Practical assistance that strengthens households, connects families to services, and supports safer, more stable communities.",
+  },
+  {
+    icon: Shield,
+    title: "Humanitarian Response",
+    text: "Locally informed support for crisis-affected communities, including non-food items, protection-focused assistance, and coordination.",
+  },
+  {
+    icon: Users,
+    title: "Livelihoods & Inclusion",
+    text: "Activities that strengthen resilience, participation, and economic opportunity for women, caregivers, young people, and excluded groups.",
+  },
+  {
+    icon: Handshake,
+    title: "Partnership & Localization",
+    text: "Collaboration with communities, public institutions, donors, clusters, and civil-society partners to deliver accountable results.",
+  },
+];
+
+const principles = [
+  "Community-led planning and implementation",
+  "Safeguarding and protection at the center",
+  "Transparent financial and narrative reporting",
+  "Partnership with local institutions and communities",
+];
 
 export default function Home() {
   return (
     <>
-      <Hero
-        title="Give Every Child a Chance to Thrive"
-        subtitle="Child Sponsorship & Family Support"
-        description="MIS Ethiopia connects compassionate sponsors with children and families who need it most. Through education, healthcare, and community support, we're building brighter futures—one child at a time."
-        ctaText="Sponsor a Child Today"
-        ctaSecondaryText="Learn How It Works"
-        ctaHref="/sponsorship"
-      />
+      <section className="relative min-h-[760px] overflow-hidden bg-navy-dark pt-24 lg:min-h-[820px]">
+        <div
+          className="absolute inset-0 bg-cover bg-[center_34%] bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1800&h=1200&fit=crop)",
+          }}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,31,43,.97)_0%,rgba(12,48,66,.92)_45%,rgba(12,48,66,.62)_72%,rgba(12,48,66,.45)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_24%,rgba(232,162,58,.18),transparent_32%)]" />
 
-      {/* Trust & Credibility Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-warm/10 text-warm rounded-full text-sm font-medium mb-4">
-              Why Trust MIS Ethiopia
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Built on Integrity, Driven by Impact
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We understand that your trust is earned, not given. That's why we maintain the highest standards of transparency, accountability, and ethical operations.
+        <div className="relative mx-auto flex min-h-[660px] max-w-7xl items-center px-5 py-16 sm:px-8 lg:min-h-[720px] lg:px-10">
+          <div className="max-w-3xl">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-semibold tracking-wide text-white/90 backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-warm" />
+              Multi Integrated Support (MIS) Ethiopia
+            </div>
+
+            <h1 className="max-w-3xl text-5xl font-semibold leading-[1.03] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
+              Stronger families. Safer children. More resilient communities.
+            </h1>
+
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
+              MIS Ethiopia is a locally rooted civil-society organization working across child protection, education, family support, humanitarian response, and community development.
             </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-ngo-secondary rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Registered & Compliant</h3>
-              <p className="text-gray-600 text-sm">
-                Officially registered organization operating in full compliance with Ethiopian regulations and international standards.
-              </p>
-            </div>
-            
-            <div className="bg-ngo-secondary rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-6">
-                <FileText className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Transparent Reporting</h3>
-              <p className="text-gray-600 text-sm">
-                Detailed annual reports, independent audits, and regular program updates available to all stakeholders.
-              </p>
-            </div>
-            
-            <div className="bg-ngo-secondary rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Local Expertise</h3>
-              <p className="text-gray-600 text-sm">
-                Our team lives and works in the communities we serve, understanding local needs firsthand.
-              </p>
-            </div>
-            
-            <div className="bg-ngo-secondary rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Child-Centered Focus</h3>
-              <p className="text-gray-600 text-sm">
-                Every decision we make prioritizes the wellbeing, safety, and development of the children in our care.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Who We Are Section */}
-      <section className="py-20 bg-navy-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="inline-block px-4 py-1.5 bg-warm/20 text-warm rounded-full text-sm font-medium mb-4">
-                Who We Are
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                A Community Dedicated to Children's Futures
-              </h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                MIS Ethiopia was founded with a simple but powerful belief: every child deserves the opportunity to reach their full potential. We work alongside vulnerable children and families, providing the support, resources, and encouragement they need to build fulfilling lives.
-              </p>
-              <p className="text-gray-300 mb-8 leading-relaxed">
-                Our holistic approach addresses not just immediate needs, but the root causes of disadvantage—ensuring that the support we provide creates lasting, sustainable change.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="flex items-start gap-3">
-                  <Target className="w-6 h-6 text-warm flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-white">Our Mission</h4>
-                    <p className="text-gray-400 text-sm">Support vulnerable children and families through comprehensive programs</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Eye className="w-6 h-6 text-warm flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-white">Our Vision</h4>
-                    <p className="text-gray-400 text-sm">Every child reaches their full potential in a supportive community</p>
-                  </div>
-                </div>
-              </div>
-              
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/about"
-                className="inline-flex items-center gap-2 bg-warm hover:bg-warm-dark text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+                href="/programs"
+                className="inline-flex h-13 items-center justify-center gap-2 rounded-md bg-warm px-7 text-base font-semibold text-navy-dark shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-warm-light"
               >
-                Learn Our Story
-                <ArrowRight className="w-5 h-5" />
+                Explore Our Programs
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/partners"
+                className="inline-flex h-13 items-center justify-center gap-2 rounded-md border border-white/30 bg-white/5 px-7 text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
+              >
+                Partner With MIS
               </Link>
             </div>
-            
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop"
-                  alt="Children learning together"
-                  className="w-full h-auto"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 to-transparent" />
+
+            <div className="mt-12 grid max-w-2xl grid-cols-1 gap-5 border-t border-white/15 pt-7 sm:grid-cols-3">
+              <div>
+                <div className="text-2xl font-semibold text-white">15+ years</div>
+                <div className="mt-1 text-sm text-white/60">Serving communities in Ethiopia</div>
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl p-6 shadow-2xl max-w-xs">
-                <div className="text-warm font-bold text-3xl mb-1">25+</div>
-                <div className="text-navy font-semibold">Years of Service</div>
-                <div className="text-gray-500 text-sm">Dedicated to Ethiopian communities</div>
+              <div>
+                <div className="text-2xl font-semibold text-white">Locally led</div>
+                <div className="mt-1 text-sm text-white/60">Community-informed delivery</div>
+              </div>
+              <div>
+                <div className="text-2xl font-semibold text-white">Multi-sector</div>
+                <div className="mt-1 text-sm text-white/60">Development and humanitarian work</div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Featured: Child Sponsorship Section */}
-      <section className="py-20 bg-ngo-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=600&fit=crop"
-                  alt="Sponsored child"
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="absolute -top-6 -right-6 bg-warm text-white rounded-2xl p-6 shadow-2xl">
-                <div className="text-3xl font-bold mb-1">100%</div>
-                <div className="text-white/90 text-sm">Direct Connection</div>
-              </div>
-            </div>
-            
-            <div className="order-1 lg:order-2">
-              <span className="inline-block px-4 py-1.5 bg-warm/10 text-warm rounded-full text-sm font-medium mb-4">
-                Featured Program
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
-                Child Sponsorship: Your Link to a Child's Future
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                When you sponsor a child through MIS Ethiopia, you're not just making a donation—you're building a relationship. You'll receive letters, photos, and updates directly from your sponsored child, watching them grow and thrive over time.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-warm/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-5 h-5 text-warm" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-navy">Education Support</h4>
-                    <p className="text-gray-600 text-sm">School fees, supplies, and tutoring</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-warm/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Heart className="w-5 h-5 text-warm" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-navy">Healthcare & Nutrition</h4>
-                    <p className="text-gray-600 text-sm">Regular check-ups and nutritious meals</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-warm/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users className="w-5 h-5 text-warm" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-navy">Family Support</h4>
-                    <p className="text-gray-600 text-sm">Resources to strengthen home environments</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/sponsorship"
-                  className="inline-flex items-center justify-center gap-2 bg-warm hover:bg-warm-dark text-white font-semibold px-8 py-4 rounded-lg transition-colors"
-                >
-                  <Heart className="w-5 h-5" />
-                  Sponsor a Child
-                </Link>
-                <Link
-                  href="/sponsorship"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy font-semibold px-8 py-4 rounded-lg hover:bg-navy hover:text-white transition-colors"
-                >
-                  View Children
-                </Link>
-              </div>
-            </div>
+        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-navy-dark/82 backdrop-blur-md">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-8 gap-y-3 px-5 py-4 text-sm text-white/70 sm:px-8 lg:px-10">
+            <span className="font-semibold text-white">Our approach</span>
+            <span>Safeguarding</span>
+            <span>Accountability</span>
+            <span>Localization</span>
+            <span>Community participation</span>
           </div>
         </div>
       </section>
 
-      {/* Impact Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-warm/10 text-warm rounded-full text-sm font-medium mb-4">
-              Our Impact
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Making a Measurable Difference
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Every program we run, every child we support, every family we assist contributes to real, tangible outcomes. Here's the difference we're making together.
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-20 lg:px-10">
+          <div>
+            <div className="eyebrow">Who we are</div>
+            <h2 className="section-title mt-4">Local knowledge. Practical action. Long-term commitment.</h2>
+          </div>
+          <div>
+            <p className="text-lg leading-8 text-slate-600">
+              MIS works with children, families, communities, local authorities, and partners to address immediate needs while strengthening the systems and relationships that make progress sustainable.
+            </p>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Our work combines direct assistance with education, protection, community engagement, and institutional partnership—so support is relevant, accountable, and connected to local priorities.
+            </p>
+            <Link
+              href="/about"
+              className="mt-8 inline-flex items-center gap-2 font-semibold text-navy transition hover:text-warm-dark"
+            >
+              Learn about MIS Ethiopia <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-ngo-secondary py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="max-w-3xl">
+            <div className="eyebrow">What we do</div>
+            <h2 className="section-title mt-4">Integrated programs built around real community needs.</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              MIS brings related services together instead of treating each challenge in isolation. This makes programs more practical for families and more effective for partners.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center p-8 bg-ngo-secondary rounded-2xl">
-              <div className="text-5xl font-bold text-warm mb-2">0+</div>
-              <div className="text-navy font-semibold mb-1">Children Supported</div>
-              <div className="text-gray-500 text-sm">Through sponsorship and programs</div>
-            </div>
-            <div className="text-center p-8 bg-ngo-secondary rounded-2xl">
-              <div className="text-5xl font-bold text-warm mb-2">0+</div>
-              <div className="text-navy font-semibold mb-1">Families Served</div>
-              <div className="text-gray-500 text-sm">With comprehensive support</div>
-            </div>
-            <div className="text-center p-8 bg-ngo-secondary rounded-2xl">
-              <div className="text-5xl font-bold text-warm mb-2">0+</div>
-              <div className="text-navy font-semibold mb-1">Communities</div>
-              <div className="text-gray-500 text-sm">Across Ethiopia</div>
-            </div>
-            <div className="text-center p-8 bg-ngo-secondary rounded-2xl">
-              <div className="text-5xl font-bold text-warm mb-2">0%</div>
-              <div className="text-navy font-semibold mb-1">To Programs</div>
-              <div className="text-gray-500 text-sm">Of every donation</div>
-            </div>
-          </div>
-          
-          <div className="bg-navy rounded-2xl p-8 md:p-12">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-warm/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-6 h-6 text-warm" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Education Access</h4>
-                  <p className="text-gray-300 text-sm">Children receive school fees, supplies, and academic support to succeed in their education.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-warm/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Heart className="w-6 h-6 text-warm" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Health & Nutrition</h4>
-                  <p className="text-gray-300 text-sm">Regular health check-ups and nutrition programs ensure children grow up healthy.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-warm/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Users className="w-6 h-6 text-warm" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-2">Family Stability</h4>
-                  <p className="text-gray-300 text-sm">Family support programs create stable home environments where children can flourish.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Our Programs Section */}
-      <section className="py-20 bg-ngo-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-warm/10 text-warm rounded-full text-sm font-medium mb-4">
-              What We Do
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Our Core Programs
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We focus our resources on programs that create the greatest, most sustainable impact on children's lives.
-            </p>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {programs.map((program) => {
+              const Icon = program.icon;
+              return (
+                <div
+                  key={program.title}
+                  className="group rounded-xl border border-slate-200 bg-white p-7 shadow-[0_14px_40px_rgba(15,35,48,.045)] transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_20px_48px_rgba(15,35,48,.08)]"
+                >
+                  <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-lg bg-navy/8 text-navy transition group-hover:bg-navy group-hover:text-white">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-xl font-semibold tracking-tight text-navy-dark">{program.title}</h3>
+                  <p className="mt-3 leading-7 text-slate-600">{program.text}</p>
+                </div>
+              );
+            })}
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-              <div className="h-48 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop"
-                  alt="Child sponsorship"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <Heart className="w-5 h-5 text-warm" />
-                  <h3 className="text-xl font-bold text-navy">Child Sponsorship</h3>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">
-                  Direct sponsorship connecting you with a specific child, providing education, healthcare, and emotional support.
-                </p>
-                <Link href="/sponsorship" className="text-warm hover:text-warm-dark font-medium text-sm inline-flex items-center gap-1">
-                  Learn more <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-              <div className="h-48 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop"
-                  alt="Education"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <BookOpen className="w-5 h-5 text-warm" />
-                  <h3 className="text-xl font-bold text-navy">Education Support</h3>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">
-                  School fees, supplies, tutoring, and scholarships helping children access and succeed in education.
-                </p>
-                <Link href="/programs" className="text-warm hover:text-warm-dark font-medium text-sm inline-flex items-center gap-1">
-                  Learn more <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-              <div className="h-48 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop"
-                  alt="Family support"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <Users className="w-5 h-5 text-warm" />
-                  <h3 className="text-xl font-bold text-navy">Family Support</h3>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">
-                  Resources, training, and assistance helping families create stable, nurturing home environments.
-                </p>
-                <Link href="/programs" className="text-warm hover:text-warm-dark font-medium text-sm inline-flex items-center gap-1">
-                  Learn more <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-center mt-12">
+
+          <div className="mt-10">
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 bg-navy hover:bg-navy-light text-white font-semibold px-8 py-4 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 rounded-md border border-navy/15 bg-white px-5 py-3 font-semibold text-navy shadow-sm transition hover:border-navy/30"
             >
-              View All Programs
-              <ArrowRight className="w-5 h-5" />
+              View all programs <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Transparency & Reports Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-2xl border border-slate-200 bg-navy-dark shadow-[0_30px_80px_rgba(15,35,48,.12)] lg:grid-cols-2">
+          <div className="relative min-h-[420px] lg:min-h-[590px]">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "url(https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&h=900&fit=crop)",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/75 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-9">
+              <div className="inline-flex rounded-md bg-white/92 px-4 py-2 text-sm font-semibold text-navy-dark shadow-lg backdrop-blur-sm">
+                Child sponsorship, education follow-up & family support
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center p-8 sm:p-12 lg:p-14">
             <div>
-              <span className="inline-block px-4 py-1.5 bg-warm/10 text-warm rounded-full text-sm font-medium mb-4">
-                Accountability
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
-                Transparency You Can Trust
+              <div className="eyebrow text-warm">Featured program</div>
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl">
+                Support that stays connected to the child and the family.
               </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                We believe that complete transparency is essential to maintaining your trust. That's why we provide detailed reports on our finances, programs, and outcomes.
+              <p className="mt-6 text-lg leading-8 text-white/72">
+                Our child sponsorship work links regular family support with education monitoring, children&apos;s activities, nutrition support, and direct communication with partners.
               </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
-                  <span className="text-gray-700">Independent financial audits every year</span>
+
+              <div className="mt-8 space-y-4">
+                <div className="flex gap-3 text-white/80">
+                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-warm" />
+                  <span>Regular follow-up with children and caregivers</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
-                  <span className="text-gray-700">Detailed annual program reports</span>
+                <div className="flex gap-3 text-white/80">
+                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-warm" />
+                  <span>Education support and learning-focused activities</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
-                  <span className="text-gray-700">Regular updates to sponsors</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
-                  <span className="text-gray-700">Open books policy for stakeholders</span>
+                <div className="flex gap-3 text-white/80">
+                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-warm" />
+                  <span>Transparent program and financial reporting</span>
                 </div>
               </div>
-              
+
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/sponsorship"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-warm px-6 font-semibold text-navy-dark transition hover:bg-warm-light"
+                >
+                  Child Sponsorship <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/20 px-6 font-semibold text-white transition hover:bg-white/8"
+                >
+                  Contact our team
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ngo-secondary py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-10">
+          <div>
+            <div className="eyebrow">How we work</div>
+            <h2 className="section-title mt-4">Accountability is part of program quality.</h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
+              Donors, partners, communities, and families need clear information about what is planned, what was delivered, and what changed. MIS builds documentation and follow-up into implementation.
+            </p>
+            <Link
+              href="/reports"
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-navy px-5 py-3 font-semibold text-white transition hover:bg-navy-light"
+            >
+              <FileText className="h-4 w-4" />
+              Reports & accountability
+            </Link>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {principles.map((principle, index) => (
+              <div key={principle} className="rounded-xl border border-slate-200 bg-white p-6">
+                <div className="mb-5 flex h-9 w-9 items-center justify-center rounded-full bg-warm/12 text-sm font-bold text-warm-dark">
+                  0{index + 1}
+                </div>
+                <p className="font-semibold leading-7 text-navy-dark">{principle}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="grid gap-10 rounded-2xl border border-slate-200 bg-[linear-gradient(135deg,#f7faf8_0%,#ffffff_58%)] p-8 sm:p-12 lg:grid-cols-[1.2fr_.8fr] lg:items-center lg:p-14">
+            <div>
+              <div className="eyebrow">Work with us</div>
+              <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.03em] text-navy-dark sm:text-5xl">
+                Looking for a capable local partner in Ethiopia?
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+                MIS works with donors, NGOs, public institutions, networks, and community structures to design and deliver programs that are locally grounded and operationally accountable.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 lg:items-end">
               <Link
-                href="/reports"
-                className="inline-flex items-center gap-2 bg-navy hover:bg-navy-light text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+                href="/partners"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-navy px-6 font-semibold text-white transition hover:bg-navy-light sm:w-auto"
               >
-                <FileText className="w-5 h-5" />
-                View Reports
+                Partnership information <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-6 font-semibold text-navy transition hover:border-slate-400 sm:w-auto"
+              >
+                <MapPin className="h-4 w-4" />
+                Contact MIS Ethiopia
               </Link>
             </div>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-ngo-secondary rounded-2xl p-6 text-center">
-                <div className="w-14 h-14 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Download className="w-7 h-7 text-navy" />
-                </div>
-                <h4 className="font-bold text-navy mb-2">Annual Reports</h4>
-                <p className="text-gray-600 text-sm mb-3">Comprehensive yearly reviews of our work and finances</p>
-                <span className="text-warm text-sm font-medium">Download PDF →</span>
-              </div>
-              <div className="bg-ngo-secondary rounded-2xl p-6 text-center">
-                <div className="w-14 h-14 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-7 h-7 text-navy" />
-                </div>
-                <h4 className="font-bold text-navy mb-2">Financial Statements</h4>
-                <p className="text-gray-600 text-sm mb-3">Audited accounts and financial breakdowns</p>
-                <span className="text-warm text-sm font-medium">Download PDF →</span>
-              </div>
-              <div className="bg-ngo-secondary rounded-2xl p-6 text-center">
-                <div className="w-14 h-14 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-7 h-7 text-navy" />
-                </div>
-                <h4 className="font-bold text-navy mb-2">Impact Reports</h4>
-                <p className="text-gray-600 text-sm mb-3">Program outcomes and success stories</p>
-                <span className="text-warm text-sm font-medium">Download PDF →</span>
-              </div>
-              <div className="bg-ngo-secondary rounded-2xl p-6 text-center">
-                <div className="w-14 h-14 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-7 h-7 text-navy" />
-                </div>
-                <h4 className="font-bold text-navy mb-2">Newsletter</h4>
-                <p className="text-gray-600 text-sm mb-3">Regular updates on our work and impact</p>
-                <span className="text-warm text-sm font-medium">Subscribe →</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Partners Section - Placeholder */}
-      <section className="py-20 bg-ngo-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-warm/10 text-warm rounded-full text-sm font-medium mb-4">
-              Our Network
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Partners & Collaborators
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We work alongside organizations and institutions who share our commitment to children's welfare. (Partner logos coming soon)
-            </p>
-          </div>
-          
-          <div className="bg-white rounded-2xl p-8 text-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                <div key={i} className="h-24 bg-gray-100 rounded-xl flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">Partner Logo</span>
-                </div>
-              ))}
+      <section className="border-t border-slate-200 bg-white py-14">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:px-8 md:grid-cols-3 lg:px-10">
+          <Link href="/about" className="group flex items-center gap-4 rounded-xl p-4 transition hover:bg-ngo-secondary">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy/8 text-navy">
+              <BookOpen className="h-5 w-5" />
             </div>
-          </div>
-          
-          <div className="text-center mt-8">
-            <Link href="/partners" className="text-warm hover:text-warm-dark font-medium inline-flex items-center gap-1">
-              Learn about partnership opportunities
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+            <div>
+              <div className="font-semibold text-navy-dark">About MIS</div>
+              <div className="mt-1 text-sm text-slate-500">Mission, experience and governance</div>
+            </div>
+            <ArrowRight className="ml-auto h-4 w-4 text-slate-400 transition group-hover:translate-x-1" />
+          </Link>
+
+          <Link href="/reports" className="group flex items-center gap-4 rounded-xl p-4 transition hover:bg-ngo-secondary">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy/8 text-navy">
+              <FileText className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="font-semibold text-navy-dark">Reports</div>
+              <div className="mt-1 text-sm text-slate-500">Transparency and organizational documents</div>
+            </div>
+            <ArrowRight className="ml-auto h-4 w-4 text-slate-400 transition group-hover:translate-x-1" />
+          </Link>
+
+          <Link href="/contact" className="group flex items-center gap-4 rounded-xl p-4 transition hover:bg-ngo-secondary">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy/8 text-navy">
+              <Users className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="font-semibold text-navy-dark">Get in touch</div>
+              <div className="mt-1 text-sm text-slate-500">Programs, partnerships and general enquiries</div>
+            </div>
+            <ArrowRight className="ml-auto h-4 w-4 text-slate-400 transition group-hover:translate-x-1" />
+          </Link>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-warm-dark to-warm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Change a Child's Life?
-          </h2>
-          <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
-            Your support— whether through sponsorship, donation, or partnership— helps us continue our mission to uplift children and families across Ethiopia.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/sponsorship"
-              className="inline-flex items-center justify-center gap-2 bg-white text-warm-dark font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg"
-            >
-              <Heart className="w-6 h-6" />
-              Sponsor a Child
-            </Link>
-            <Link
-              href="/donate"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-colors text-lg"
-            >
-              Make a Donation
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-navy-dark text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-warm rounded-xl flex items-center justify-center">
-                  <Heart className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <span className="font-bold text-lg">MIS Ethiopia</span>
-                  <span className="block text-xs text-gray-400">Multi Integrated Support</span>
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                {siteConfig.description}
-              </p>
-              <div className="flex gap-3">
-                <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition-colors">
-                  <span className="text-sm">F</span>
-                </a>
-                <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition-colors">
-                  <span className="text-sm">T</span>
-                </a>
-                <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition-colors">
-                  <span className="text-sm">In</span>
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-lg mb-6">Quick Links</h4>
-              <ul className="space-y-3">
-                <li><Link href="/about" className="text-gray-400 hover:text-warm transition-colors text-sm">About Us</Link></li>
-                <li><Link href="/programs" className="text-gray-400 hover:text-warm transition-colors text-sm">Our Programs</Link></li>
-                <li><Link href="/sponsorship" className="text-gray-400 hover:text-warm transition-colors text-sm">Child Sponsorship</Link></li>
-                <li><Link href="/news" className="text-gray-400 hover:text-warm transition-colors text-sm">News & Updates</Link></li>
-                <li><Link href="/reports" className="text-gray-400 hover:text-warm transition-colors text-sm">Reports</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-lg mb-6">Get Involved</h4>
-              <ul className="space-y-3">
-                <li><Link href="/donate" className="text-gray-400 hover:text-warm transition-colors text-sm">Donate</Link></li>
-                <li><Link href="/sponsorship" className="text-gray-400 hover:text-warm transition-colors text-sm">Sponsor a Child</Link></li>
-                <li><Link href="/partners" className="text-gray-400 hover:text-warm transition-colors text-sm">Partner With Us</Link></li>
-                <li><Link href="/contact" className="text-gray-400 hover:text-warm transition-colors text-sm">Volunteer</Link></li>
-                <li><Link href="/contact" className="text-gray-400 hover:text-warm transition-colors text-sm">Careers</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-lg mb-6">Contact Us</h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-warm flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400 text-sm">
-                    {siteConfig.address.street}<br />
-                    {siteConfig.address.city}, Ethiopia<br />
-                    {siteConfig.address.postalCode}
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-warm flex-shrink-0" />
-                  <a href={`tel:${siteConfig.phone}`} className="text-gray-400 hover:text-warm transition-colors text-sm">
-                    {siteConfig.phone}
-                  </a>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-warm flex-shrink-0" />
-                  <a href={`mailto:${siteConfig.email}`} className="text-gray-400 hover:text-warm transition-colors text-sm">
-                    {siteConfig.email}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-              </p>
-              <div className="flex gap-6">
-                <Link href="/privacy" className="text-gray-400 hover:text-warm transition-colors text-sm">Privacy Policy</Link>
-                <Link href="/terms" className="text-gray-400 hover:text-warm transition-colors text-sm">Terms of Service</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

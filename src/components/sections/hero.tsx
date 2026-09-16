@@ -17,8 +17,8 @@ export function Hero({
   title,
   subtitle,
   description,
-  ctaText = "Get Involved",
-  ctaSecondaryText = "Learn More",
+  ctaText = "Explore Our Work",
+  ctaSecondaryText = "About MIS",
   ctaHref = "/programs",
   backgroundImage = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&h=1080&fit=crop",
   showVideoButton = false,
@@ -26,53 +26,66 @@ export function Hero({
 }: HeroProps) {
   return (
     <section
-      className={`relative flex items-center justify-center overflow-hidden ${
-        compact ? "h-[50vh] min-h-[400px]" : "h-[90vh] min-h-[600px]"
+      className={`relative overflow-hidden bg-navy-dark pt-20 ${
+        compact ? "min-h-[500px]" : "min-h-[680px]"
       }`}
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy/80 to-navy-dark/70" />
-      </div>
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,31,43,.96)_0%,rgba(12,48,66,.86)_52%,rgba(12,48,66,.58)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(232,162,58,.15),transparent_32%)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div
+        className={`relative mx-auto flex max-w-7xl items-center px-5 py-16 sm:px-8 lg:px-10 ${
+          compact ? "min-h-[420px]" : "min-h-[600px]"
+        }`}
+      >
+        <div className="max-w-3xl">
           {subtitle && (
-            <span className="inline-block px-4 py-1.5 bg-warm/20 text-warm rounded-full text-sm font-medium mb-6 border border-warm/30">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-semibold tracking-wide text-white/85 backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-warm" />
               {subtitle}
-            </span>
+            </div>
           )}
-          
-          <h1 className={`font-bold text-white mb-6 ${compact ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl lg:text-7xl"}`}>
+
+          <h1
+            className={`font-semibold leading-[1.05] tracking-[-0.035em] text-white ${
+              compact ? "text-4xl sm:text-5xl lg:text-6xl" : "text-5xl sm:text-6xl lg:text-7xl"
+            }`}
+          >
             {title}
           </h1>
-          
+
           {description && (
-            <p className={`text-gray-200 mb-8 ${compact ? "text-lg max-w-2xl mx-auto" : "text-xl md:text-2xl max-w-3xl mx-auto"}`}>
+            <p
+              className={`mt-6 max-w-2xl leading-8 text-white/75 ${
+                compact ? "text-lg" : "text-lg sm:text-xl"
+              }`}
+            >
               {description}
             </p>
           )}
 
-          <div className={`flex flex-wrap items-center justify-center gap-4 ${compact ? "mt-6" : "mt-10"}`}>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href={ctaHref}
-              className="inline-flex items-center justify-center gap-2 bg-warm hover:bg-warm-dark text-white font-semibold px-8 h-12 text-lg rounded-lg transition-colors"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-warm px-6 font-semibold text-navy-dark shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-warm-light"
             >
               {ctaText}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
-            
+
             {showVideoButton ? (
-              <button className="inline-flex items-center justify-center gap-2 border border-white text-white hover:bg-white/10 px-8 h-12 text-lg rounded-lg transition-colors">
-                <Play className="mr-2 h-5 w-5" />
+              <button className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 font-semibold text-white backdrop-blur-sm transition hover:bg-white/10">
+                <Play className="h-4 w-4" />
                 Watch Our Story
               </button>
             ) : (
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 border border-white text-white hover:bg-white/10 px-8 h-12 text-lg rounded-lg transition-colors"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-white/25 bg-white/5 px-6 font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
               >
                 {ctaSecondaryText}
               </Link>
@@ -80,8 +93,6 @@ export function Hero({
           </div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
     </section>
   );
 }
