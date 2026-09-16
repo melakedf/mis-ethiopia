@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model ContentEntry {
+  id          String        @id @default(cuid())
+  type        String
+  title       String
+  slug        String
+  summary     String?
+  body        String?
+  imageUrl    String?
+  documentUrl String?
+  location    String?
+  startDate   DateTime?
+  endDate     DateTime?
+  featured    Boolean       @default(false)
+  sortOrder   Int           @default(0)
+  status      ContentStatus @default(DRAFT)
+  metadata    Json?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  publishedAt DateTime?
+
+  @@unique([type, slug])
+  @@index([type, status, sortOrder])
+}
+
+model SiteSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([isRead, createdAt])
+}
+
+model MediaAsset {
+  id        String   @id @default(cuid())
+  title     String
+  url       String
+  publicId  String?
+  mimeType  String?
+  altText   String?
+  createdAt DateTime @default(now())
+}

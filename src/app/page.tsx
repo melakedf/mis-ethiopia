@@ -16,6 +16,7 @@ import {
 import { Hero } from "@/components/sections/hero";
 import { FloatingOrb, ParallaxImageStack, Reveal, TiltCard } from "@/components/sections/motion";
 import { homepageMetrics } from "@/data/constants";
+import { CmsUpdates } from "@/components/sections/cms-updates";
 
 const credibilityStrip = [
   "15+ Years of Experience",
@@ -138,6 +139,8 @@ export default function Home() {
         showReportsLink
         floatingStats={homepageMetrics.heroFloatingStats}
       />
+
+      <CmsUpdates />
 
       <section className="bg-navy-dark py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -227,13 +227,7 @@ export default function AboutPage() {
                 key={member.id}
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
               >
-                <div className="h-64 relative">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                {member.image ? <div className="h-64 relative"><img src={member.image} alt={member.name} className="w-full h-full object-cover" /></div> : <div className="flex h-40 items-center justify-center bg-gradient-to-br from-navy to-navy-light text-5xl font-bold text-white">MIS</div>}
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-navy">{member.name}</h3>
                   <p className="text-warm font-medium text-sm mb-3">{member.role}</p>
@@ -261,6 +255,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+          {boardMembers.length === 0 ? <p className="mx-auto max-w-2xl rounded-xl bg-ngo-secondary p-6 text-center text-sm text-gray-600">MIS Ethiopia is governed by a five-member board. The current board profile will be published after formal approval for public release.</p> : null}
         </div>
       </Section>
 
