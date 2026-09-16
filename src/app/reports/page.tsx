@@ -237,7 +237,7 @@ export default function ReportsPage() {
             Questions About Our Work?
           </h2>
           <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-            We're happy to provide additional information about our programs, finances, or impact.
+            We&apos;re happy to provide additional information about our programs, finances, or impact.
           </p>
           <Link
             href="/contact"

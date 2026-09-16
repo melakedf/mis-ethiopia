@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MIS Ethiopia Website
 
-## Getting Started
+Public website and content-management system for Multi Integrated Support (MIS) Ethiopia.
 
-First, run the development server:
+## Included
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Responsive public website for MIS programs, sponsorship, reports, partners and contact
+- Protected `/admin` area with draft/publish workflow
+- Editable pages, programs, projects, regions, sponsorship content, stories, partners, reports, news and homepage entries
+- Neon/PostgreSQL database through Prisma
+- Contact-message inbox
+- Cloudinary image and PDF library
+- Database-backed featured content and homepage notice
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Copy `.env.example` to `.env.local` and provide the required values.
+2. Run `npm install`.
+3. Run `npm run db:generate`.
+4. Run `npm run db:deploy`.
+5. Run `npm run db:seed`.
+6. Run `npm run dev`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The website is available at `http://localhost:3000` and the admin login at `http://localhost:3000/admin/login`.
 
-## Learn More
+## Production settings
 
-To learn more about Next.js, take a look at the following resources:
+Required: `DATABASE_URL`, `DATABASE_URL_UNPOOLED`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `NEXTAUTH_SECRET`, and `NEXTAUTH_URL`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The Neon integration supplies the pooled `DATABASE_URL` for the website and the direct `DATABASE_URL_UNPOOLED` for Prisma migrations. Vercel runs the committed migration and the idempotent seed during deployment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For media uploads also add `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET`.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Online donations remain disabled until MIS approves the receiving account, payment processor, receipt procedure, privacy notice and financial-control workflow.

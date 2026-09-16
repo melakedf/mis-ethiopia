@@ -16,6 +16,7 @@ import {
 import { Hero } from "@/components/sections/hero";
 import { FloatingOrb, ParallaxImageStack, Reveal, TiltCard } from "@/components/sections/motion";
 import { homepageMetrics } from "@/data/constants";
+import { CmsUpdates } from "@/components/sections/cms-updates";
 
 const credibilityStrip = [
   "15+ Years of Experience",
@@ -138,6 +139,8 @@ export default function Home() {
         showReportsLink
         floatingStats={homepageMetrics.heroFloatingStats}
       />
+
+      <CmsUpdates />
 
       <section className="bg-navy-dark py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -307,7 +310,7 @@ export default function Home() {
               Child Sponsorship & Family Support
             </h2>
             <p className="mt-5 text-[1.02rem] leading-relaxed text-gray-600">
-              Child sponsorship is one of MIS's strongest pathways for lasting change. Within MIS's broader multi-sector approach, sponsorship helps vulnerable children access education, family support, wellbeing services, and practical care with clear accountability to supporters.
+              Child sponsorship is one of MIS&apos;s strongest pathways for lasting change. Within MIS&apos;s broader multi-sector approach, sponsorship helps vulnerable children access education, family support, wellbeing services, and practical care with clear accountability to supporters.
             </p>
             <div className="mt-6 space-y-3">
               <div className="flex items-start gap-3">
@@ -358,7 +361,7 @@ export default function Home() {
               </span>
               <h2 className="mt-4 text-3xl font-bold text-navy md:text-4xl">Progress You Can Track</h2>
               <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-                Organization-wide indicators that reflect MIS's institutional scope, consistency, and accountability.
+                Organization-wide indicators that reflect MIS&apos;s institutional scope, consistency, and accountability.
               </p>
             </div>
           </Reveal>
@@ -396,7 +399,7 @@ export default function Home() {
                   <span className="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold text-navy">
                     {story.theme}
                   </span>
-                  <p className="mt-4 text-[1.02rem] leading-relaxed text-gray-700">"{story.quote}"</p>
+                  <p className="mt-4 text-[1.02rem] leading-relaxed text-gray-700">&ldquo;{story.quote}&rdquo;</p>
                   <p className="mt-4 text-xs font-medium uppercase tracking-wide text-gray-500">{story.source}</p>
                 </div>
               </Reveal>
@@ -530,7 +533,7 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <Reveal>
-            <h2 className="text-3xl font-bold leading-tight text-white drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)] md:text-5xl">Let's build lasting change together</h2>
+            <h2 className="text-3xl font-bold leading-tight text-white drop-shadow-[0_10px_25px_rgba(0,0,0,0.25)] md:text-5xl">Let&apos;s build lasting change together</h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-white/95">
               Support MIS in strengthening children, families, and communities through integrated, community-based development across Ethiopia.
             </p>

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Heart, MapPin, Phone, Mail, Globe } from "lucide-react";
 import { siteConfig, navItems } from "@/data/constants";
 
@@ -11,6 +14,8 @@ const socialLinks = [
 ].filter((social) => social.href);
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
   return (
     <footer className="bg-navy-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

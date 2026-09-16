@@ -20,20 +20,29 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    setSubmitError("");
+    try {
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Message could not be sent.");
+      setSubmitted(true);
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "Message could not be sent.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
     {
       question: "How can I make a donation?",
-      answer: "You can donate online through our secure donation portal, by bank transfer, or by contacting us for other options. Visit our Donate page for all details.",
+      answer: "Please contact MIS Ethiopia for currently approved donation and sponsorship methods. Online payment will be activated only after the required financial controls are approved.",
     },
     {
       question: "How does child sponsorship work?",
@@ -131,7 +140,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className="text-xl font-bold text-navy mb-2">Message Sent!</h3>
                   <p className="text-gray-600">
-                    Thank you for contacting us. We'll respond to your inquiry shortly.
+                    Thank you for contacting us. We&apos;ll respond to your inquiry shortly.
                   </p>
                   <Button
                     onClick={() => setSubmitted(false)}
@@ -142,6 +151,7 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {submitError ? <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{submitError}</p> : null}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -281,9 +291,8 @@ export default function ContactPage() {
               </div>
 
               <div className="rounded-lg border border-gray-200 p-4">
-                <p className="text-sm font-medium text-navy mb-1">Contact Person</p>
-                <p className="text-gray-600 text-sm">Solomon Getachew</p>
-                <p className="text-sm text-gray-600">Zoom ID: 907 271 4158</p>
+                <p className="text-sm font-medium text-navy mb-1">Official Contact</p>
+                <p className="text-gray-600 text-sm">Please use the organizational email above so your inquiry can be routed to the appropriate MIS team member.</p>
               </div>
             </div>
           </div>

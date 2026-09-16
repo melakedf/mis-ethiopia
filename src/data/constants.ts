@@ -58,9 +58,9 @@ export const homepageMetrics = {
 
 export const aboutStats = [
   { value: "15+", label: "Years of Service" },
-  { value: "40+", label: "Districts" },
-  { value: "150+", label: "Staff Members" },
-  { value: "50+", label: "Partners" },
+  { value: "8", label: "Thematic Areas" },
+  { value: "1,500", label: "IDP Households Reached" },
+  { value: "98%", label: "NFI Beneficiary Satisfaction" },
 ];
 
 export const departmentContacts = [
@@ -72,16 +72,11 @@ export const departmentContacts = [
   {
     name: "Partnerships",
     description: "Collaboration and partnership opportunities",
-    email: "partnerships@miseth.org",
+    email: "info@miseth.org",
   },
   {
     name: "Programs",
     description: "Program-related questions and requests",
-    email: "programs@miseth.org",
-  },
-  {
-    name: "Finance & Admin",
-    description: "Financial queries and documentation",
-    email: "finance@miseth.org",
+    email: "info@miseth.org",
   },
 ];
