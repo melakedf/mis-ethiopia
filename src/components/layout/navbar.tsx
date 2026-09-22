@@ -12,6 +12,8 @@ export function Navbar() {
   const pathname = usePathname();
   const primaryNav = navItems.filter((item) => item.href !== "/contact");
 
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-[0_1px_0_rgba(15,35,48,.02)] backdrop-blur-xl">
       <div className="h-1 bg-warm" />

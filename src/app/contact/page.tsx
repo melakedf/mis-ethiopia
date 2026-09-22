@@ -24,10 +24,14 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    try {
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      if (!response.ok) throw new Error("Unable to send message");
+      setSubmitted(true);
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [

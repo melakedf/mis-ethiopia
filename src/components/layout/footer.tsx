@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { navItems, siteConfig } from "@/data/constants";
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
+
   const socialLinks = [
     { href: siteConfig.social.facebook, label: "Facebook" },
     { href: siteConfig.social.linkedin, label: "LinkedIn" },
