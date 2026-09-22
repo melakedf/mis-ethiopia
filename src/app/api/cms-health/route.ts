@@ -1,0 +1,2 @@
+import { NextResponse } from "next/server";import { hasDatabase,prisma } from "@/lib/prisma";
+export async function GET(){if(!hasDatabase())return NextResponse.json({configured:false,connected:false});try{await prisma.$queryRaw`SELECT 1`;return NextResponse.json({configured:true,connected:true});}catch{return NextResponse.json({configured:true,connected:false},{status:503});}}

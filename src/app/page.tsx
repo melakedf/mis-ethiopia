@@ -12,8 +12,9 @@ import {
   Shield,
   Users,
 } from "lucide-react";
+import { getHomepagePrograms } from "@/lib/cms";
 
-const programs = [
+const fallbackPrograms = [
   {
     icon: GraduationCap,
     title: "Education & Child Development",
@@ -53,7 +54,11 @@ const principles = [
   "Partnership with local institutions and communities",
 ];
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const cmsPrograms = await getHomepagePrograms();
+  const programs = cmsPrograms.length ? cmsPrograms.map((program, index) => ({ icon: fallbackPrograms[index % fallbackPrograms.length].icon, title: program.title, text: program.shortDescription })) : fallbackPrograms;
   return (
     <>
       <section className="relative min-h-[760px] overflow-hidden bg-navy-dark pt-24 lg:min-h-[820px]">
