@@ -7,7 +7,7 @@ import {
   GraduationCap,
   Handshake,
   Heart,
-  Home,
+  Home as HomeIcon,
   MapPin,
   Shield,
   Users,
@@ -25,7 +25,7 @@ const programs = [
     text: "Long-term support for vulnerable children and families, combining financial assistance with safeguarding and regular follow-up.",
   },
   {
-    icon: Home,
+    icon: HomeIcon,
     title: "Family & Community Support",
     text: "Practical assistance that strengthens households, connects families to services, and supports safer, more stable communities.",
   },
