@@ -24,10 +24,14 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    try {
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({...formData, consent: true}) });
+      if (!response.ok) throw new Error("Unable to send message");
+      setSubmitted(true);
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -149,7 +153,7 @@ export default function ContactPage() {
                       </label>
                       <Input
                         required
-                        value={formData.firstName}
+                        id="firstName" value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                         placeholder="Your first name"
                         className="w-full"
@@ -161,7 +165,7 @@ export default function ContactPage() {
                       </label>
                       <Input
                         required
-                        value={formData.lastName}
+                        id="lastName" value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                         placeholder="Your last name"
                         className="w-full"
@@ -176,7 +180,7 @@ export default function ContactPage() {
                       <Input
                         type="email"
                         required
-                        value={formData.email}
+                        id="email" value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="you@example.com"
                         className="w-full"
@@ -188,7 +192,7 @@ export default function ContactPage() {
                       </label>
                       <Input
                         type="tel"
-                        value={formData.phone}
+                        id="phone" value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+251 XX XXX XXXX"
                         className="w-full"
@@ -196,12 +200,12 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                       Subject *
                     </label>
                     <select
                       required
-                      value={formData.subject}
+                      id="subject" value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-warm focus:outline-none focus:ring-1 focus:ring-warm"
                     >
@@ -215,17 +219,19 @@ export default function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
                     </label>
                     <Textarea
                       required
-                      value={formData.message}
+                      id="message" value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell us more about your inquiry..."
                       className="w-full min-h-[150px]"
                     />
                   </div>
+                  <p className="text-sm leading-6 text-slate-600">Please do not include sensitive personal details or child-protection case information. This form is not an emergency service.</p>
+                  <label className="flex items-start gap-3 text-sm leading-6 text-slate-700"><input type="checkbox" required className="mt-1 h-4 w-4"/><span>I have read the <a href="/privacy" className="underline">privacy notice</a> and agree that MIS may use my details to respond.</span></label>
                   <Button
                     type="submit"
                     disabled={isSubmitting}

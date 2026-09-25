@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Multi Integrated Support (MIS) Ethiopia",
   shortName: "MIS Ethiopia",
-  description: "MIS Ethiopia is an Ethiopian Resident Charity established in 2010, working with disadvantaged and hard-to-reach communities through integrated, community-based programs.",
+  description: "MIS Ethiopia is an Ethiopian national civil society organization, working with disadvantaged and hard-to-reach communities through integrated, community-based programs.",
   url: "https://miseth.org",
   email: "info@miseth.org",
   emailSecondary: "mise.eth@gmail.com",
@@ -9,7 +9,7 @@ export const siteConfig = {
   phoneSecondary: "+251 946 364 600",
   phoneTertiary: "+251 912 388 941",
   address: {
-    street: "Arada Sub-City, AA NB Seba Dereja Building, 5th Floor, Office No. 507",
+    street: "Arada Sub-City, A and B Seba Dereja Building, 5th Floor, Office No. 507",
     city: "Addis Ababa",
     country: "Ethiopia",
     postalCode: "P.O. Box 32043",
@@ -26,14 +26,7 @@ export const siteConfig = {
 };
 
 export const navItems = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-  { title: "Programs", href: "/programs" },
-  { title: "Child Sponsorship", href: "/sponsorship" },
-  { title: "News", href: "/news" },
-  { title: "Reports", href: "/reports" },
-  { title: "Partners", href: "/partners" },
-  { title: "Contact", href: "/contact" },
+{title:"Home",href:"/"},{title:"About",href:"/about"},{title:"What We Do",href:"/programs"},{title:"Projects",href:"/projects"},{title:"Impact",href:"/impact"},{title:"Partners",href:"/partners"},{title:"News",href:"/news"},{title:"Contact",href:"/contact"}
 ];
 
 export const impactStats = [
@@ -58,9 +51,9 @@ export const homepageMetrics = {
 
 export const aboutStats = [
   { value: "15+", label: "Years of Service" },
-  { value: "40+", label: "Districts" },
-  { value: "150+", label: "Staff Members" },
-  { value: "50+", label: "Partners" },
+  { value: "8", label: "Thematic Areas" },
+  { value: "1,500", label: "IDP Households Reached" },
+  { value: "98%", label: "NFI Beneficiary Satisfaction" },
 ];
 
 export const departmentContacts = [
@@ -72,16 +65,11 @@ export const departmentContacts = [
   {
     name: "Partnerships",
     description: "Collaboration and partnership opportunities",
-    email: "partnerships@miseth.org",
+    email: "info@miseth.org",
   },
   {
     name: "Programs",
     description: "Program-related questions and requests",
-    email: "programs@miseth.org",
-  },
-  {
-    name: "Finance & Admin",
-    description: "Financial queries and documentation",
-    email: "finance@miseth.org",
+    email: "info@miseth.org",
   },
 ];

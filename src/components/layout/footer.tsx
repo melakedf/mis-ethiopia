@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { navItems, siteConfig } from "@/data/constants";
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
+
   const socialLinks = [
     { href: siteConfig.social.facebook, label: "Facebook" },
     { href: siteConfig.social.linkedin, label: "LinkedIn" },
@@ -108,6 +114,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
           <div className="flex gap-5">
+            <Link href="/safeguarding" className="transition hover:text-white">Safeguarding & Feedback</Link>
             <Link href="/privacy" className="transition hover:text-white">Privacy</Link>
             <Link href="/terms" className="transition hover:text-white">Terms</Link>
           </div>

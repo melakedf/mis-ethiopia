@@ -8,6 +8,9 @@ interface HeroProps {
   ctaText?: string;
   ctaSecondaryText?: string;
   ctaHref?: string;
+  ctaSecondaryHref?: string;
+  showReportsLink?: boolean;
+  floatingStats?: {value: string; label: string}[];
   backgroundImage?: string;
   showVideoButton?: boolean;
   compact?: boolean;
@@ -20,6 +23,7 @@ export function Hero({
   ctaText = "Explore Our Work",
   ctaSecondaryText = "About MIS",
   ctaHref = "/programs",
+  ctaSecondaryHref = "/about",
   backgroundImage = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&h=1080&fit=crop",
   showVideoButton = false,
   compact = false,
@@ -84,7 +88,7 @@ export function Hero({
               </button>
             ) : (
               <Link
-                href="/about"
+                href={ctaSecondaryHref}
                 className="inline-flex h-12 items-center justify-center rounded-md border border-white/25 bg-white/5 px-6 font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
               >
                 {ctaSecondaryText}
