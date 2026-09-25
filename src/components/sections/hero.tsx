@@ -30,7 +30,7 @@ export function Hero({
 }: HeroProps) {
   return (
     <section
-      className={`relative overflow-hidden bg-navy-dark pt-20 ${
+      className={`relative overflow-hidden bg-navy-dark pt-[90px] ${
         compact ? "" : "min-h-[600px]"
       }`}
     >
@@ -38,8 +38,8 @@ export function Hero({
         className="hero-photo absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,31,43,.96)_0%,rgba(12,48,66,.86)_52%,rgba(12,48,66,.58)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(232,162,58,.15),transparent_32%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,42,59,.98)_0%,rgba(36,42,59,.92)_52%,rgba(36,42,59,.85)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(205,61,48,.17),transparent_32%)]" />
 
       <div
         className={`relative mx-auto flex max-w-7xl items-center px-5 py-16 sm:px-8 lg:px-10 ${

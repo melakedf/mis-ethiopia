@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { navItems } from "@/data/constants";
@@ -11,14 +11,16 @@ import { navItems } from "@/data/constants";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => { const update = () => setScrolled(window.scrollY > 35); update(); window.addEventListener("scroll", update, {passive:true}); return () => window.removeEventListener("scroll", update); }, []);
   const primaryNav = navItems.filter((item) => item.href !== "/contact");
 
   if (pathname.startsWith("/admin")) return null;
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-[0_1px_0_rgba(15,35,48,.02)] backdrop-blur-xl">
-      <div className="h-1 bg-warm" />
-      <nav className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+    <header className={`mis-header fixed left-0 right-0 top-0 z-50 ${pathname === "/" && !scrolled ? "mis-header-overlay" : "mis-header-solid"}`}>
+      
+      <nav className="mx-auto flex h-[90px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="MIS Ethiopia home">
           <Image src="/brand/mis-logo.png" alt="MIS logo" width={62} height={52} className="h-12 w-auto shrink-0 rounded bg-white object-contain p-1" />
           <div className="min-w-0">

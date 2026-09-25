@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { MotionEnhancements } from "@/components/layout/motion-enhancements";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/data/constants";
 
-const inter = Inter({
+const inter = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-sans",
 });
