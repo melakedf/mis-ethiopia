@@ -1,5 +1,7 @@
 "use client";
 
+import { ProjectPhoto } from "@/components/sections/project-photo";
+import { getProjectMedia } from "@/data/project-media";
 import { useState } from "react";
 import Link from "next/link";
 import { projects } from "@/data/projects";
@@ -32,7 +34,8 @@ export function ProjectExplorer() {
       <label className="text-sm font-semibold text-navy">Program area<select value={topic} onChange={e => setTopic(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 bg-white p-3 font-normal"><option value="">All program areas</option>{[...new Set(Object.values(projectTopics).flat())].sort().map(t => <option key={t}>{t}</option>)}</select></label>
     </div>
     <div className="my-6 flex items-center justify-between gap-4"><p role="status" className="text-sm text-slate-600">{filtered.length} project records shown</p>{(query || status || region || topic) && <button onClick={reset} className="text-link">Clear filters</button>}</div>
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{filtered.map(p => <article key={p.slug} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7 transition hover:border-navy/40 hover:shadow-md">
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{filtered.map(p => <article key={p.slug} className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-7 transition hover:border-navy/40 hover:shadow-md">
+      <ProjectPhoto media={getProjectMedia(p.slug)} className="-mx-7 -mt-7 mb-6 rounded-t-2xl"/>
       <p className="text-xs font-bold uppercase tracking-wider text-slate-600">{p.status}</p>
       <h2 className="mt-4 text-2xl font-semibold leading-tight text-navy"><Link href={`/projects/${p.slug}`}>{p.title}</Link></h2>
       <p className="mt-3 text-sm text-slate-600">{p.period || "Earlier program experience"}</p>

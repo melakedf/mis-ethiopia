@@ -35,7 +35,7 @@ export function Hero({
       }`}
     >
       {!compact && <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="hero-photo absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />}
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,31,43,.96)_0%,rgba(12,48,66,.86)_52%,rgba(12,48,66,.58)_100%)]" />
@@ -46,7 +46,7 @@ export function Hero({
           compact ? "" : "min-h-[520px]"
         }`}
       >
-        <div className="max-w-3xl">
+        <div className="hero-copy max-w-3xl">
           {subtitle && (
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-semibold tracking-wide text-white/85 backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-warm" />
@@ -97,6 +97,7 @@ export function Hero({
           </div>
         </div>
       </div>
+      {!compact && <p className="absolute bottom-4 right-5 rounded-full bg-navy-dark/80 px-3 py-1.5 text-[11px] text-white/85">Temporary stock background · MIS photograph coming soon</p>}
     </section>
   );
 }

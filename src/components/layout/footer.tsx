@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { navItems, siteConfig } from "@/data/constants";
@@ -38,9 +39,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.25fr_.8fr_.8fr_1fr]">
           <div>
             <Link href="/" className="inline-flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-white text-sm font-bold tracking-wider text-navy-dark">
-                MIS
-              </div>
+              <Image src="/brand/mis-logo.png" alt="MIS logo" width={62} height={52} className="h-12 w-auto shrink-0 rounded bg-white object-contain p-1" />
               <div>
                 <div className="font-bold text-white">MIS Ethiopia</div>
                 <div className="text-xs text-white/50">Multi Integrated Support</div>

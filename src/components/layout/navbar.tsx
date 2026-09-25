@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ArrowRight, Menu } from "lucide-react";
@@ -19,9 +20,7 @@ export function Navbar() {
       <div className="h-1 bg-warm" />
       <nav className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="MIS Ethiopia home">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-navy text-sm font-bold tracking-wider text-white shadow-sm">
-            MIS
-          </div>
+          <Image src="/brand/mis-logo.png" alt="MIS logo" width={62} height={52} className="h-12 w-auto shrink-0 rounded bg-white object-contain p-1" />
           <div className="min-w-0">
             <div className="truncate text-[15px] font-bold leading-tight tracking-[-0.01em] text-navy-dark sm:text-base">
               MIS Ethiopia
@@ -81,9 +80,7 @@ export function Navbar() {
           <SheetContent side="right" className="w-[320px] p-0 sm:w-[360px]">
             <div className="border-b border-slate-200 px-6 py-5">
               <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-navy text-xs font-bold tracking-wider text-white">
-                  MIS
-                </div>
+                <Image src="/brand/mis-logo.png" alt="MIS logo" width={62} height={52} className="h-12 w-auto shrink-0 rounded bg-white object-contain p-1" />
                 <div>
                   <div className="font-bold text-navy-dark">MIS Ethiopia</div>
                   <div className="text-xs text-slate-500">Multi Integrated Support</div>
