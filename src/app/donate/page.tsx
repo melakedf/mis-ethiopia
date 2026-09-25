@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { approvedDonationLink } from "@/lib/donation-links";
 import { Building2, Heart, Mail, ShieldCheck } from "lucide-react";
 import { Hero, Section } from "@/components/sections";
 import { siteConfig } from "@/data/constants";
 
 export default function DonatePage() {
+  const local = approvedDonationLink(process.env.MIS_LOCAL_DONATION_URL, "local");
+  const international = approvedDonationLink(process.env.MIS_INTERNATIONAL_DONATION_URL, "international");
+  const givingAvailable = Boolean(local || international);
   return (
     <>
       <Hero
@@ -23,8 +27,9 @@ export default function DonatePage() {
             <div className="mx-auto max-w-3xl text-center">
               <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-warm/10 text-warm"><ShieldCheck className="h-7 w-7" /></span>
               <h2 className="mt-5 text-3xl font-bold text-navy">Let’s find the right way to help</h2>
-              <p className="mt-4 leading-7 text-slate-600">Talk with MIS about supporting children, families and communities. Our team can explain current priorities, giving options and receipt arrangements. Online payments are not available on this website.</p>
+              <p className="mt-4 leading-7 text-slate-600">Talk with MIS about supporting children, families and communities. Our team can explain current priorities, giving options and receipt arrangements. {givingAvailable ? "Use the options below to continue to a payment provider’s secure checkout." : "Online payments are not available on this website."}</p>
             </div>
+            {givingAvailable && <div className="mt-8 rounded-2xl bg-slate-50 p-6"><h3 className="text-xl font-semibold text-navy">Give through secure checkout</h3><p className="mt-3 text-sm leading-7 text-slate-600">You will leave the MIS website to choose an amount and complete your donation. Available currencies and payment methods are displayed by the provider. Check that the recipient is MIS before confirming.</p><div className="mt-5 flex flex-wrap gap-4">{local && <a href={local} className="rounded-lg bg-navy px-5 py-3 font-semibold text-white">Local giving →</a>}{international && <a href={international} className="rounded-lg bg-navy px-5 py-3 font-semibold text-white">International giving →</a>}</div></div>}
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               <div className="rounded-2xl border p-6"><Building2 className="h-7 w-7 text-warm" /><h3 className="mt-4 text-xl font-bold text-navy">Donation or bank-transfer inquiry</h3><p className="mt-2 text-sm leading-6 text-slate-600">Contact MIS directly to confirm the currently approved account details, purpose and receipt process before sending funds.</p><a href={`mailto:${siteConfig.email}?subject=Donation%20inquiry`} className="mt-5 inline-flex items-center gap-2 font-semibold text-warm"><Mail className="h-4 w-4" />{siteConfig.email}</a></div>
               <div className="rounded-2xl border p-6"><Heart className="h-7 w-7 text-warm" /><h3 className="mt-4 text-xl font-bold text-navy">Child sponsorship</h3><p className="mt-2 text-sm leading-6 text-slate-600">Learn about MIS&apos;s child-centered sponsorship approach and contact our team to discuss an approved sponsorship arrangement.</p><Link href="/sponsorship" className="mt-5 inline-flex font-semibold text-warm">Learn about sponsorship →</Link></div>

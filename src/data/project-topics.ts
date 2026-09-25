@@ -1,0 +1,16 @@
+export const projectTopics: Record<string, string[]> = {
+  "integrated-child-protection": ["Child protection", "Education", "Nutrition"],
+  "metekel-nfi-response": ["Humanitarian response"],
+  "urban-destitute-support": ["Child protection", "Livelihoods"],
+  "fenote-selam-child-protection": ["Child protection", "Education"],
+  "guba-shelter-response": ["Humanitarian response"],
+  "kolfe-summer-school": ["Education", "Nutrition"],
+  "cdhra-livelihoods-2011": ["Livelihoods"],
+  "cdhra-livelihoods-2012": ["Livelihoods"],
+  "tsore-refugee-support": ["Humanitarian response", "Livelihoods"],
+  "cssp-inclusion-2019-2021": ["Civil society and inclusion"],
+  "cssp-inclusion-2022-2023": ["Civil society and inclusion"],
+  "mcmdo-women-girls": ["Women’s protection", "Livelihoods"],
+  "school-education-hygiene": ["Education", "Water and sanitation"],
+  "shebedino-school-feeding": ["Nutrition"],
+};

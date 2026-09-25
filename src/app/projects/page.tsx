@@ -1,8 +1,10 @@
+import { CoverageMap } from "@/components/sections/coverage-map";
 import { Hero } from "@/components/sections/hero";
 import { ProjectExplorer } from "@/components/sections/project-explorer";
 export const metadata = { title: "Projects", description: "Explore MIS’s current initiatives and past projects by location, status and partner." };
 export default function Projects() {
   return <><Hero title="Local action. Across communities." subtitle="Our projects" description="Explore current initiatives and documented experience in humanitarian response and community development." compact ctaHref="#portfolio" ctaText="Explore projects" ctaSecondaryHref="/impact" ctaSecondaryText="See our impact" />
+    <CoverageMap />
     <section id="portfolio" className="site-section bg-slate-50"><div className="site-wrap">
       <div id="earlier-work" className="mb-8 max-w-3xl"><p className="eyebrow">Our portfolio</p><p className="mt-4 leading-8 text-slate-600">Our active child-protection initiative is based in Kolfe Keranyo, Addis Ababa. The records below also describe completed projects and earlier partnerships. Historical locations do not imply a current operational presence.</p></div>
       <ProjectExplorer />
