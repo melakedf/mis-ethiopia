@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Multi Integrated Support (MIS) Ethiopia",
   shortName: "MIS Ethiopia",
   description: "MIS Ethiopia is an Ethiopian national civil society organization, working with disadvantaged and hard-to-reach communities through integrated, community-based programs.",
-  url: "https://miseth.org",
+  url: "https://mis-ethiopia-4vjh.vercel.app",
   email: "info@miseth.org",
   emailSecondary: "mise.eth@gmail.com",
   phone: "+251 11 810 7448",

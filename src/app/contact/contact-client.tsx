@@ -20,15 +20,19 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
     try {
       const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({...formData, consent: true}) });
       if (!response.ok) throw new Error("Unable to send message");
       setSubmitted(true);
       setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    } catch {
+      setError("Your message could not be sent. Please try again or email info@miseth.org.");
     } finally {
       setIsSubmitting(false);
     }
@@ -37,11 +41,11 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
   const faqs = [
     {
       question: "How can I make a donation?",
-      answer: "You can donate online through our secure donation portal, by bank transfer, or by contacting us for other options. Visit our Donate page for all details.",
+      answer: "Email MIS to discuss a donation and confirm payment details and receipt arrangements. This website does not currently accept online payments.",
     },
     {
       question: "How does child sponsorship work?",
-      answer: "Child sponsorship provides ongoing support to a specific child, including education, healthcare, and nutrition. You'll receive regular updates, photos, and letters from your sponsored child.",
+      answer: "MIS’s child-centered initiative supports education, family assistance and child well-being. Contact us to discuss support options and reporting arrangements that respect children’s privacy.",
     },
     {
       question: "What percentage of my donation goes to programs?",
@@ -49,11 +53,11 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
     },
     {
       question: "Can I visit the programs in Ethiopia?",
-      answer: "We organize supervised field visits for sponsors when possible. Contact us to discuss visit possibilities.",
+      answer: "Please contact MIS to discuss whether a visit is appropriate and possible. Visits must follow safeguarding requirements and program needs.",
     },
     {
       question: "How can my organization partner with MIS Ethiopia?",
-      answer: "We welcome partnerships with corporations, foundations, and other organizations. Please contact our team through this form with your interests.",
+      answer: "We welcome partnerships with corporations, foundations, and other organizations. Please email our team with your organization, areas of interest and proposed collaboration.",
     },
   ];
 
@@ -63,8 +67,9 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
         title="Contact Us"
         subtitle="Get in touch with our team across Ethiopia"
         description="We'd love to hear from you. Whether you have questions about our programs, want to get involved, or need more information, we're here to help."
-        ctaText="Donate Now"
-        ctaSecondaryText="Sponsor a Child"
+        ctaText="Discuss a donation"
+        ctaSecondaryText="Explore sponsorship"
+        ctaSecondaryHref="/sponsorship"
         ctaHref="/donate"
         compact
       />
@@ -90,7 +95,7 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
                 <div className="text-white font-bold">Phone</div>
               </div>
               <p className="text-gray-300 text-sm ml-13">{siteConfig.phone}</p>
-              <p className="text-gray-400 text-sm ml-13">Mon-Fri 8:00 AM - 5:00 PM</p>
+              <p className="text-gray-400 text-sm ml-13">Call to arrange a conversation</p>
             </div>
             <div className="col-span-1">
               <div className="flex items-center gap-3 mb-2">
@@ -100,17 +105,17 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
                 <div className="text-white font-bold">Email</div>
               </div>
               <p className="text-gray-300 text-sm ml-13">{siteConfig.email}</p>
-              <p className="text-gray-400 text-sm ml-13">We respond within 24 hours</p>
+              <p className="text-gray-400 text-sm ml-13">General and partnership inquiries</p>
             </div>
             <div className="col-span-1">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 bg-warm/20 rounded-lg flex items-center justify-center">
                   <Clock className="w-5 h-5 text-warm" />
                 </div>
-                <div className="text-white font-bold">Office Hours</div>
+                <div className="text-white font-bold">Office Visits</div>
               </div>
-              <p className="text-gray-300 text-sm ml-13">Mon - Fri</p>
-              <p className="text-gray-400 text-sm ml-13">8:00 AM - 5:00 PM EAT</p>
+              <p className="text-gray-300 text-sm ml-13">By arrangement</p>
+              <p className="text-gray-400 text-sm ml-13">Contact us before visiting</p>
             </div>
           </div>
         </div>
@@ -123,7 +128,7 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
               <SectionHeader
                 subtitle="Get in Touch"
                 title="Send Us a Message"
-                description="Have a question or want to work with us? Fill out the form below and we'll get back to you as soon as possible."
+                description={formAvailable ? "Have a question or want to work with us? Send your inquiry below." : "Have a question or want to work with us? Email our team to start a conversation."}
               />
 
               {!formAvailable ? (
@@ -148,6 +153,7 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && <p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p>}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -257,8 +263,8 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-lg font-bold text-navy mb-4">Department Contacts</h3>
-                <p className="text-gray-600 text-sm mb-4">For specific inquiries, you can contact our departments directly.</p>
+                <h3 className="text-lg font-bold text-navy mb-4">Inquiry Topics</h3>
+                <p className="text-gray-600 text-sm mb-4">Our team can direct your inquiry to the appropriate person.</p>
                 <div className="space-y-4">
                   {departmentContacts.map((dept, index) => (
                     <div key={index} className="bg-ngo-secondary rounded-xl p-4">
@@ -290,8 +296,8 @@ export default function ContactPage({formAvailable}: {formAvailable: boolean}) {
 
               <div className="rounded-lg border border-gray-200 p-4">
                 <p className="text-sm font-medium text-navy mb-1">Contact Person</p>
-                <p className="text-gray-600 text-sm">Solomon Getachew</p>
-                <p className="text-sm text-gray-600">Zoom ID: 907 271 4158</p>
+                <p className="text-gray-600 text-sm">Melake Fisseha Desta</p>
+                <p className="text-sm text-gray-600">Executive Director</p>
               </div>
             </div>
           </div>

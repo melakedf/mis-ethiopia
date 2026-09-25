@@ -31,19 +31,19 @@ export function Hero({
   return (
     <section
       className={`relative overflow-hidden bg-navy-dark pt-20 ${
-        compact ? "min-h-[500px]" : "min-h-[680px]"
+        compact ? "" : "min-h-[600px]"
       }`}
     >
-      <div
+      {!compact && <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
-      />
+      />}
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,31,43,.96)_0%,rgba(12,48,66,.86)_52%,rgba(12,48,66,.58)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(232,162,58,.15),transparent_32%)]" />
 
       <div
         className={`relative mx-auto flex max-w-7xl items-center px-5 py-16 sm:px-8 lg:px-10 ${
-          compact ? "min-h-[420px]" : "min-h-[600px]"
+          compact ? "" : "min-h-[520px]"
         }`}
       >
         <div className="max-w-3xl">
@@ -56,7 +56,7 @@ export function Hero({
 
           <h1
             className={`font-semibold leading-[1.05] tracking-[-0.035em] text-white ${
-              compact ? "text-4xl sm:text-5xl lg:text-6xl" : "text-5xl sm:text-6xl lg:text-7xl"
+              compact ? "text-3xl sm:text-4xl lg:text-5xl" : "text-5xl sm:text-6xl lg:text-7xl"
             }`}
           >
             {title}
