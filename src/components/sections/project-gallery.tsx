@@ -5,9 +5,9 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ProjectPhoto } from "@/components/sections/project-photo";
 import { mediaLibrary } from "@/data/project-media";
 const slides = [
- {title:"Learning together in Kolfe",label:"Education and nutrition",body:"A space for summer-school photographs: learning activities, teaching materials and shared meals.",href:"/projects/kolfe-summer-school",media:mediaLibrary.education},
- {title:"Supporting children and families",label:"Child protection",body:"A space for photographs of community participation and family support in our current initiative.",href:"/projects/integrated-child-protection",media:mediaLibrary.community},
- {title:"Responding alongside communities",label:"Humanitarian response",body:"A space for field photographs from MIS’s past shelter and essential household support projects.",href:"/projects/metekel-nfi-response",media:mediaLibrary.support},
+ {title:"Learning together in Kolfe",label:"Education and nutrition",body:"In the 2026 summer program, 31 children participated in 18 teaching days, with grade-level review and breakfast and lunch.",href:"/projects/kolfe-summer-school",media:mediaLibrary.education},
+ {title:"Supporting children and families",label:"Child protection",body:"The integrated child-protection initiative combines family assistance, school follow-up and caregiver engagement. Its August 2026 active caseload was 229 children.",href:"/projects/integrated-child-protection",media:mediaLibrary.community},
+ {title:"Responding alongside communities",label:"Humanitarian response",body:"The completed Metekel response reached 8,307 people in 1,500 households across 28 kebeles with essential non-food items.",href:"/projects/metekel-nfi-response",media:mediaLibrary.support},
 ];
 export function ProjectGallery(){
  const [index,setIndex]=useState(0);const slide=slides[index];

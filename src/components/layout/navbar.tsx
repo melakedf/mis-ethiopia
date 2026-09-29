@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { navItems } from "@/data/constants";
 
 export function Navbar() {
@@ -13,7 +13,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => { const update = () => setScrolled(window.scrollY > 35); update(); window.addEventListener("scroll", update, {passive:true}); return () => window.removeEventListener("scroll", update); }, []);
-  const primaryNav = navItems.filter((item) => item.href !== "/contact");
+  const primaryNav = navItems.filter((item) => !["/contact", "/", "/impact", "/news"].includes(item.href));
 
   if (pathname.startsWith("/admin")) return null;
 
@@ -33,13 +33,14 @@ export function Navbar() {
           </div>
         </Link>
 
-        <div className="hidden items-center gap-6 xl:flex">
+        <div className="hidden items-center gap-5 xl:flex">
           {primaryNav.map((item) => {
             const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={`relative py-2 text-[14px] font-semibold transition-colors ${
                   active ? "text-navy" : "text-slate-600 hover:text-navy"
                 }`}
@@ -79,7 +80,8 @@ export function Navbar() {
           >
             <Menu className="h-5 w-5" />
           </SheetTrigger>
-          <SheetContent side="right" className="w-[320px] p-0 sm:w-[360px]">
+          <SheetContent side="right" className="w-[min(360px,100vw)] overflow-y-auto overscroll-contain p-0">
+            <SheetTitle className="sr-only">MIS navigation</SheetTitle>
             <div className="border-b border-slate-200 px-6 py-5">
               <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
                 <Image src="/brand/mis-logo.png" alt="MIS logo" width={62} height={52} className="h-12 w-auto shrink-0 rounded bg-white object-contain p-1" />
@@ -97,6 +99,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
+                aria-current={active ? "page" : undefined}
                     onClick={() => setIsOpen(false)}
                     className={`border-b border-slate-100 py-3.5 text-base font-semibold transition-colors ${
                       active ? "text-warm-dark" : "text-slate-700 hover:text-navy"

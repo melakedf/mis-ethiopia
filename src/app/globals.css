@@ -328,3 +328,16 @@ footer .text-warm {color:#ff9e94;}
 .text-navy,.text-navy-dark {color:#242a3b;}
 .bg-navy .text-warm,.bg-navy-dark .text-warm {color:#ff9e94;}
 @media(max-width:767px){.mis-header nav{height:80px}.mis-header-overlay nav>a .text-navy-dark{color:white}}
+
+/* Compact homepage and small-screen improvements. */
+.giving-hero h1 {font-size:clamp(2.65rem,4.8vw,4.3rem);}
+.giving-hero-main {padding-top:80px;padding-bottom:95px;}
+.giving-partner-strip {padding-block:32px;border-bottom:1px solid #e6e6e9;}
+.giving-partner-strip>.site-wrap {display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.giving-partner-strip h2 {font-size:20px;font-weight:600;margin-top:8px;}
+.giving-partner-strip p {font-size:14px;line-height:1.8;max-width:590px;}
+.giving-partner-strip .text-link {margin-left:auto;}
+.giving-collage-main .project-photo-label {top:12px;bottom:auto;}
+@media (min-width:768px) and (max-width:1023px){.giving-about-grid,.giving-faq-grid{grid-template-columns:1fr}.giving-collage{max-width:600px;width:100%;margin:auto}}
+@media (max-width:767px){.giving-hero h1{font-size:clamp(2.3rem,8.5vw,3.5rem)}.giving-hero-main{padding-top:55px;padding-bottom:70px}.giving-partner-strip .text-link{margin-left:0}}
+@media (max-width:380px){.giving-purpose-grid{grid-template-columns:1fr}.giving-collage-note{padding:14px;font-size:12px}.giving-stat-grid strong{font-size:34px}}

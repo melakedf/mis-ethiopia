@@ -7,3 +7,13 @@ Temporary stock photos are configured in src/data/project-media.ts. All cards an
 The homepage gallery uses the mediaLibrary entries. Its descriptive copy is in src/components/sections/project-gallery.tsx; replace the temporary-slot wording with confirmed photo captions when the images change. The hero background is configured in src/components/sections/hero.tsx; replace its image and temporary label together. Avoid adding identifying case information in photo captions.
 
 Image slots reserve their aspect ratio to reduce page movement while images load. Cards use lazy-loaded Next.js optimized images. Gallery navigation is manual, without autoplay. Section animations progressively enhance visible content and respect prefers-reduced-motion, including changes to that setting during a visit.
+
+## September 2026 delivery update
+Temporary photos are bundled in `public/images` so page rendering does not depend on an Unsplash origin fetch. They remain visibly labeled illustrative stock photography, not MIS beneficiaries or project evidence. Replace through `src/data/project-media.ts` with consent-approved MIS photos.
+
+Original stock source IDs (images.unsplash.com):
+- community-placeholder.webp: photo-1488521787991-ed7bbaae773c
+- education-placeholder.webp: photo-1503676260728-1c00da094a0b
+- support-placeholder.webp: photo-1469571486292-0ba58a3f068b
+
+Images fetched at 1200px wide in WebP, quality 70; Next Image serves responsive optimized sizes. The hero uses eager loading and high fetch priority. Other images retain lazy loading and reserved aspect ratios.
