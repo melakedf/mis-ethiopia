@@ -1,10 +1,51 @@
 import Link from "next/link";
-import { projectStories } from "@/data/project-stories";
-import { ProjectPhoto } from "@/components/sections/project-photo";import { getProjectMedia } from "@/data/project-media";
+import { notFound } from "next/navigation";
+import { Hero } from "@/components/sections/hero";
+import { ProjectPhoto } from "@/components/sections/project-photo";
+import { getProjectMedia } from "@/data/project-media";
 import { historicalProjects } from "@/data/project-history";
-import { notFound } from "next/navigation";import { projects } from "@/data/projects";import { Hero } from "@/components/sections/hero";
-export function generateStaticParams(){return [...projects,...historicalProjects].map(p=>({slug:p.slug}));}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=[...projects,...historicalProjects].find(p=>p.slug===slug);return {title:p?.title,description:p?.body};}
-export default async function Project({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const history=historicalProjects.find(p=>p.slug===slug);
-if(history)return <><Hero title={history.title} subtitle="Past project experience" description={history.theme} compact ctaText="Discuss a partnership" ctaHref="/contact" ctaSecondaryText="All projects" ctaSecondaryHref="/projects#earlier-work"/><section className="site-section"><div className="site-wrap grid gap-12 lg:grid-cols-[1.4fr_1fr]"><div><ProjectPhoto media={getProjectMedia(slug)} className="mb-8 rounded-2xl" sizes="(max-width: 1024px) 100vw, 60vw"/><h2 className="section-title">About this work</h2><p className="mt-6 text-lg leading-8 text-slate-600">{history.body}</p></div><aside className="h-fit rounded-2xl bg-slate-100 p-8"><h2 className="text-xl font-semibold text-navy">Project overview</h2><dl className="mt-6 space-y-6">{[["Period",history.period],["Partner",history.partner],["Location",history.location],["Focus",history.theme]].filter(([,v])=>v).map(([k,v])=><div key={k}><dt className="text-sm font-semibold text-slate-500">{k}</dt><dd className="mt-1 leading-7 text-navy">{v}</dd></div>)}</dl></aside></div></section></>;
-const p=projects.find(p=>p.slug===slug);if(!p)notFound();return <><Hero title={p.title} subtitle={`${p.status} · ${p.location}`} compact ctaText="Discuss a partnership" ctaHref="/contact" ctaSecondaryText="All projects" ctaSecondaryHref="/projects"/><section className="site-section"><div className="site-wrap grid gap-12 lg:grid-cols-[1.4fr_1fr]"><div><ProjectPhoto media={getProjectMedia(slug)} className="mb-8 rounded-2xl" sizes="(max-width: 1024px) 100vw, 60vw"/><h2 className="section-title">About the project</h2><p className="mt-6 text-lg leading-8 text-slate-600">{p.body}</p>{projectStories[slug]?.map(section=><section key={section.heading} className="mt-9"><h2 className="text-2xl font-semibold text-navy">{section.heading}</h2><p className="mt-4 leading-8 text-slate-600">{section.text}</p></section>)}{slug === "kolfe-summer-school" && <Link href="/resources/mis-summer-school-2026.pdf" className="text-link mt-8">Download the summer-school brief (PDF) →</Link>}<div className="mt-10 flex flex-wrap gap-6 border-t border-slate-200 pt-6"><Link href="/reports" className="text-link">Public resources →</Link><Link href="/contact" className="text-link">Ask about this project →</Link></div></div><aside className="h-fit rounded-2xl bg-slate-100 p-8"><p className="text-5xl font-semibold text-navy">{p.figure}</p><h2 className="mt-3 text-xl font-semibold text-navy">{p.unit}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{p.qualifier}</p><dl className="mt-7 space-y-6 border-t border-slate-300 pt-6">{[['Period',p.period],['Partner',p.partner],['Location',p.location]].map(([k,v])=><div key={k}><dt className="text-sm font-semibold text-slate-500">{k}</dt><dd className="mt-1 leading-7 text-navy">{v}</dd></div>)}</dl></aside></div></section></>}
+import { projects } from "@/data/projects";
+import { projectStories } from "@/data/project-stories";
+import { projectDetails } from "@/data/project-details";
+
+const portfolio = [...projects, ...historicalProjects];
+export function generateStaticParams() { return portfolio.map(p => ({ slug: p.slug })); }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = portfolio.find(p => p.slug === slug);
+  return { title: project?.title, description: project?.body, alternates: { canonical: `/projects/${slug}` } };
+}
+export default async function Project({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = portfolio.find(p => p.slug === slug);
+  if (!project) notFound();
+  const details = projectDetails[slug];
+  const recent = "status" in project;
+  const facts = [
+    ["Period", project.period], ["Partner", project.partner], ["Location", project.location],
+    ["Focus", "theme" in project ? project.theme : null],
+    [details?.budgetLabel || "Recorded project budget", details?.budget],
+    ["Recorded beneficiaries", details?.beneficiaries],
+  ].filter(([, value]) => value);
+  return <>
+    <Hero title={project.title} subtitle={recent ? `${project.status} · ${project.location}` : "Past project experience"} compact ctaText="Discuss a partnership" ctaHref="/contact" ctaSecondaryText="All projects" ctaSecondaryHref="/projects#portfolio" />
+    <section className="site-section"><div className="site-wrap grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+      <div className="min-w-0">
+        <ProjectPhoto media={getProjectMedia(slug)} className="mb-8 rounded-2xl" sizes="(max-width: 1024px) 100vw, 60vw" />
+        <h2 className="section-title">About the project</h2>
+        {details?.fullTitle && <p className="mt-5 font-semibold leading-7 text-navy">{details.fullTitle}</p>}
+        <p className="mt-6 text-lg leading-8 text-slate-600">{project.body}</p>
+        {projectStories[slug]?.map(section => <section key={section.heading} className="mt-9"><h2 className="text-2xl font-semibold text-navy">{section.heading}</h2><p className="mt-4 leading-8 text-slate-600">{section.text}</p></section>)}
+        {details?.contributions && <section className="mt-9"><h2 className="text-2xl font-semibold text-navy">Project contributions</h2><dl className="mt-5 divide-y divide-slate-200">{details.contributions.map(item => <div key={item.label} className="flex flex-wrap justify-between gap-3 py-4"><dt className="text-slate-600">{item.label}</dt><dd className="font-semibold text-navy">{item.amount}</dd></div>)}</dl><p className="mt-3 text-sm leading-6 text-slate-600">The target schools’ contribution included follow-up and technical support.</p></section>}
+        {slug === "kolfe-summer-school" && <Link href="/resources/mis-summer-school-2026.pdf" className="text-link mt-8">Download the summer-school brief (PDF) →</Link>}
+        <div className="mt-10 flex flex-wrap gap-6 border-t border-slate-200 pt-6"><Link href="/reports" className="text-link">Public resources →</Link><Link href="/contact" className="text-link">Ask about this project →</Link></div>
+      </div>
+      <aside className="h-fit min-w-0 rounded-2xl bg-slate-100 p-6 sm:p-8">
+        {recent ? <><p className="text-5xl font-semibold text-navy">{project.figure}</p><h2 className="mt-3 text-xl font-semibold text-navy">{project.unit}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{project.qualifier}</p></> : <h2 className="text-xl font-semibold text-navy">Project overview</h2>}
+        <dl className="mt-7 space-y-6 border-t border-slate-300 pt-6">{facts.map(([label, value]) => <div key={label}><dt className="text-sm font-semibold text-slate-500">{label}</dt><dd className="mt-1 leading-7 text-navy">{value}</dd></div>)}</dl>
+        {details?.budget && <p className="mt-6 text-xs leading-6 text-slate-600">Budget amounts describe recorded project allocations, not audited expenditure.</p>}
+        {details?.recordNote && <div className="mt-6 border-t border-slate-300 pt-6"><h3 className="font-semibold text-navy">About this record</h3><p className="mt-2 text-sm leading-6 text-slate-600">{details.recordNote}</p></div>}
+      </aside>
+    </div></section>
+  </>;
+}

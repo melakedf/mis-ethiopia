@@ -10,7 +10,7 @@ export const projectMedia: Record<string, MediaItem> = {
  "integrated-child-protection": mediaLibrary.community,
  "kolfe-summer-school": mediaLibrary.education,
  "fenote-selam-child-protection": mediaLibrary.education,
- "school-education-hygiene": mediaLibrary.education,
+ "student-led-school-sanitation-hygiene": mediaLibrary.education,
  "urban-destitute-support": mediaLibrary.support,
 };
 export function getProjectMedia(slug: string): MediaItem { return projectMedia[slug] || mediaLibrary.support; }

@@ -11,7 +11,7 @@ export const projectStories: Record<string, { heading: string; text: string }[]>
     { heading: "Documented delivery", text: "The completed response reached 8,307 people in 1,500 households across 28 kebeles. These figures describe assistance delivered during this response and should not be added to other MIS project counts as a unique-person total." },
   ],
   "kolfe-summer-school": [
-    { heading: "Keeping learning going during the break", text: "The 2026 Kolfe summer school brought together 31 children for selected grade-level review. Learning took place over 18 teaching days, scheduled three days per week." },
+    { heading: "Keeping learning going during the break", text: "The 2026 Kolfe summer school brought together 31 children for English and Mathematics support. It addressed the challenges government-school students face when moving from Amharic-medium learning to English-medium instruction around Grade 7. Learning took place over 18 teaching days, scheduled three days per week." },
     { heading: "Teaching and meals together", text: "One main teacher and two assistants supported the learning activities. Breakfast and lunch, with local meal support, accompanied the lessons. The program was supported by IGO and MIS." },
     { heading: "Participation, reported clearly", text: "The available records establish participation and teaching days. They do not establish a measured improvement in grades. Read the public summer-school brief for a concise summary of the program." },
   ],

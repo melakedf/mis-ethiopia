@@ -58,7 +58,7 @@ export const projects = [
     "figure": "1,500",
     "unit": "households targeted",
     "qualifier": "Documented target; final reach is not stated in the available record",
-    "body": "This intervention was designed to support immediate safety and essential household needs for vulnerable returnee families. The documented target was 1,500 households, estimated at 7,500 people. This target is not presented as an achieved result."
+    "body": "This intervention was designed to support immediate safety and essential household needs for vulnerable returnee families. The documented target was 1,500 households, estimated at 7,500 people. Planned assistance included shelter kits for 1,000 households and non-food-item kits for 1,500 households. These targets are not presented as achieved results."
   },
   {
     "slug": "kolfe-summer-school",
@@ -70,6 +70,6 @@ export const projects = [
     "figure": "31",
     "unit": "children participated",
     "qualifier": "18 teaching days, three days per week",
-    "body": "MIS and IGO delivered an 18-day summer learning program for 31 children selected through school-grade review. A main teacher and two assistants supported learning, with breakfast and lunch provided on program days. MIS also mobilized local support for meals."
+    "body": "MIS and IGO delivered an 18-day English and Mathematics summer program for 31 children selected through school-grade review. It supported preparation for the transition from Amharic-medium learning to English-medium instruction around Grade 7. A main teacher and two assistants supported learning, with breakfast and lunch provided on program days. MIS also mobilized local support for meals."
   }
 ];

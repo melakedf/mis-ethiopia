@@ -8,9 +8,9 @@ export const projectTopics: Record<string, string[]> = {
   "cdhra-livelihoods-2011": ["Livelihoods"],
   "cdhra-livelihoods-2012": ["Livelihoods"],
   "tsore-refugee-support": ["Humanitarian response", "Livelihoods"],
-  "cssp-inclusion-2019-2021": ["Civil society and inclusion"],
-  "cssp-inclusion-2022-2023": ["Civil society and inclusion"],
+  "cssp1-social-inclusion": ["Civil society and inclusion"],
+  "cssp2-community-inclusion": ["Civil society and inclusion"],
   "mcmdo-women-girls": ["Women’s protection", "Livelihoods"],
-  "school-education-hygiene": ["Education", "Water and sanitation"],
+  "student-led-school-sanitation-hygiene": ["Education", "Water and sanitation"],
   "shebedino-school-feeding": ["Nutrition"],
 };

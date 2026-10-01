@@ -11,3 +11,19 @@ The public project history uses the MIS Website Content and Development Master (
 - Broader health and savings-group work is described separately as thematic experience. It is not counted again as distinct project awards.
 
 Recent portfolio figures remain controlled by the final profile and website master. Proposals, targets and pending EHF consortium work are not presented as completed projects. Internal budgets and due-diligence records are not published as attachments.
+
+
+## 1 October 2026 update — shared MIS Project History Review
+Source supplied by MIS: https://chatgpt.com/share/6abe144c-b548-83e9-9fe4-543e482677c8
+Retrieved the public conversation text, including the final corrected table and summaries of the three scans. This update uses the conversation as supplied evidence; it does not claim a fresh audit of the original attachments.
+
+The following corrections supersede the earlier source notes above:
+- French Embassy: replace the grouped, undated entry with Student Led School Sanitation and Hygiene (SLSSH), December 2016–May 2018, six schools in Arada. Recorded direct/indirect coverage: 3,240 / 1,873. Budget ETB 1,571,563; French Embassy/PISCCA ETB 1,100,096; MIS ETB 157,157; schools ETB 314,310. School contribution includes follow-up and technical support.
+- CSSP1: January 2020 start, 16 months, CSSP/British Council through NSAC; budget ETB 1,327,984. Replaces the earlier 2019–2021 label. Beneficiary total remains unconfirmed.
+- CSSP2: June 2022 start; budget ETB 2,208,641.25; 2,036 direct and more than 21,000 indirect beneficiaries listed. Source says 10 months but prints 1 June 2022–31 October 2023. Remove the previous asserted March 2023 end date; publish the confirmed start and explain the conflict on the detail page.
+- Metekel NFI: USD 50,595.10. UDS: ETB 2,719,530. Guba: USD 95,606.61. Nexus/Fenote Selam: ETB 500,000. IGO initiative: ETB 24,452,400. These are project-level budgets, not audited expenditure.
+- Guba: 1,500 households / 7,500 people remain targets; planned kits cover 1,000 shelter households and 1,500 NFI households. No achieved total inferred.
+- Summer school: specify English and Mathematics and preparation for the transition from Amharic-medium to English-medium learning around Grade 7. Retain 31 participants and 18 teaching days; no measured grade improvement claimed.
+- Older dated/undated experience remains available outside a strict 2016–2026 interpretation. No speculative savings-group totals or pending EHF proposal claims added.
+
+Canonical URLs for the two CSSP projects and SLSSH now use their project names; previous URLs have permanent redirects. No additional awards or beneficiary totals were created by splitting/recounting existing records.

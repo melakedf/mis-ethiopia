@@ -1,5 +1,5 @@
-// Public summaries from MIS’s website master, organizational profile and EHF/DDA past-performance records.
-// Missing dates, partners and beneficiary totals are intentionally omitted, not estimated.
+// Public summaries; October 2026 corrections from the shared MIS Project History Review.
+// Missing figures and unresolved dates remain unconfirmed.
 export const historicalProjects = [
   {
     "slug": "cdhra-livelihoods-2011",
@@ -29,22 +29,22 @@ export const historicalProjects = [
     "body": "MIS implemented shelter and livelihood support for South Sudanese refugees in collaboration with UNHCR and the Administration for Refugees and Returnees Affairs. Partner acknowledgments record 100 emergency shelters alongside community self-help activities and backyard gardening."
   },
   {
-    "slug": "cssp-inclusion-2019-2021",
-    "title": "Civil-society networking and social inclusion — 2019–2021",
-    "period": "2019 – 2021",
-    "partner": "British Council / CSSP2, with NSAC",
-    "location": "Mao-Komo Special Woreda, Benishangul-Gumuz",
+    "slug": "cssp1-social-inclusion",
+    "title": "CSSP1: Civil-society networking and social inclusion",
+    "period": "From January 2020 · 16-month project",
+    "partner": "CSSP / British Council through Non-State Actors Coalition (NSAC)",
+    "location": "Mao-Komo Special Woreda, Assosa Zone, Benishangul-Gumuz",
     "theme": "Civil society and inclusion",
-    "body": "MIS strengthened local civil-society networking and advocacy for social-minority inclusion. The work connected community participation with health, education and more responsive local services."
+    "body": "MIS strengthened the networking and advocacy capacity of local civil-society organizations to support the inclusion of social minorities. The project promoted meaningful participation, stronger community structures and greater attention to barriers in accessing social services. Collaboration involved human-rights advocates, community-care coalitions, religious leaders, government, media and the public."
   },
   {
-    "slug": "cssp-inclusion-2022-2023",
-    "title": "Civil-society networking and advocacy — 2022–2023",
-    "period": "June 2022 – March 2023",
-    "partner": "British Council / CSSP2, through NSAC",
+    "slug": "cssp2-community-inclusion",
+    "title": "CSSP2: Advocacy and inclusion of vulnerable community groups",
+    "period": "From June 2022 · end date unconfirmed",
+    "partner": "Civil Society Support Programme Phase Two through Non-State Actors Coalition (NSAC)",
     "location": "Mao-Komo Special Woreda, Benishangul-Gumuz",
     "theme": "Civil society and inclusion",
-    "body": "MIS’s later networking and advocacy project supported the inclusion of social minorities through stronger local civil-society capacity. This phase is recorded separately from the 2019–2021 work."
+    "body": "MIS worked to strengthen local civil-society networks and advocacy for vulnerable community groups in Mao-Komo. The project aimed to support inclusive, responsive and accountable governance. The project record lists 2,036 direct beneficiaries and more than 21,000 indirect beneficiaries, including girls, women and young people. This was a separate project from CSSP1."
   },
   {
     "slug": "mcmdo-women-girls",
@@ -56,13 +56,13 @@ export const historicalProjects = [
     "body": "MIS’s partnership with MCMDO included work addressing harmful traditional practices, female genital mutilation and gender-based violence, alongside women’s economic empowerment. The past-performance record includes a cooperation agreement and subsequent project and budget amendments."
   },
   {
-    "slug": "school-education-hygiene",
-    "title": "Child-friendly education and student-led school hygiene",
-    "period": null,
-    "partner": "French Embassy",
-    "location": "Addis Ababa",
+    "slug": "student-led-school-sanitation-hygiene",
+    "title": "Student Led School Sanitation and Hygiene (SLSSH)",
+    "period": "December 2016 – May 2018 · 18 months",
+    "partner": "French Embassy PISCCA Program, MIS and target schools",
+    "location": "Six primary schools in Arada Sub-City, Addis Ababa",
     "theme": "Education and school WaSH",
-    "body": "MIS’s earlier education experience includes child-friendly quality education, girls’ education and student-led sanitation and hygiene. These activities connected learning environments with practical school water, sanitation and hygiene improvements."
+    "body": "MIS implemented Student Led School Sanitation and Hygiene in six selected primary schools to improve the quality of primary education through a more conducive school environment. The project connected school sanitation and hygiene with the needs of schoolchildren, school communities, education offices and parents. The project record lists 3,240 direct and 1,873 indirect beneficiaries."
   },
   {
     "slug": "shebedino-school-feeding",
