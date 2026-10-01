@@ -10,6 +10,11 @@ export const projectStories: Record<string, { heading: string; text: string }[]>
     { heading: "Reaching households at greatest risk", text: "Households were identified with government, community and humanitarian partners. The response prioritized vulnerable displaced households, including children at risk, women-headed households, older people and people with disabilities." },
     { heading: "Documented delivery", text: "The completed response reached 8,307 people in 1,500 households across 28 kebeles. These figures describe assistance delivered during this response and should not be added to other MIS project counts as a unique-person total." },
   ],
+  "fenote-selam-child-protection": [
+    { heading: "Child safety within the school community", text: "From December 2024 to June 2025, MIS worked with Nexus Ethiopia in Fenote Selam Town, Amhara, to strengthen child safety and rights in schools." },
+    { heading: "Practical support and shared responsibility", text: "The project combined safe spaces, counselling, child-rights clubs and case management with advocacy and teacher capacity building. These activities connected support for children with the adults and school systems around them." },
+    { heading: "Documented participation", text: "Project records report 150 direct participants: 100 children and 50 teachers. They also record 2,000 indirect beneficiaries, including parents, community members and partners. These are participation and coverage figures, not a measured reduction in protection risks." },
+  ],
   "kolfe-summer-school": [
     { heading: "Keeping learning going during the break", text: "The 2026 Kolfe summer school brought together 31 children for English and Mathematics support. It addressed the challenges government-school students face when moving from Amharic-medium learning to English-medium instruction around Grade 7. Learning took place over 18 teaching days, scheduled three days per week." },
     { heading: "Teaching and meals together", text: "One main teacher and two assistants supported the learning activities. Breakfast and lunch, with local meal support, accompanied the lessons. The program was supported by IGO and MIS." },

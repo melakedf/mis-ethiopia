@@ -14,9 +14,9 @@ const records = [
 ];
 const regions = ["Addis Ababa", "Benishangul-Gumuz", "Amhara", "Shebedino"];
 
-export function ProjectExplorer() {
+export function ProjectExplorer({ initialStatus = "" }: { initialStatus?: string }) {
   const [query, setQuery] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(initialStatus);
   const [region, setRegion] = useState("");
   const [topic, setTopic] = useState("");
   const filtered = records.filter(p =>

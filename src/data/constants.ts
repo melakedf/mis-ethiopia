@@ -26,7 +26,7 @@ export const siteConfig = {
 };
 
 export const navItems = [
-{title:"Home",href:"/"},{title:"About",href:"/about"},{title:"What We Do",href:"/programs"},{title:"Projects",href:"/projects"},{title:"Impact",href:"/impact"},{title:"Partners",href:"/partners"},{title:"News",href:"/news"},{title:"Resources",href:"/reports"},{title:"Contact",href:"/contact"}
+{title:"Home",href:"/"},{title:"About",href:"/about"},{title:"What We Do",href:"/programs"},{title:"Projects",href:"/projects"},{title:"Impact",href:"/impact"},{title:"Partners",href:"/partners"},{title:"News",href:"/news"},{title:"Resources",href:"/reports"},{title:"Gallery",href:"/gallery"},{title:"Contact",href:"/contact"}
 ];
 
 export const impactStats = [

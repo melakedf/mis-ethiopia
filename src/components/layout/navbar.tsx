@@ -4,16 +4,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { navItems } from "@/data/constants";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => { const update = () => setScrolled(window.scrollY > 35); update(); window.addEventListener("scroll", update, {passive:true}); return () => window.removeEventListener("scroll", update); }, []);
-  const primaryNav = navItems.filter((item) => !["/contact", "/", "/impact", "/news"].includes(item.href));
+  const primaryNav = navItems.filter((item) => !["/contact", "/", "/impact", "/news", "/gallery"].includes(item.href));
 
   if (pathname.startsWith("/admin")) return null;
 
@@ -36,6 +37,20 @@ export function Navbar() {
         <div className="hidden items-center gap-5 xl:flex">
           {primaryNav.map((item) => {
             const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+            const children = item.href === "/projects" ? [
+              { title: "All projects", href: "/projects" },
+              { title: "Active projects", href: "/projects?status=Active#portfolio" },
+              { title: "Completed projects", href: "/projects?status=Completed#portfolio" },
+              { title: "Earlier experience", href: "/projects?status=Earlier%20experience#portfolio" },
+            ] : item.href === "/reports" ? [
+              { title: "Publications and reports", href: "/reports" },
+              { title: "News and updates", href: "/news" },
+              { title: "Project gallery", href: "/gallery" },
+            ] : null;
+            if (children) return <div key={item.href} className="nav-dropdown relative" onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenMenu(null); }} onKeyDown={event => { if (event.key === "Escape") { setOpenMenu(null); event.currentTarget.querySelector("button")?.focus(); } }}>
+              <button type="button" className="nav-dropdown-toggle flex items-center gap-1.5 py-3 text-sm font-semibold" aria-expanded={openMenu === item.href} aria-controls={`nav-${item.title.toLowerCase()}`} onClick={() => setOpenMenu(openMenu === item.href ? null : item.href)}>{item.title}<ChevronDown size={14}/></button>
+              {openMenu === item.href && <div id={`nav-${item.title.toLowerCase()}`} className="nav-dropdown-panel absolute left-0 top-full min-w-60 rounded-xl border border-slate-200 bg-white p-2 shadow-xl">{children.map(child => <Link key={child.href} href={child.href} onClick={() => setOpenMenu(null)} className="block rounded-lg px-4 py-3 text-sm font-medium hover:bg-slate-100">{child.title}</Link>)}</div>}
+            </div>;
             return (
               <Link
                 key={item.href}
@@ -110,6 +125,9 @@ export function Navbar() {
                 );
               })}
 
+              <div className="mt-4 grid grid-cols-2 gap-2" aria-label="Project shortcuts">
+                {[{ title: "Active projects", href: "/projects?status=Active#portfolio" }, { title: "Completed projects", href: "/projects?status=Completed#portfolio" }].map(item => <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="rounded-lg bg-slate-100 p-3 text-center text-sm font-semibold text-navy">{item.title}</Link>)}
+              </div>
               <Link
                 href="/donate"
                 onClick={() => setIsOpen(false)}

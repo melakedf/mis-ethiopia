@@ -1,19 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 
-const partners = [
-  { short: "IGO", name: "Institute for Global Outreach", current: true, project: "integrated-child-protection" },
+const partners: { short: string; name: string; current?: boolean; project: string; logo?: string }[] = [
+  { short: "IGO", logo: "/partners/igo.png", name: "Institute for Global Outreach", current: true, project: "integrated-child-protection" },
   { short: "IOM", name: "International Organization for Migration · RRF", project: "metekel-nfi-response" },
   { short: "MoWSA", name: "Ministry of Women and Social Affairs", project: "urban-destitute-support" },
   { short: "Nexus", name: "Nexus Ethiopia", project: "fenote-selam-child-protection" },
-  { short: "UNHCR", name: "UN Refugee Agency", project: "tsore-refugee-support" },
+  { short: "UNHCR", logo: "/partners/unhcr.png", name: "UN Refugee Agency", project: "tsore-refugee-support" },
   { short: "ARRA", name: "Administration for Refugees and Returnees Affairs", project: "tsore-refugee-support" },
-  { short: "British Council", name: "Civil Society Support Programme", project: "cssp1-social-inclusion" },
+  { short: "British Council", logo: "/partners/british-council.jpg", name: "Civil Society Support Programme", project: "cssp1-social-inclusion" },
   { short: "NSAC", name: "Non-State Actors Coalition", project: "cssp2-community-inclusion" },
-  { short: "MCMDO", name: "MCMDO · women’s and girls’ empowerment", project: "mcmdo-women-girls" },
+  { short: "MCMDO", logo: "/partners/mcmdo.png", name: "MCMDO · women’s and girls’ empowerment", project: "mcmdo-women-girls" },
   { short: "CDHRA", name: "CDHRA · livelihoods partnership", project: "cdhra-livelihoods-2011" },
   { short: "French Embassy", name: "PISCCA Program · school sanitation and hygiene", project: "student-led-school-sanitation-hygiene" },
 ];
@@ -59,7 +60,7 @@ export function PartnerCarousel() {
         </div>
       </div>
       <ul id="partner-track" ref={track} className="partner-track" aria-label="Current and past MIS partners" onTouchStart={() => setPaused(true)} onPointerDown={() => setPaused(true)} onWheel={() => setPaused(true)}>
-        {partners.map(partner => <li key={partner.short} className="partner-slide"><Link href={`/projects/${partner.project}`} className="partner-tile"><span className={`partner-status ${partner.current ? "partner-status-current" : ""}`}>{partner.current ? "Current initiative" : "Past project partner"}</span><span className="partner-name">{partner.short}</span><span className="partner-description">{partner.name}</span><span className="mt-auto flex items-center gap-2 pt-5 text-xs font-semibold text-navy">View shared project <ArrowRight size={14}/></span></Link></li>)}
+        {partners.map(partner => <li key={partner.short} className="partner-slide"><Link href={`/projects/${partner.project}`} className="partner-tile"><span className={`partner-status ${partner.current ? "partner-status-current" : ""}`}>{partner.current ? "Current initiative" : "Past project partner"}</span><span className="partner-logo-box">{partner.logo ? <Image src={partner.logo} alt={`${partner.short} logo`} width={160} height={65} sizes="160px"/> : <span className="partner-name">{partner.short}</span>}</span><span className="partner-description">{partner.name}</span><span className="mt-auto flex items-center gap-2 pt-3 text-xs font-semibold text-navy">View shared project <ArrowRight size={14}/></span></Link></li>)}
       </ul>
       <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-xs leading-6 text-slate-500">Swipe or use the arrows to explore. Historical partnerships do not imply current funding.</p><Link href="/partners" className="text-link text-sm">All partnership records <ArrowRight size={16}/></Link></div>
     </div>
