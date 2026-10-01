@@ -70,6 +70,6 @@ export const projects = [
     "figure": "31",
     "unit": "children participated",
     "qualifier": "18 teaching days, three days per week",
-    "body": "MIS and IGO delivered an 18-day English and Mathematics summer program for 31 children selected through school-grade review. It supported preparation for the transition from Amharic-medium learning to English-medium instruction around Grade 7. A main teacher and two assistants supported learning, with breakfast and lunch provided on program days. MIS also mobilized local support for meals."
+    "body": "MIS and IGO delivered a six-week English and Mathematics summer program with 18 teaching days for 31 children selected through school-grade review. It supported preparation for the transition from Amharic-medium learning to English-medium instruction around Grade 7. A main teacher and two assistants supported learning, with breakfast and lunch provided on program days. MIS also mobilized local support for meals."
   }
 ];

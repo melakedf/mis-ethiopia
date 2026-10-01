@@ -1,12 +1,12 @@
 // Dates describe documented project activity, not invented publication dates.
 export const projectUpdates = [
   {
-    title: "Learning and meals, together in Kolfe",
-    description: "Thirty-one children joined 18 teaching days of English and Mathematics, supported by breakfast and lunch. The summer program helped prepare learners for the transition to English-medium instruction.",
+    title: "Celebrating our Summer Scholars",
+    description: "Our 31 Summer Scholars completed six weeks of learning and celebrated with certificates, families and teachers. IGO founder Dr. Velma joined the ceremony, and teachers and volunteers received appreciation certificates.",
     href: "/projects/kolfe-summer-school",
     category: "Education and nutrition",
     location: "Kolfe, Addis Ababa",
-    period: "2026 summer program",
+    period: "2026 summer-program completion",
   },
   {
     title: "Connected support for 229 children",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SummerPhotoStory } from "@/components/sections/summer-photo-story";
 import { notFound } from "next/navigation";
 import { Hero } from "@/components/sections/hero";
 import { ProjectPhoto } from "@/components/sections/project-photo";
@@ -38,6 +39,7 @@ export default async function Project({ params }: { params: Promise<{ slug: stri
         {projectStories[slug]?.map(section => <section key={section.heading} className="mt-9"><h2 className="text-2xl font-semibold text-navy">{section.heading}</h2><p className="mt-4 leading-8 text-slate-600">{section.text}</p></section>)}
         {details?.contributions && <section className="mt-9"><h2 className="text-2xl font-semibold text-navy">Project contributions</h2><dl className="mt-5 divide-y divide-slate-200">{details.contributions.map(item => <div key={item.label} className="flex flex-wrap justify-between gap-3 py-4"><dt className="text-slate-600">{item.label}</dt><dd className="font-semibold text-navy">{item.amount}</dd></div>)}</dl><p className="mt-3 text-sm leading-6 text-slate-600">The target schools’ contribution included follow-up and technical support.</p></section>}
         {slug === "kolfe-summer-school" && <Link href="/resources/mis-summer-school-2026.pdf" className="text-link mt-8">Download the summer-school brief (PDF) →</Link>}
+        {slug === "kolfe-summer-school" && <SummerPhotoStory/>}
         <div className="mt-10 flex flex-wrap gap-6 border-t border-slate-200 pt-6"><Link href="/reports" className="text-link">Public resources →</Link><Link href="/contact" className="text-link">Ask about this project →</Link></div>
       </div>
       <aside className="h-fit min-w-0 rounded-2xl bg-slate-100 p-6 sm:p-8">
