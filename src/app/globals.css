@@ -344,3 +344,18 @@ footer .text-warm {color:#ff9e94;}
 
 .portfolio-total-grid strong {font-size:clamp(2rem,3.3vw,3.3rem);white-space:nowrap;}
 @media(max-width:380px){.portfolio-total-grid strong{font-size:1.7rem}}
+
+.partner-carousel{padding-block:48px;background:#fff;border-bottom:1px solid #e6e6e9;}
+.partner-track{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#c8cbd2 transparent;margin-block:28px 20px;padding:4px 2px 16px;list-style:none;}
+.partner-slide{flex:0 0 270px;scroll-snap-align:start;}
+.partner-tile{display:flex;flex-direction:column;height:250px;padding:24px;border:1px solid #e3e5ea;border-radius:18px;background:#fafafa;transition:border-color .2s,background .2s;}
+.partner-tile:hover{border-color:#cd3d30;background:#fff8f6;}
+.partner-tile:focus-visible,.partner-control:focus-visible{outline:3px solid #cd3d30;outline-offset:2px;}
+.partner-status{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5a6270;}
+.partner-status-current{color:#b22d23;}
+.partner-name{font-size:29px;font-weight:650;letter-spacing:-.04em;line-height:1.15;color:#242a3b;margin-top:23px;}
+.partner-description{font-size:12px;line-height:1.6;color:#5a6270;margin-top:12px;}
+.partner-control{height:44px;width:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #d9dce3;border-radius:50%;color:#242a3b;background:white;cursor:pointer;}
+.partner-control:hover{background:#f2f3f5;}
+@media(max-width:480px){.partner-slide{flex-basis:min(270px,78vw)}.partner-carousel{padding-block:36px}}
+@media(prefers-reduced-motion:reduce){.partner-tile{transition:none}}
