@@ -341,3 +341,6 @@ footer .text-warm {color:#ff9e94;}
 @media (min-width:768px) and (max-width:1023px){.giving-about-grid,.giving-faq-grid{grid-template-columns:1fr}.giving-collage{max-width:600px;width:100%;margin:auto}}
 @media (max-width:767px){.giving-hero h1{font-size:clamp(2.3rem,8.5vw,3.5rem)}.giving-hero-main{padding-top:55px;padding-bottom:70px}.giving-partner-strip .text-link{margin-left:0}}
 @media (max-width:380px){.giving-purpose-grid{grid-template-columns:1fr}.giving-collage-note{padding:14px;font-size:12px}.giving-stat-grid strong{font-size:34px}}
+
+.portfolio-total-grid strong {font-size:clamp(2rem,3.3vw,3.3rem);white-space:nowrap;}
+@media(max-width:380px){.portfolio-total-grid strong{font-size:1.7rem}}

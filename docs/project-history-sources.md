@@ -27,3 +27,11 @@ The following corrections supersede the earlier source notes above:
 - Older dated/undated experience remains available outside a strict 2016–2026 interpretation. No speculative savings-group totals or pending EHF proposal claims added.
 
 Canonical URLs for the two CSSP projects and SLSSH now use their project names; previous URLs have permanent redirects. No additional awards or beneficiary totals were created by splitting/recounting existing records.
+
+
+## Portfolio totals — 1 October 2026
+At MIS’s request, the homepage now sums recorded coverage instead of showing separate project examples. `src/data/portfolio-totals.ts` holds the calculation inputs.
+- Direct: 8,307 + 101 + 150 + 229 + 3,240 + 2,036 = **14,063**.
+- Indirect: 2,000 + approximately 916 + 1,873 + more than 21,000 = **25,789+**, indicative because it includes an estimate.
+- Combined: **39,852+**, indicative recorded coverage across six projects, not unique people reached or an audited outcome.
+- Guba targets, missing counts, shelter units and the 31 summer-school participants (potential overlap with IGO) are excluded. Different projects may still overlap. These qualifications appear next to the homepage figures and in the Impact calculation table.
