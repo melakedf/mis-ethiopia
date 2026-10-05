@@ -10,6 +10,11 @@ export const projectUpdates = [
     period: "2026 summer-program completion",
   },
   {
+    title: "Summer Scholars: where the learning began",
+    description: "A look back at the opening of our six-week program with IGO, bringing English and Mathematics support together with meals for children in Kolfe.",
+    href: "/news/summer-scholars-opening", category: "Education and nutrition", location: "Kolfe, Addis Ababa", period: "2026 opening retrospective",
+  },
+  {
     title: "Connected support for 229 children",
     description: "With IGO, MIS connects family assistance, school follow-up and well-being monitoring in Kolfe Keranyo. The August 2026 record documents an active caseload of 229 children.",
     href: "/projects/integrated-child-protection",
