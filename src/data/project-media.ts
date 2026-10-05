@@ -1,6 +1,7 @@
 // Replace src with a local /images/... path, write a factual alt, and set placeholder:false
 // after the corresponding MIS photograph has been approved for public use.
 export const mediaLibrary = {
+  appreciation: { src: "/images/sponsor-appreciation-community.jpg", alt: "Children and families at the MIS and IGO Sponsor Appreciation Day gathering", placeholder: false, fit: "contain" as const },
   summerGroup: { src: "/images/summer-2026-scholars-certificates.jpg", alt: "Summer Scholars holding completion certificates with families and the program team", placeholder: false, fit: "contain" as const },
   summerCelebration: { src: "/images/summer-2026-scholars-celebration.jpg", alt: "Summer Scholars celebrating around a cake between MIS and IGO banners", placeholder: false },
   summerFamilies: { src: "/images/summer-2026-families-ceremony.jpg", alt: "Children and family members gathered for the Summer Scholars completion ceremony", placeholder: false },
@@ -11,7 +12,8 @@ export const mediaLibrary = {
 };
 export type MediaItem = {src: string; alt: string; placeholder: boolean; fit?: "contain" | "cover"};
 export const projectMedia: Record<string, MediaItem> = {
- "integrated-child-protection": mediaLibrary.community,
+ "integrated-child-protection": mediaLibrary.appreciation,
+ "sponsor-appreciation-day": mediaLibrary.appreciation,
  "kolfe-summer-school": mediaLibrary.summerGroup,
  "fenote-selam-child-protection": mediaLibrary.education,
  "student-led-school-sanitation-hygiene": mediaLibrary.education,
