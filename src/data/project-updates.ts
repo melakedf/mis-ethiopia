@@ -31,4 +31,5 @@ export const projectUpdates = [
     period: "Project retrospective · December 2024 – June 2025",
   },
   { title: "Inclusion and solidarity in Bambasi", description: "MIS continued CSSP2-supported advocacy with communities displaced from Mao Komo and distributed staff-contributed soap and clothing during the 16 Days of Activism against Gender-Based Violence.", href: "/news/bambasi-inclusion-solidarity", category: "Social inclusion", location: "Bambasi, Benishangul-Gumuz", period: "2023 · 16 Days of Activism", hidePhoto: false },
+  { title: "Household essentials for displaced families in Metekel", description: "With IOM, MIS delivered kits covering 15 types of non-food items to 1,500 conflict-affected households in Dangur, Dibate and Bulen.", href: "/projects/metekel-nfi-response", category: "Emergency response", location: "Metekel, Benishangul-Gumuz", period: "December 2022 – March 2023" },
 ];
