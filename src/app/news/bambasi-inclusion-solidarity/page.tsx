@@ -1,3 +1,4 @@
+import { BambasiPhotos } from "@/components/sections/bambasi-photos";
 import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
 
@@ -20,7 +21,7 @@ export default function BambasiStory() {
         <p className="mt-5 leading-8 text-slate-600">During the 16 Days of Activism against Gender-Based Violence, MIS also responded to immediate needs by distributing multipurpose soap and clothing collected from our staff. The annual campaign, observed from 25 November to 10 December, calls for an end to violence against women and girls.</p>
         <p className="mt-5 leading-8 text-slate-600">These contributions expressed our solidarity with displaced families while our advocacy work continued. We thank our staff for their generosity and CSSP2 for supporting the inclusion project.</p>
         <div className="mt-9 border-t border-slate-200 pt-6"><Link href="/projects/cssp2-community-inclusion" className="text-link">Explore our CSSP2 community inclusion work →</Link></div>
-      </div></div>
+      <BambasiPhotos /></div></div>
     </article>
   </>;
 }

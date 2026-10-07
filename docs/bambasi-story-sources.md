@@ -6,4 +6,4 @@ Retained: eight-month extension, inclusion of social minorities, CSSP2/British C
 
 No event year, beneficiary count, distribution quantities or measured outcomes supplied; none added. This is a historical field story, not a current eight-month progress claim. Existing portfolio totals are unchanged.
 
-The referenced Bambasi image was not attached/available among local uploads; news cards and story omit a photo rather than reuse unrelated images.
+Six original Bambasi photographs were supplied on 7 October 2026 and added unchanged as bambasi-1.jpg through bambasi-6.jpg, in attachment order. All appear in the article; the group/banner photograph is used for news previews and the CSSP2 project cover. Captions describe the activity without identifying individuals or suggesting anyone is a survivor of violence.
