@@ -15,6 +15,7 @@ export const mediaLibrary = {
 };
 export type MediaItem = {src: string; alt: string; placeholder: boolean; fit?: "contain" | "cover"};
 export const projectMedia: Record<string, MediaItem> = {
+ "asima-inclusive-education": {src: "/images/asima-inclusive-education.jpg", alt: "Asima using a wheelchair and seated in a classroom in the MIS photo collage", placeholder: false, fit: "contain"},
  "metekel-nfi-response": mediaLibrary.metekel,
  "bambasi-inclusion-solidarity": mediaLibrary.bambasi,
  "cssp2-community-inclusion": mediaLibrary.bambasi,

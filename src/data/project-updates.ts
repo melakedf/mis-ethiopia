@@ -1,5 +1,6 @@
 // Dates describe documented project activity, not invented publication dates.
 const updates = [
+  { title: "A small beginning: supporting Asima’s education", description: "A community monitoring committee helped secure a wheelchair for a Grade 6 student in Tongo through MIS’s CSSP2-supported work.", href: "/news/asima-inclusive-education", category: "Inclusive education", location: "Tongo, Mao Komo", period: "Historical story · Event date not recorded" },
   { title: "Sponsor Appreciation Day: a shared connection", description: "With IGO, we brought children and families together to write messages to sponsors, discuss education and share a meal. A Zoom conversation with Dr. Velma Kirksey-Tarver added encouragement to the day.", href: "/news/sponsor-appreciation-day", category: "Child sponsorship", location: "Ethiopia", period: "Community gathering" },
   {
     title: "Celebrating our Summer Scholars",

@@ -1,4 +1,5 @@
 export const photoCollections = [
+{"id": "asima-inclusion", "title": "Asima’s education: community action", "year": "Date not recorded", "location": "Tongo, Mao Komo", "href": "/news/asima-inclusive-education", "photos": [{"src": "/images/asima-inclusive-education.jpg", "alt": "MIS collage showing Asima using a wheelchair and seated at a classroom desk", "width": 500, "height": 261, "caption": "A monitoring committee helped secure a wheelchair for Asima through CSSP2-supported work. Event date not recorded."}]},
   {
     "id": "summer-completion",
     "title": "Summer Scholars completion",
