@@ -9,7 +9,7 @@ const photos = [
 ];
 export function BambasiPhotos() {
   return <section className="mt-12" aria-labelledby="bambasi-photos-title">
-    <p className="giving-kicker">From the field</p>
+    <p className="giving-kicker">From the field · 2023</p>
     <h2 id="bambasi-photos-title" className="section-title">Inclusion and solidarity in action.</h2>
     <div className="mt-8 grid items-start gap-6 md:grid-cols-2">{photos.map((photo, index) => <figure key={photo.alt} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
       <Image src={`/images/bambasi-${index + 1}.jpg`} alt={photo.alt} width={1536} height={1024} sizes="(max-width: 768px) 100vw, 50vw" className="h-auto w-full" />

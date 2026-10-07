@@ -40,7 +40,7 @@ export const historicalProjects = [
   {
     "slug": "cssp2-community-inclusion",
     "title": "CSSP2: Advocacy and inclusion of vulnerable community groups",
-    "period": "From June 2022 · end date unconfirmed",
+    "period": "From June 2022 · Bambasi extension activity in 2023",
     "partner": "Civil Society Support Programme Phase Two through Non-State Actors Coalition (NSAC)",
     "location": "Mao-Komo Special Woreda, Benishangul-Gumuz",
     "theme": "Civil society and inclusion",

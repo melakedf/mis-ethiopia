@@ -1,6 +1,5 @@
 // Dates describe documented project activity, not invented publication dates.
 export const projectUpdates = [
-  { title: "Inclusion and solidarity in Bambasi", description: "MIS continued CSSP2-supported advocacy with communities displaced from Mao Komo and distributed staff-contributed soap and clothing during the 16 Days of Activism against Gender-Based Violence.", href: "/news/bambasi-inclusion-solidarity", category: "Social inclusion", location: "Bambasi, Benishangul-Gumuz", period: "Field story · 16 Days of Activism", hidePhoto: false },
   { title: "Sponsor Appreciation Day: a shared connection", description: "With IGO, we brought children and families together to write messages to sponsors, discuss education and share a meal. A Zoom conversation with Dr. Velma Kirksey-Tarver added encouragement to the day.", href: "/news/sponsor-appreciation-day", category: "Child sponsorship", location: "Ethiopia", period: "Community gathering" },
   {
     title: "Celebrating our Summer Scholars",
@@ -31,4 +30,5 @@ export const projectUpdates = [
     location: "Fenote Selam, Amhara",
     period: "Project retrospective · December 2024 – June 2025",
   },
+  { title: "Inclusion and solidarity in Bambasi", description: "MIS continued CSSP2-supported advocacy with communities displaced from Mao Komo and distributed staff-contributed soap and clothing during the 16 Days of Activism against Gender-Based Violence.", href: "/news/bambasi-inclusion-solidarity", category: "Social inclusion", location: "Bambasi, Benishangul-Gumuz", period: "2023 · 16 Days of Activism", hidePhoto: false },
 ];
