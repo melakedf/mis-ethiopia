@@ -1,7 +1,3 @@
-import Image from "next/image";
-export const learningPhotos = [
- {src:"/images/summer-2026-classroom.jpg",alt:"Children working around a classroom table with teaching support during the Summer Scholars program",caption:"Teaching support during the opening activities of the summer program."},
- {src:"/images/summer-2026-learning.jpg",alt:"Summer Scholars working on written classroom exercises",caption:"Children take part in written learning activities."},
- {src:"/images/summer-2026-meals.jpg",alt:"Children sharing a meal during the Summer Scholars program",caption:"Meals accompanied the learning program, with breakfast and lunch provided on program days."},
-];
-export function SummerLearningPhotos(){return <section className="mt-12" aria-labelledby="summer-learning-title"><p className="giving-kicker">Summer Scholars · 2026</p><h2 id="summer-learning-title" className="section-title">Where the learning began.</h2><p className="mt-4 leading-7 text-slate-600">Classroom activities and meal support from the IGO–MIS summer program in Kolfe.</p><div className="mt-8 grid items-start gap-6 md:grid-cols-3">{learningPhotos.map(photo=><figure key={photo.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white"><Image src={photo.src} alt={photo.alt} width={1536} height={1152} sizes="(max-width: 768px) 100vw, 33vw" className="h-auto w-full"/><figcaption className="p-5 text-sm leading-7 text-slate-600">{photo.caption}</figcaption></figure>)}</div></section>;}
+import { PhotoCollection } from "./photo-collection";
+import { photoCollections } from "@/data/photo-collections";
+export function SummerLearningPhotos() {return <PhotoCollection collection={photoCollections.find(c=>c.id==="summer-learning")!} preview/>;}

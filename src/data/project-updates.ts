@@ -1,5 +1,5 @@
 // Dates describe documented project activity, not invented publication dates.
-export const projectUpdates = [
+const updates = [
   { title: "Sponsor Appreciation Day: a shared connection", description: "With IGO, we brought children and families together to write messages to sponsors, discuss education and share a meal. A Zoom conversation with Dr. Velma Kirksey-Tarver added encouragement to the day.", href: "/news/sponsor-appreciation-day", category: "Child sponsorship", location: "Ethiopia", period: "Community gathering" },
   {
     title: "Celebrating our Summer Scholars",
@@ -33,3 +33,8 @@ export const projectUpdates = [
   { title: "Inclusion and solidarity in Bambasi", description: "MIS continued CSSP2-supported advocacy with communities displaced from Mao Komo and distributed staff-contributed soap and clothing during the 16 Days of Activism against Gender-Based Violence.", href: "/news/bambasi-inclusion-solidarity", category: "Social inclusion", location: "Bambasi, Benishangul-Gumuz", period: "2023 · 16 Days of Activism", hidePhoto: false },
   { title: "Household essentials for displaced families in Metekel", description: "With IOM, MIS delivered kits covering 15 types of non-food items to 1,500 conflict-affected households in Dangur, Dibate and Bulen.", href: "/projects/metekel-nfi-response", category: "Emergency response", location: "Metekel, Benishangul-Gumuz", period: "December 2022 – March 2023" },
 ];
+
+const activityOrder: Record<string,number> = {"/projects/kolfe-summer-school":202603,"/news/summer-scholars-opening":202602,"/projects/integrated-child-protection":202601,"/projects/fenote-selam-child-protection":202506,"/news/bambasi-inclusion-solidarity":202311,"/projects/metekel-nfi-response":202303};
+// Relative order within the 2026 summer cycle; no exact event dates inferred.
+export const projectUpdates = [...updates].sort((a,b)=>(activityOrder[b.href]||0)-(activityOrder[a.href]||0));
+export const featuredUpdates = ["/projects/kolfe-summer-school","/news/sponsor-appreciation-day","/projects/metekel-nfi-response"].map(href=>updates.find(entry=>entry.href===href)!);

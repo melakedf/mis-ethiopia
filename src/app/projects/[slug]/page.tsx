@@ -16,7 +16,7 @@ export function generateStaticParams() { return portfolio.map(p => ({ slug: p.sl
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = portfolio.find(p => p.slug === slug);
-  return { title: project?.title, description: project?.body, alternates: { canonical: `/projects/${slug}` } };
+  return { openGraph: {title: project?.title, description: project?.body, images: [{url:getProjectMedia(slug).src,alt:getProjectMedia(slug).alt}]}, title: project?.title, description: project?.body, alternates: { canonical: `/projects/${slug}` } };
 }
 export default async function Project({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -41,10 +41,10 @@ export default async function Project({ params }: { params: Promise<{ slug: stri
         {projectStories[slug]?.map(section => <section key={section.heading} className="mt-9"><h2 className="text-2xl font-semibold text-navy">{section.heading}</h2><p className="mt-4 leading-8 text-slate-600">{section.text}</p></section>)}
         {details?.contributions && <section className="mt-9"><h2 className="text-2xl font-semibold text-navy">Project contributions</h2><dl className="mt-5 divide-y divide-slate-200">{details.contributions.map(item => <div key={item.label} className="flex flex-wrap justify-between gap-3 py-4"><dt className="text-slate-600">{item.label}</dt><dd className="font-semibold text-navy">{item.amount}</dd></div>)}</dl><p className="mt-3 text-sm leading-6 text-slate-600">The target schools’ contribution included follow-up and technical support.</p></section>}
         {slug === "kolfe-summer-school" && <Link href="/resources/mis-summer-school-2026.pdf" className="text-link mt-8">Download the summer-school brief (PDF) →</Link>}
-        {slug === "kolfe-summer-school" && <><section className="mt-9"><h2 className="text-2xl font-semibold text-navy">Looking back at the opening</h2><p className="mt-4 leading-7 text-slate-600">The program began with classroom activities and teaching support, alongside meals on program days.</p><Link href="/news/summer-scholars-opening" className="text-link mt-4">Read the opening-day story →</Link></section><SummerLearningPhotos/><SummerPhotoStory/></>}
+        {slug === "kolfe-summer-school" && <><section className="mt-9"><h2 className="text-2xl font-semibold text-navy">Looking back at the opening</h2><p className="mt-4 leading-7 text-slate-600">The program began with classroom activities and teaching support, alongside meals on program days.</p><Link href="/news/summer-scholars-opening" className="text-link mt-4">Read the opening-day story →</Link></section></>}
         {slug === "integrated-child-protection" && <section className="mt-9 rounded-2xl bg-slate-50 p-6"><h2 className="text-2xl font-semibold text-navy">Sponsor Appreciation Day</h2><p className="mt-4 leading-7 text-slate-600">Children and families gathered with MIS and IGO to exchange messages of appreciation, discuss education and connect with Dr. Velma Kirksey-Tarver by Zoom.</p><Link href="/news/sponsor-appreciation-day" className="text-link mt-5">Read the gathering’s story →</Link></section>}
         {slug === "cssp2-community-inclusion" && <section className="mt-9 rounded-2xl bg-slate-50 p-6"><h2 className="text-2xl font-semibold text-navy">2023: Continuing advocacy in Bambasi</h2><p className="mt-4 leading-7 text-slate-600">In 2023, during an eight-month project extension, MIS continued advocacy with communities displaced from Mao Komo to Bambasi. Staff also contributed soap and clothing for distribution during the 16 Days of Activism against Gender-Based Violence.</p><Link href="/news/bambasi-inclusion-solidarity" className="text-link mt-5">Read the field story →</Link></section>}
-        {slug === "metekel-nfi-response" && <MetekelPhotos />}
+
         <div className="mt-10 flex flex-wrap gap-6 border-t border-slate-200 pt-6"><Link href="/reports" className="text-link">Public resources →</Link><Link href="/contact" className="text-link">Ask about this project →</Link></div>
       </div>
       <aside className="h-fit min-w-0 rounded-2xl bg-slate-100 p-6 sm:p-8">
@@ -54,5 +54,8 @@ export default async function Project({ params }: { params: Promise<{ slug: stri
         {details?.recordNote && <div className="mt-6 border-t border-slate-300 pt-6"><h3 className="font-semibold text-navy">About this record</h3><p className="mt-2 text-sm leading-6 text-slate-600">{details.recordNote}</p></div>}
       </aside>
     </div></section>
+    {slug === "kolfe-summer-school" ? <div className="site-wrap pb-16"><SummerLearningPhotos/><SummerPhotoStory/></div> : null}
+    {slug === "metekel-nfi-response" ? <div className="site-wrap pb-16"><MetekelPhotos/></div> : null}
+
   </>;
 }

@@ -2,6 +2,7 @@
 
 import { ProjectPhoto } from "@/components/sections/project-photo";
 import { getProjectMedia } from "@/data/project-media";
+import { compareProjects } from "@/data/chronology";
 import { useState } from "react";
 import Link from "next/link";
 import { projects } from "@/data/projects";
@@ -11,7 +12,7 @@ import { historicalProjects } from "@/data/project-history";
 const records = [
   ...projects.map(p => ({ ...p, theme: "Recent projects" })),
   ...historicalProjects.map(p => ({ ...p, status: "Earlier experience" })),
-];
+].sort(compareProjects);
 const regions = ["Addis Ababa", "Benishangul-Gumuz", "Amhara", "Shebedino"];
 
 export function ProjectExplorer({ initialStatus = "" }: { initialStatus?: string }) {
@@ -33,7 +34,7 @@ export function ProjectExplorer({ initialStatus = "" }: { initialStatus?: string
       <label className="text-sm font-semibold text-navy">Location<select value={region} onChange={e => setRegion(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 bg-white p-3 font-normal"><option value="">All locations</option>{regions.map(r => <option key={r}>{r}</option>)}</select></label>
       <label className="text-sm font-semibold text-navy">Program area<select value={topic} onChange={e => setTopic(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 bg-white p-3 font-normal"><option value="">All program areas</option>{[...new Set(Object.values(projectTopics).flat())].sort().map(t => <option key={t}>{t}</option>)}</select></label>
     </div>
-    <div className="my-6 flex items-center justify-between gap-4"><p role="status" className="text-sm text-slate-600">{filtered.length} project records shown</p>{(query || status || region || topic) && <button onClick={reset} className="text-link">Clear filters</button>}</div>
+    <div className="my-6 flex items-center justify-between gap-4"><p role="status" className="text-sm text-slate-600">{filtered.length} project records shown · Active first, then most recent documented activity</p>{(query || status || region || topic) && <button onClick={reset} className="text-link">Clear filters</button>}</div>
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{filtered.map(p => <article key={p.slug} className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-7 transition hover:border-navy/40 hover:shadow-md">
       <ProjectPhoto media={getProjectMedia(p.slug)} className="-mx-7 -mt-7 mb-6 rounded-t-2xl"/>
       <p className="text-xs font-bold uppercase tracking-wider text-slate-600">{p.status}</p>

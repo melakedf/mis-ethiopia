@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
 
 export const metadata = {
+  openGraph: {images: [{url: "/images/bambasi-1.jpg"}]},
   title: "Inclusion and solidarity with displaced communities in Bambasi",
   description: "MIS continued CSSP2-supported advocacy with displaced communities in Bambasi and provided staff-contributed soap and clothing during the 16 Days of Activism.",
   alternates: { canonical: "/news/bambasi-inclusion-solidarity" },

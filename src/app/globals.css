@@ -367,3 +367,7 @@ footer .text-warm {color:#ff9e94;}
 .mis-header-overlay .nav-dropdown-toggle{color:white;}
 .mis-header nav .nav-dropdown-panel a{color:#242a3b;}
 .nav-dropdown-toggle:focus-visible,.nav-dropdown-panel a:focus-visible{outline:3px solid #cd3d30;outline-offset:2px;}
+
+.photo-dialog{position:fixed;inset:0;margin:auto;width:min(1000px,94vw);max-height:94dvh;overflow:auto;border:0;border-radius:18px;background:white;color:#242a3b;padding:0}.photo-dialog::backdrop{background:rgba(10,15,25,.85)}
+.giving-hero-content{max-width:650px}.giving-stat-grid:has(>a:nth-child(3):last-child){grid-template-columns:repeat(3,1fr)}
+@media(max-width:640px){.giving-stat-grid:has(>a:nth-child(3):last-child){grid-template-columns:1fr}.giving-stat-grid>a{padding:20px 0;border:0}.site-section{padding-block:48px}.photo-dialog button{min-height:44px}.giving-collage{min-height:360px}.giving-collage-main{height:320px!important}}

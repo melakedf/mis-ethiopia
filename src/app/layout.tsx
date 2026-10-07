@@ -35,11 +35,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteConfig.url,
     siteName: siteConfig.name,
+    images: [{url: "/images/summer-2026-scholars-celebration.jpg", width:1536,height:1152,alt:"MIS and IGO Summer Scholars celebration"}],
     title: siteConfig.name,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/images/summer-2026-scholars-celebration.jpg"],
     title: siteConfig.name,
     description: siteConfig.description,
   },
