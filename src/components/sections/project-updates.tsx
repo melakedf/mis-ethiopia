@@ -13,7 +13,7 @@ export function ProjectUpdates() {
       </div>
       <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
         {projectUpdates.slice(0, 3).map(entry => <article key={entry.href} className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white">
-          <ProjectPhoto media={getProjectMedia(entry.href.split("/").pop()!)} />
+          {!entry.hidePhoto && <ProjectPhoto media={getProjectMedia(entry.href.split("/").pop()!)} />}
           <div className="flex flex-1 flex-col p-6"><p className="eyebrow">{entry.category}</p><p className="mt-3 text-xs leading-5 text-slate-500">{entry.period}</p><h3 className="mt-3 text-2xl font-semibold leading-tight text-navy"><Link href={entry.href}>{entry.title}</Link></h3><p className="mt-4 mb-6 text-sm leading-7 text-slate-600">{entry.description}</p><Link href={entry.href} className="text-link mt-auto" aria-label={`Read the project story: ${entry.title}`}>Read the project story <ArrowUpRight size={18}/></Link></div>
         </article>)}
       </div>
