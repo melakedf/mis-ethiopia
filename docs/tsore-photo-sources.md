@@ -1,0 +1,4 @@
+# Tsore historical update
+MIS supplied the historical narrative and three photographs on 7 October 2026. Existing project evidence records September–November 2015, UNHCR/ARRA, 100 emergency shelters and gardening. The new narrative calls the shelters transitional; public copy uses neutral “shelters” and preserves existing source wording in the project summary.
+The narrative also says “500 refugee households”; this unit is not corroborated by the existing record. It is not used in public totals or converted into people. No totals changed.
+2016 expansion remains a plan, not an achieved activity. Old national displacement/refugee figures omitted. Photos are grouped under the 2015 project, not asserted to have exact capture dates. Original bytes retained in static image routes; captions describe visible scenes without identifying people or asserting their migration journey. News and gallery link to the existing project rather than creating a duplicate project.

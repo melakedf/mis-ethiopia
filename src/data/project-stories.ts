@@ -1,5 +1,11 @@
 // Public project facts already documented in MIS project records.
 export const projectStories: Record<string, { heading: string; text: string }[]> = {
+ "tsore-refugee-support": [
+ { heading: "Timely shelter support during displacement", text: "In 2015, MIS constructed 100 shelters in Tsore Refugee Camp in Benishangul-Gumuz. Working with UNHCR and the Administration for Refugees and Returnees Affairs (ARRA), we supported displaced families’ need for shelter, privacy and protection from the weather." },
+ { heading: "Responding to conditions in a developing camp", text: "MIS’s account described Tsore as a newly established camp where shelter provision was still developing. It highlighted accommodation needs for people expected to relocate from Ashura camp and for new arrivals, alongside gaps in water, sanitation and hygiene services." },
+ { heading: "Local participation and partnership", text: "The shelter work emphasized designs suited to the local environment and conditions, community participation and collaboration with government and other stakeholders. The wider project record also documents community self-help activities and backyard gardening." },
+ { heading: "Looking ahead from the 2015 experience", text: "At the time, MIS planned to build on lessons from the Tsore pilot and strengthen shelter activities in 2016, including expanding vegetable gardening alongside shelter support. These were forward-looking plans in the historical account, not confirmation of later delivery." },
+ ],
   "integrated-child-protection": [
     { heading: "A connected approach to child well-being", text: "Families often need several kinds of support at the same time. In Kolfe Keranyo, MIS links bank-based family assistance with school enrollment and attendance follow-up, summer learning and well-being monitoring." },
     { heading: "Working with families and partners", text: "The initiative runs from November 2025 to November 2028 with the Institute for Global Outreach (IGO). Caregiver engagement and referrals complement direct assistance so that concerns can be followed up through appropriate services." },

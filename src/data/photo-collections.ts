@@ -192,5 +192,6 @@ export const photoCollections = [
       }
     ]
   }
+,{"id": "tsore", "title": "Shelter support in Tsore Refugee Camp", "year": "2015", "location": "Tsore, Benishangul-Gumuz", "href": "/projects/tsore-refugee-support", "photos": [{"src": "/images/tsore-1.jpg", "alt": "Two children seated at the entrance of a shelter with UNHCR-marked sheeting", "width": 888, "height": 500, "caption": "Two children seated at the entrance of a shelter with UNHCR-marked sheeting. From MIS’s historical Tsore project photo collection."}, {"src": "/images/tsore-2.jpg", "alt": "People and belongings beside buses at the camp", "width": 888, "height": 500, "caption": "People and belongings beside buses at the camp. From MIS’s historical Tsore project photo collection."}, {"src": "/images/tsore-3.jpg", "alt": "Shelters with UNHCR-marked sheeting across a grassy camp area", "width": 800, "height": 445, "caption": "Shelters with UNHCR-marked sheeting across a grassy camp area. From MIS’s historical Tsore project photo collection."}]}
 ];
 export type PhotoCollectionRecord = (typeof photoCollections)[number];

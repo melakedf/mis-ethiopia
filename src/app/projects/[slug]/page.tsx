@@ -1,3 +1,5 @@
+import { PhotoCollection } from "@/components/sections/photo-collection";
+import { photoCollections } from "@/data/photo-collections";
 import { MetekelPhotos } from "@/components/sections/metekel-photos";
 import Link from "next/link";
 import { SummerLearningPhotos } from "@/components/sections/summer-learning-photos";
@@ -56,6 +58,7 @@ export default async function Project({ params }: { params: Promise<{ slug: stri
       </aside>
     </div></section>
     {slug === "kolfe-summer-school" ? <div className="site-wrap pb-16"><SummerLearningPhotos/><SummerPhotoStory/></div> : null}
+    {slug === "tsore-refugee-support" ? <div className="site-wrap pb-16"><PhotoCollection collection={photoCollections.find(c => c.id === "tsore")!}/></div> : null}
     {slug === "metekel-nfi-response" ? <div className="site-wrap pb-16"><MetekelPhotos/></div> : null}
 
   </>;
