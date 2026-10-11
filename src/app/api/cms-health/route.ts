@@ -4,8 +4,7 @@ import { hasDatabase, prisma } from "@/lib/prisma";
 export async function GET() {
   const config = {
     databaseConfigured: hasDatabase(),
-    adminEmailConfigured: Boolean(process.env.ADMIN_EMAIL),
-    adminPasswordConfigured: Boolean(process.env.ADMIN_PASSWORD),
+    authentication: "database-staff-accounts",
     sessionSecretConfigured: Boolean(process.env.NEXTAUTH_SECRET),
   };
 

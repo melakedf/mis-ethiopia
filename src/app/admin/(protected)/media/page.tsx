@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { prisma } from "@/lib/prisma";
+import { uploadMedia } from "../../media/actions";
+export default async function Media(){
+ const items=await prisma.media.findMany({where:{provider:"database"},select:{id:true,fileName:true,altText:true,type:true},orderBy:{createdAt:"desc"},take:100});
+ return <main className="mx-auto max-w-4xl px-5 py-10"><Link href="/admin?tab=projects" className="underline">Back to projects</Link><h1 className="my-6 text-3xl font-bold">Public media</h1><form action={uploadMedia} className="grid gap-4 rounded-xl border p-6"><label>Photo or PDF (maximum 2 MB)<input className="block w-full" name="file" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" required/></label><label>Description<input name="alt" maxLength={300} required className="block w-full rounded border p-2"/></label><label><input type="checkbox" name="approved" required/> This file is approved for public use on the MIS website.</label><button className="rounded bg-navy p-3 text-white">Upload</button></form><p className="my-5">Copy the file path into a project’s Image URL field. PDFs open as downloads. These files are public immediately after upload.</p><div className="space-y-4">{items.map(item=><article key={item.id} className="rounded border p-4"><b>{item.fileName}</b><p>{item.altText}</p><a className="underline" href={"/media/"+item.id}>Open file</a><input aria-label={"File path for "+item.fileName} readOnly value={"/media/"+item.id} className="mt-2 block w-full rounded border p-2"/></article>)}</div></main>;
+}
