@@ -51,9 +51,9 @@ export const historicalProjects = [
     "title": "Women’s and girls’ protection and economic empowerment",
     "period": null,
     "partner": "MCMDO",
-    "location": null,
+    "location": "Bullen Woreda, Metekel Zone, Benishangul-Gumuz (documented cooperative activities)",
     "theme": "Protection and livelihoods",
-    "body": "MIS’s partnership with MCMDO included work addressing harmful traditional practices, female genital mutilation and gender-based violence, alongside women’s economic empowerment. The past-performance record includes a cooperation agreement and subsequent project and budget amendments."
+    "body": "MIS’s partnership with MCMDO included work addressing harmful traditional practices, female genital mutilation and gender-based violence, alongside women’s economic empowerment. The past-performance record includes a cooperation agreement and subsequent project and budget amendments. The historical Bullen activities document savings and credit, livestock and irrigation, with Sida / Embassy of Sweden support through MCMDO."
   },
   {
     "slug": "student-led-school-sanitation-hygiene",

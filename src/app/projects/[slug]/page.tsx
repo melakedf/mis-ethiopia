@@ -58,6 +58,8 @@ export default async function Project({ params }: { params: Promise<{ slug: stri
       </aside>
     </div></section>
     {slug === "kolfe-summer-school" ? <div className="site-wrap pb-16"><SummerLearningPhotos/><SummerPhotoStory/></div> : null}
+    {slug === "cssp1-social-inclusion" ? <div className="site-wrap pb-16"><PhotoCollection collection={photoCollections.find(c => c.id === "cssp-dialogue")!}/></div> : null}
+    {slug === "mcmdo-women-girls" ? <div className="site-wrap pb-16"><PhotoCollection collection={photoCollections.find(c => c.id === "bullen-cooperatives")!}/></div> : null}
     {slug === "tsore-refugee-support" ? <div className="site-wrap pb-16"><PhotoCollection collection={photoCollections.find(c => c.id === "tsore")!}/></div> : null}
     {slug === "metekel-nfi-response" ? <div className="site-wrap pb-16"><MetekelPhotos/></div> : null}
 
