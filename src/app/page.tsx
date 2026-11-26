@@ -10,6 +10,7 @@ import { ProjectCard } from "@/components/sections/project-card";
 import { mediaLibrary } from "@/data/project-media";
 import { projects } from "@/data/projects";
 
+export const metadata = { alternates: { canonical: "/" }, title: "MIS Ethiopia | Community-led humanitarian and development support" };
 export const revalidate = 60;
 function Action({href,children,light=false}:{href:string;children:React.ReactNode;light?:boolean}){return <Link href={href} className={`giving-button ${light?'giving-button-light':''}`}>{children}<span><ArrowUpRight size={22}/></span></Link>;}
 const services=[{icon:ShieldCheck,title:"Protection for children",body:"Safe spaces, family support and community systems that put children’s well-being first.",href:"/programs#child-protection"},{icon:BookOpen,title:"Opportunity through education",body:"School follow-up, learning materials and summer programs that help children keep learning.",href:"/programs#education"},{icon:Sprout,title:"Nutrition and family resilience",body:"Connecting meals, essential support and livelihoods with stronger family well-being.",href:"/programs#nutrition"}];
