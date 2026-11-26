@@ -5,8 +5,8 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://miseth.org",
   email: "info@miseth.org",
   emailSecondary: "mise.eth@gmail.com",
-  phone: "+251 11 810 7448",
-  phoneSecondary: "+251 946 364 600",
+  phone: "+251 97 929 3600",
+  phoneSecondary: "+251 91 140 8406",
   phoneTertiary: "+251 912 388 941",
   address: {
     street: "Arada Sub-City, A and B Seba Dereja Building, 5th Floor, Office No. 507",
