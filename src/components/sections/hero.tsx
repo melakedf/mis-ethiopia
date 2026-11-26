@@ -24,7 +24,7 @@ export function Hero({
   ctaSecondaryText = "About MIS",
   ctaHref = "/programs",
   ctaSecondaryHref = "/about",
-  backgroundImage = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&h=1080&fit=crop",
+  backgroundImage,
   showVideoButton = false,
   compact = false,
 }: HeroProps) {
@@ -34,7 +34,7 @@ export function Hero({
         compact ? "" : "min-h-[600px]"
       }`}
     >
-      {!compact && <div
+      {!compact && backgroundImage && <div
         className="hero-photo absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />}
@@ -97,7 +97,6 @@ export function Hero({
           </div>
         </div>
       </div>
-      {!compact && <p className="absolute bottom-4 right-5 rounded-full bg-navy-dark/80 px-3 py-1.5 text-[11px] text-white/85">Temporary stock background · MIS photograph coming soon</p>}
     </section>
   );
 }

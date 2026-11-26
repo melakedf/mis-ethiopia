@@ -1,7 +1,7 @@
 import { PartnerCarousel } from "@/components/sections/partner-carousel";
 
 import Link from "next/link";
-import Image from "next/image";
+import { HomeHeroCarousel } from "@/components/sections/home-hero-carousel";
 import { ArrowUpRight, ShieldCheck, Heart, BookOpen, Sprout, Target, Eye, HelpingHand } from "lucide-react";
 import { ProjectPhoto } from "@/components/sections/project-photo";
 import { ProjectUpdates } from "@/components/sections/project-updates";
@@ -10,16 +10,12 @@ import { ProjectCard } from "@/components/sections/project-card";
 import { mediaLibrary } from "@/data/project-media";
 import { projects } from "@/data/projects";
 
+export const metadata = { alternates: { canonical: "/" }, title: "MIS Ethiopia | Community-led humanitarian and development support" };
 export const revalidate = 60;
 function Action({href,children,light=false}:{href:string;children:React.ReactNode;light?:boolean}){return <Link href={href} className={`giving-button ${light?'giving-button-light':''}`}>{children}<span><ArrowUpRight size={22}/></span></Link>;}
 const services=[{icon:ShieldCheck,title:"Protection for children",body:"Safe spaces, family support and community systems that put children’s well-being first.",href:"/programs#child-protection"},{icon:BookOpen,title:"Opportunity through education",body:"School follow-up, learning materials and summer programs that help children keep learning.",href:"/programs#education"},{icon:Sprout,title:"Nutrition and family resilience",body:"Connecting meals, essential support and livelihoods with stronger family well-being.",href:"/programs#nutrition"}];
 export default function Home(){return <>
-<section className="giving-hero">
- <Image src={mediaLibrary.summerCelebration.src} alt={mediaLibrary.summerCelebration.alt} fill loading="eager" fetchPriority="high" sizes="100vw" className="giving-hero-image"/>
- <div className="giving-hero-shade"/>
- <div className="site-wrap giving-hero-main"><div className="hero-copy giving-hero-content"><p className="giving-kicker giving-kicker-light">Support. Empower. Transform.</p><h1>Local action.<br/><span>Lasting opportunity.</span></h1><p className="giving-hero-description">Multi Integrated Support connects child protection, education and humanitarian assistance with the priorities of the communities we serve.</p><div className="giving-hero-actions"><Action href="/donate">Support our work</Action><Link href="/projects" className="giving-story-link"><span><ArrowUpRight size={23}/></span>Explore our impact</Link></div></div></div>
- <p className="giving-photo-label">Summer Scholars 2026 · Celebrating with IGO and MIS</p>
-</section>
+<HomeHeroCarousel/>
 <section className="site-section giving-soft"><div className="site-wrap"><div className="giving-center"><p className="giving-kicker">Our documented experience</p><h2 className="section-title">Support you can see.</h2></div><div className="giving-stat-grid mt-8">{[["229","Children in the active initiative","August 2026 caseload","integrated-child-protection"],["1,500","Households receiving emergency kits","Metekel · 2022–2023","metekel-nfi-response"],["31","Summer Scholars","Six weeks of learning · 2026","kolfe-summer-school"]].map(([value,label,note,slug])=><Link key={slug} href={`/projects/${slug}`}><strong>{value}</strong><h3>{label}</h3><p>{note}</p></Link>)}</div><p className="giving-section-note">Results from individual projects. <Link href="/impact">Explore the full impact record →</Link></p></div></section>
 
 <section className="site-section giving-soft"><div className="site-wrap giving-about-grid"><div className="giving-collage"><ProjectPhoto media={mediaLibrary.summerFamilies} className="giving-collage-main" sizes="(max-width: 900px) 90vw, 42vw"/><ProjectPhoto media={mediaLibrary.summerCelebration} className="giving-collage-small" sizes="(max-width: 900px) 45vw, 22vw"/><div className="giving-collage-note"><Heart size={24}/><span>Rooted in communities.<br/><strong>Driven by care.</strong></span></div></div><div><p className="giving-kicker">About MIS Ethiopia</p><h2 className="section-title">Community-led support.<br/><span className="giving-muted">From immediate needs to opportunity.</span></h2><p className="giving-body">Multi Integrated Support is an Ethiopian national civil society organization. We connect immediate assistance with long-term development for disadvantaged mothers, children and hard-to-reach communities.</p><div className="giving-purpose-grid"><article><span className="giving-icon"><Target/></span><h3>Our mission</h3><p>Improve access to health and education, support income generation and care for the environment through community participation.</p></article><article className="giving-red-card"><span className="giving-icon"><Eye/></span><h3>Our vision</h3><p>Poor, disadvantaged and hard-to-reach communities living in safe and decent conditions.</p></article></div><Action href="/about">Get to know MIS</Action></div></div></section>
