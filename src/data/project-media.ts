@@ -15,8 +15,10 @@ export const mediaLibrary = {
 };
 export type MediaItem = {src: string; alt: string; placeholder: boolean; fit?: "contain" | "cover"};
 export const projectMedia: Record<string, MediaItem> = {
- "tsore-refugee-support": {src: "/images/tsore-3.jpg", alt: "Shelters in the historical MIS Tsore project photo collection", placeholder: false, fit: "contain"},
+ "tsore-refugee-support": {src: "/images/tsore-3.webp", alt: "Shelters in the historical MIS Tsore project photo collection", placeholder: false, fit: "contain"},
  "asima-inclusive-education": {src: "/images/asima-inclusive-education.jpg", alt: "Asima using a wheelchair and seated in a classroom in the MIS photo collage", placeholder: false, fit: "contain"},
+ "cssp1-social-inclusion": {src:"/images/assosa-dialogue-2021.webp", alt:"Participants at the regional evidence-based dialogue in Assosa", placeholder:false, fit:"contain"},
+ "mcmdo-women-girls": {src:"/images/bullen-irrigation-garden.webp", alt:"Irrigated garden beds documented in Bullen", placeholder:false, fit:"contain"},
  "metekel-nfi-response": mediaLibrary.metekel,
  "bambasi-inclusion-solidarity": mediaLibrary.bambasi,
  "cssp2-community-inclusion": mediaLibrary.bambasi,

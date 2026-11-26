@@ -192,6 +192,116 @@ export const photoCollections = [
       }
     ]
   }
-,{"id": "tsore", "title": "Shelter support in Tsore Refugee Camp", "year": "2015", "location": "Tsore, Benishangul-Gumuz", "href": "/projects/tsore-refugee-support", "photos": [{"src": "/images/tsore-1.jpg", "alt": "Two children seated at the entrance of a shelter with UNHCR-marked sheeting", "width": 888, "height": 500, "caption": "Two children seated at the entrance of a shelter with UNHCR-marked sheeting. From MIS’s historical Tsore project photo collection."}, {"src": "/images/tsore-2.jpg", "alt": "People and belongings beside buses at the camp", "width": 888, "height": 500, "caption": "People and belongings beside buses at the camp. From MIS’s historical Tsore project photo collection."}, {"src": "/images/tsore-3.jpg", "alt": "Shelters with UNHCR-marked sheeting across a grassy camp area", "width": 800, "height": 445, "caption": "Shelters with UNHCR-marked sheeting across a grassy camp area. From MIS’s historical Tsore project photo collection."}]}
+,{
+  "id": "tsore",
+  "title": "Shelter support in Tsore Refugee Camp",
+  "year": "2015",
+  "location": "Tsore, Benishangul-Gumuz",
+  "href": "/projects/tsore-refugee-support",
+  "photos": [
+    {
+      "src": "/images/tsore-3.webp",
+      "alt": "Shelters with UNHCR-marked sheeting across a grassy camp area",
+      "width": 800,
+      "height": 445,
+      "caption": "Shelters with UNHCR-marked sheeting across a grassy camp area."
+    },
+    {
+      "src": "/images/tsore-2.webp",
+      "alt": "People and belongings beside buses at the camp",
+      "width": 888,
+      "height": 500,
+      "caption": "People and belongings beside buses at the camp."
+    }
+  ]
+},
+{
+  "id": "cssp-dialogue",
+  "title": "Evidence-based dialogue and Citizen Voice and Action",
+  "year": "2020–2021",
+  "location": "Mao Komo and Assosa",
+  "href": "/projects/cssp1-social-inclusion",
+  "photos": [
+    {
+      "src": "/images/assosa-dialogue-2021.webp",
+      "alt": "Participants at the closing of the regional evidence-based dialogue",
+      "width": 720,
+      "height": 537,
+      "caption": "Participants at the closing of the regional evidence-based dialogue."
+    },
+    {
+      "src": "/images/assosa-monitoring-committee-2021.webp",
+      "alt": "Monitoring Committee members in discussion",
+      "width": 1400,
+      "height": 678,
+      "caption": "Monitoring Committee members in discussion."
+    },
+    {
+      "src": "/images/mao-komo-citizen-voice-2020.webp",
+      "alt": "Training facilitators beside the Citizen Voice and Action banner",
+      "width": 1400,
+      "height": 1050,
+      "caption": "Training facilitators beside the Citizen Voice and Action banner."
+    },
+    {
+      "src": "/images/mao-komo-training-participants-2020.webp",
+      "alt": "Participants seated during a training session",
+      "width": 699,
+      "height": 524,
+      "caption": "Participants seated during a training session."
+    }
+  ]
+},
+{
+  "id": "bullen-cooperatives",
+  "title": "Women’s livelihoods and community action",
+  "year": "Historical activities",
+  "location": "Bullen, Benishangul-Gumuz",
+  "href": "/projects/mcmdo-women-girls",
+  "photos": [
+    {
+      "src": "/images/bullen-irrigation-garden.webp",
+      "alt": "Irrigated garden beds",
+      "width": 1400,
+      "height": 1050,
+      "caption": "Irrigated garden beds."
+    },
+    {
+      "src": "/images/bullen-women-irrigation.webp",
+      "alt": "A participant watering garden beds",
+      "width": 1400,
+      "height": 1050,
+      "caption": "A participant watering garden beds."
+    },
+    {
+      "src": "/images/bullen-livestock-empowerment.webp",
+      "alt": "Livestock activity documented in Bullen",
+      "width": 1400,
+      "height": 1050,
+      "caption": "Livestock activity documented in Bullen."
+    },
+    {
+      "src": "/images/bullen-savings-cooperative.webp",
+      "alt": "Cooperative participants holding savings booklets",
+      "width": 1400,
+      "height": 1050,
+      "caption": "Cooperative participants holding savings booklets."
+    },
+    {
+      "src": "/images/bullen-community-dialogue-2014.webp",
+      "alt": "Participants at a community dialogue",
+      "width": 528,
+      "height": 330,
+      "caption": "Participants at a community dialogue."
+    },
+    {
+      "src": "/images/bullen-community-group-2.webp",
+      "alt": "Participants seated at a community gathering",
+      "width": 528,
+      "height": 298,
+      "caption": "Participants seated at a community gathering."
+    }
+  ]
+}
 ];
 export type PhotoCollectionRecord = (typeof photoCollections)[number];
